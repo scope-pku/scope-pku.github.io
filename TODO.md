@@ -143,7 +143,7 @@ only after the English design is approved.
 
 ### 8.1 Shared Chinese interface
 
-- [ ] **共用界面** — 核对中文页首、导航、面包屑、语言切换、移动抽屉、
+- [x] **共用界面** — 核对中文页首、导航、面包屑、语言切换、移动抽屉、
   Footer、联系方式与机构名称；只本地化文字，不改变已核准的英文版尺寸和布局。
 
 ### 8.2 Home and Research

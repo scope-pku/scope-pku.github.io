@@ -1,8 +1,8 @@
 <footer class="site-footer">
   <div class="container footer-inner">
-    <section class="footer-brand" aria-label="{{ if eq site.Language.Lang "zh" }}北京大学与课题组{{ else }}Peking University and the Xu Research Group{{ end }}">
+    <section class="footer-brand" aria-label="{{ if eq site.Language.Lang "zh" }}北京大学与徐莉梅课题组{{ else }}Peking University and the Xu Research Group{{ end }}">
       <img src="/media/pku-footer-wordmark-white.png" width="852" height="240" alt="{{ if eq site.Language.Lang "zh" }}北京大学{{ else }}Peking University{{ end }}">
-      <p class="copyright">© {{ now.Year }} <strong>Xu Research Group</strong></p>
+      <p class="copyright">© {{ now.Year }} <strong>{{ site.Title }}</strong></p>
     </section>
 
     <section class="footer-contact" aria-labelledby="footer-contact-heading">
@@ -18,7 +18,7 @@
         </div>
         <div class="footer-contact__item">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
-          <div><strong>{{ if eq site.Language.Lang "zh" }}办公室{{ else }}Office{{ end }}</strong><span>{{ replace hugo.Data.contact.office "Peking University" "PKU" }}</span></div>
+          <div><strong>{{ if eq site.Language.Lang "zh" }}办公室{{ else }}Office{{ end }}</strong><span>{{ if eq site.Language.Lang "zh" }}{{ hugo.Data.contact.office_zh }}{{ else }}{{ replace hugo.Data.contact.office "Peking University" "PKU" }}{{ end }}</span></div>
         </div>
       </address>
     </section>
