@@ -351,6 +351,16 @@ h1 {
 .highlight-row h3 { margin: 0; font-size: 1.2rem; }
 .highlight-row p { margin: .6rem 0 0; color: var(--muted); }
 .highlight-row a { color: var(--ink); text-decoration-color: var(--accent); }
+.research-highlights-page { padding-bottom: 5rem; }
+.research-highlight { display: grid; grid-template-columns: minmax(240px, 320px) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); padding: 2.5rem 0; border-top: 1px solid var(--line); }
+.research-highlight:first-child { border-top: 3px solid var(--accent); }
+.research-highlight figure { margin: 0; }
+.research-highlight img { display: block; width: 100%; height: auto; background: var(--surface); }
+.research-highlight h2 { margin: 0; font-size: clamp(1.35rem, 3vw, 1.75rem); }
+.research-highlight__content { color: var(--muted); }
+.research-highlight__content > p:first-child { margin-top: .75rem; }
+.research-highlight__content > p:last-child { display: flex; flex-wrap: wrap; gap: .25rem .65rem; margin-bottom: 0; color: var(--ink); font-size: .88rem; }
+.research-highlight__content a { overflow-wrap: anywhere; }
 .news-list { border-top: 1px solid var(--line); }
 .news-row {
   display: grid;
@@ -488,6 +498,7 @@ h1 {
   .news-row { grid-template-columns: 1fr; gap: .5rem; }
   .highlight-row { grid-template-columns: 1fr; }
   .highlight-row img { height: auto; max-height: 220px; }
+  .research-highlight { grid-template-columns: 1fr; padding: 2rem 0; }
   .person-card,
   .people-section--leader .person-card,
   .people-section--alumni .person-card { grid-template-columns: 88px minmax(0, 1fr); gap: .85rem; }

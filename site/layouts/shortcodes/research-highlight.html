@@ -1,0 +1,9 @@
+<article class="research-highlight">
+  <figure>
+    <img src="{{ .Get "image" }}" alt="{{ .Get "title" }}" loading="lazy" decoding="async">
+  </figure>
+  <div>
+    <h2>{{ .Get "title" }}</h2>
+    <div class="research-highlight__content">{{ .Inner | markdownify }}</div>
+  </div>
+</article>

@@ -69,7 +69,7 @@ only after the English design is approved.
 
 - [x] **Publications index** `/publications/` — create a clear entry point for
   highlights, the full list, and theses.
-- [ ] **Research Highlights** `/publications/highlights/` — compare
+- [x] **Research Highlights** `/publications/highlights/` — compare
   `Publications/Highlights.htm`; preserve 15 image-led records, complete titles,
   evidence text, and source links.
 - [ ] **Full Publication List** `/publications/full-list/` — compare
