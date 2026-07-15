@@ -11,8 +11,11 @@
       </ul>
     </nav>
     <nav class="language-list" aria-label="{{ if eq site.Language.Lang "zh" }}语言{{ else }}Language{{ end }}">
-      {{ range .AllTranslations }}
-        <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}"{{ if eq .Language.Lang site.Language.Lang }} aria-current="page"{{ end }}>{{ .Language.Label }}</a>
+      {{ range .Translations }}
+        <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" aria-label="{{ if eq .Language.Lang "en" }}Switch to English{{ else }}切换到中文{{ end }}">
+          <span class="language-icon" aria-hidden="true">🌐</span>
+          <span>{{ if eq .Language.Lang "en" }}EN{{ else }}CN{{ end }}</span>
+        </a>
       {{ end }}
     </nav>
   </div>

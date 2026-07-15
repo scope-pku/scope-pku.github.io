@@ -82,8 +82,7 @@ a:hover { text-decoration-thickness: 2px; }
   text-decoration: none;
 }
 
-.nav-list a[aria-current="page"],
-.language-list a[aria-current="page"] {
+.nav-list a[aria-current="page"] {
   color: var(--accent);
   font-weight: 700;
 }
@@ -92,6 +91,15 @@ a:hover { text-decoration-thickness: 2px; }
   margin-left: auto;
   gap: .6rem;
 }
+
+.language-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-weight: 700;
+}
+
+.language-icon { font-size: 1.1rem; }
 
 .hero {
   padding: clamp(4rem, 10vw, 8rem) 0 2rem;
