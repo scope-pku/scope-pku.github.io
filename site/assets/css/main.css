@@ -206,8 +206,7 @@ a:focus-visible {
 
 .home-intro {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 180px;
-  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: minmax(0, 760px) minmax(180px, 1fr);
   align-items: start;
   padding-top: 3rem;
 }
@@ -220,6 +219,7 @@ a:focus-visible {
   grid-column: 2;
   grid-row: 1;
   align-self: center;
+  justify-self: center;
   width: 180px;
   height: auto;
   margin: 0;
@@ -556,6 +556,7 @@ h1 {
   margin-top: 3rem;
   padding: 2.5rem 0;
   color: white;
+  font-family: "Source Serif 4", "Noto Serif SC", Georgia, serif;
   background: #2b2525;
 }
 
@@ -655,7 +656,7 @@ h1 {
   .mobile-menu__language { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, .25); }
   .mobile-menu__language a { display: flex; align-items: center; gap: .5rem; }
   .home-intro { grid-template-columns: 1fr; padding-top: 2rem; }
-  .home-water-figure { grid-column: 1; grid-row: auto; width: 120px; }
+  .home-water-figure { grid-column: 1; grid-row: auto; justify-self: start; width: 120px; }
   .research-story { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 0 2rem; }
   .research-story:nth-of-type(even) .research-story__media { order: initial; }
   .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
