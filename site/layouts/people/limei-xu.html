@@ -1,0 +1,46 @@
+{{ define "main" }}
+  {{ $leaderCategory := index hugo.Data.people.categories 0 }}
+  {{ $leader := index $leaderCategory.people 0 }}
+  {{ $contact := hugo.Data.contact }}
+  <article class="profile-page">
+    <header class="profile-hero">
+      <img src="{{ $leader.image }}" alt="Portrait of {{ .Title }}" width="183" height="211">
+      <div>
+        <p class="eyebrow">Group Leader</p>
+        <h1>{{ .Title }}</h1>
+        <p class="profile-role">{{ $leader.role }}</p>
+        {{ range $leader.details }}<p class="profile-affiliation">{{ . }}</p>{{ end }}
+      </div>
+    </header>
+
+    <div class="profile-information">
+      <section aria-labelledby="profile-contact-heading">
+        <h2 id="profile-contact-heading">Contact</h2>
+        <dl class="profile-contact-list">
+          <div>
+            <dt>Address</dt>
+            <dd>{{ $contact.address }}</dd>
+          </div>
+          <div>
+            <dt>Office</dt>
+            <dd>{{ $contact.office }}</dd>
+          </div>
+          <div>
+            <dt>Telephone</dt>
+            <dd><a href="tel:{{ $contact.telephone_href }}">{{ $contact.telephone }}</a></dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd><a href="mailto:{{ $contact.email }}">{{ $contact.email }}</a></dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="profile-resources" aria-labelledby="profile-resources-heading">
+        <h2 id="profile-resources-heading">Profiles and documents</h2>
+        <a href="{{ $contact.personal_page }}">Peking University faculty profile <span>(Chinese)</span></a>
+        <a href="{{ $leader.cv }}">Curriculum vitae <span>(PDF)</span></a>
+      </section>
+    </div>
+  </article>
+{{ end }}

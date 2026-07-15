@@ -385,6 +385,34 @@ h1 {
 .people-section--alumni .person-card p,
 .people-section--alumni .person-card__links { font-size: .82rem; }
 
+.profile-page { padding: 4rem 0 5rem; }
+.profile-hero {
+  display: grid;
+  grid-template-columns: 183px minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-bottom: 3rem;
+  border-bottom: 3px solid var(--accent);
+}
+.profile-hero img { display: block; width: 183px; height: auto; }
+.profile-hero h1 { max-width: none; font-size: clamp(2rem, 5vw, 3.6rem); }
+.profile-role { margin: 1.25rem 0 .25rem; font-size: 1.12rem; font-weight: 600; }
+.profile-affiliation { max-width: 760px; margin: 0; color: var(--muted); }
+.profile-information {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  padding-top: 2.5rem;
+}
+.profile-information h2 { margin: 0 0 1rem; font-size: 1.35rem; }
+.profile-contact-list { margin: 0; border-top: 1px solid var(--line); }
+.profile-contact-list div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 1rem; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.profile-contact-list dt { font-weight: 600; }
+.profile-contact-list dd { margin: 0; color: var(--muted); }
+.profile-resources { display: flex; flex-direction: column; align-items: flex-start; }
+.profile-resources a { padding: .75rem 0; border-bottom: 1px solid var(--line); }
+.profile-resources span { color: var(--muted); }
+
 .gallery-grid { padding-bottom: 5rem; }
 .gallery-grid figure { margin: 0; }
 .gallery-grid img { display: block; width: 100%; height: auto; }
@@ -435,6 +463,7 @@ h1 {
   .home-water-figure { grid-column: 2; grid-row: 1 / span 2; width: 100px; margin-top: 0; }
   .footer-inner { grid-template-columns: 1fr; gap: 1.25rem; }
   .people-section--alumni .people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .profile-information { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 520px) {
@@ -449,4 +478,10 @@ h1 {
   .people-section--leader .person-card img { width: 88px; height: auto; }
   .people-section--alumni .people-grid { grid-template-columns: 1fr; }
   .people-section-heading { align-items: flex-start; }
+  .profile-page { padding-top: 3rem; }
+  .profile-hero { grid-template-columns: 88px minmax(0, 1fr); align-items: start; gap: 1rem; padding-bottom: 2rem; }
+  .profile-hero img { width: 88px; }
+  .profile-hero h1 { font-size: 1.75rem; }
+  .profile-role { margin-top: .75rem; }
+  .profile-contact-list div { grid-template-columns: 1fr; gap: .15rem; }
 }
