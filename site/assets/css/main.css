@@ -360,6 +360,12 @@ h1 {
 .news-row__content > :first-child { margin-top: 0; }
 .news-row__content > :last-child { margin-bottom: 0; }
 .news-row__content a { overflow-wrap: anywhere; }
+.news-history-page { max-width: 920px; padding-bottom: 5rem; }
+.news-history h2 { margin: 4rem 0 1.5rem; padding-top: 1rem; border-top: 3px solid var(--accent); font-size: clamp(1.75rem, 4vw, 2.4rem); }
+.news-history h2:first-child { margin-top: 0; }
+.news-history h3 { margin: 2rem 0 .75rem; color: var(--secondary); font-size: 1.05rem; }
+.news-history ul { margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+.news-history li { padding: .9rem 0; border-bottom: 1px solid var(--line); }
 
 .people-directory { padding-bottom: 3rem; }
 .people-section { padding: 1.5rem 0 3rem; border-top: 1px solid var(--line); }

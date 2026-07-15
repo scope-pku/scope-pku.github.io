@@ -2,13 +2,15 @@
 title: "All News and Events"
 translationKey: all-news
 summary: "Complete archive of group publications, events, awards, and member news."
+intro: "A year-by-year archive of group publications, awards, presentations, and appointments."
+layout: all-news
 weight: 10
 aliases:
   - "/News/All_News_and_Events.htm"
 ---
-2026
+## 2026
 
-Publications:
+### Publications
 
 - Xue-Jia Yu\*†, Limei Xu†, Hai-Qing Lin†, "Topological physics in quantum critical systems." Physics Reports 1160, 1-56 (2026).
 
@@ -16,9 +18,9 @@ Publications:
 
 - Zixiang Yan\*, Jiani Hong, Ye Tian, Tiancheng Liang, Limei Xu, Ying Jiang†, "A metastable state mediates the surface disordering of ice Ih." Chinese Phys. B 35, 016804 (2026).
 
-2025
+## 2025
 
-Publications:
+### Publications
 
 - Binze Tang\* , Chon-Hei Lo\*, Tiancheng Liang\*, Jiani Hong\*†, Mian Qin, Yizhi Song, Duanyun Cao, Ying Jiang†, Limei Xu†, "Unveiling the Amorphous Ice Layer during Premelting Using AFM Integrating Machine Learning." Phys. Rev. X 15, 041048 (2025).
 
@@ -26,7 +28,7 @@ Publications:
 
 - Zibing Wang\*, Zifeng Yuan\*, Mouyang Cheng\*, Xudan Huang\*, Keyang Liu, Yihan Wang, Huacong Sun, Lei Liao, Zhi Xu, Ji Chen, Wenlong Wang, Lei Liu, Xuedong Bai†, Limei Xu†, Enge Wang†, Lifen Wang†, "Molecularly resolved mapping of heterogeneous ice nucleation and crystallization pathways using in-situ cryo-TEM". Nature Communications 16, 7349 (2025).
 
-Awards:
+### Awards and events
 
 - Binze Tang gave an oral presentation at the 8th National Conference on Statistical Physics and Complex Systems, Ningbo, China.
 
@@ -40,17 +42,15 @@ Awards:
 
 - Xuejia Yu received the 2024 Beijing Outstanding Doctoral Dissertation.
 
-------------------------------------------------------------------------
+## 2024
 
-2024
+### Publications
 
-Publications:
-
-- Da Wu\*, Zhengpu Zhao\*, Bo Lin\*, Yizhi Song\*, Jiajie Qi\*, Jian Jiang, Zifeng Yuan, Bowei Cheng, Mengze Zhao, Ye Tian, Zhichang Wang, Muhong Wu, Ke Bian, Kai-Hui Liu†, Limei Xu†, Xiao Cheng Zeng†, En-Ge Wang†, Ying Jiang†, "Probing structural superlubricity of two-dimensionalwater transport with atomic resolution". Science 384,1254-1259. (2024)
+- Da Wu\*, Zhengpu Zhao\*, Bo Lin\*, Yizhi Song\*, Jiajie Qi\*, Jian Jiang, Zifeng Yuan, Bowei Cheng, Mengze Zhao, Ye Tian, Zhichang Wang, Muhong Wu, Ke Bian, Kai-Hui Liu†, Limei Xu†, Xiao Cheng Zeng†, En-Ge Wang†, Ying Jiang†, "Probing structural superlubricity of two-dimensional water transport with atomic resolution". Science 384, 1254–1259 (2024).
 
 - Jiani Hong\*, Ye Tian\*†, Tiancheng Liang\*, Xinmeng Liu\*, Yizhi Song, Dong Guan, Zixiang Yan, Jiadong Guo, Binze Tang, Duanyun Cao, Jing Guo, Ji Chen, Ding Pan, Limei Xu†, En-Ge Wang†, Ying Jiang†, "Imaging surface structure and premelting of ice Ih with atomic resolution". Nature 630, 375–380. (2024)
 
-- Dong Guan\*, Ye Tian, Yizhi Song, Mengze Zhao, Kaihui Liu, Limei Xu, En-Ge Wang, Ying Jiang†, "The effect of surface hydrophobicity and hydrophilicity on ion–ion  interactions at water–solid interfaces". Faraday Discussion, 2024, 249, 38-49. (2024)
+- Dong Guan\*, Ye Tian, Yizhi Song, Mengze Zhao, Kaihui Liu, Limei Xu, En-Ge Wang, Ying Jiang†, "The effect of surface hydrophobicity and hydrophilicity on ion–ion interactions at water–solid interfaces". Faraday Discussion 249, 38–49 (2024).
 
 - Xue-Jia Yu\*, Zhiming Pan, Limei Xu, and Zi-Xiang Li†, "Non-Hermitian Strongly Interacting Dirac Fermions". Physical Review Letters 132, 116503. (2024)
 
@@ -60,11 +60,11 @@ Publications:
 
 - Ye Tian\*†, Botao Huang\*, Yizhi Song\*, Yirui Zhang\*, Dong Guan, Jiani Hong, Duanyun Cao, Enge Wang, Limei Xu†, Yang Shao-Horn† and Ying Jiang†, "Effect of ion-specific water structures at metal surfaces on hydrogen production". Nature Communications 15, 7834. (2024)
 
-Awards:
+### Awards and events
 
-- Yuan Zifeng received the National Scholarship for Doctoral Students
+- Yuan Zifeng received the National Scholarship for Doctoral Students.
 
-- Liang Tiancheng received the Peking University President's Scholarship for Doctoral Students
+- Liang Tiancheng received the Peking University President's Scholarship for Doctoral Students.
 
 - Tang Binze received the Lingjun Leading Scholarship at Peking University.
 
@@ -78,13 +78,11 @@ Awards:
 
 - Tang Binze became a Boya Postdoctoral Fellow at Peking University.
 
-------------------------------------------------------------------------
+## 2023
 
-2023
+### Publications
 
-Publications:
-
-- Binze Tang\*†, Sergey V. Buldyrev†, Limei Xu†, and Nicolas Giovambattista†."Harvesting Energy from Changes in Relative Humidity Using Nanoscale Water Capillary Bridges". Langmuir 2023, 39, 38, 13449–13458. (2023).
+- Binze Tang\*†, Sergey V. Buldyrev†, Limei Xu†, and Nicolas Giovambattista†. "Harvesting Energy from Changes in Relative Humidity Using Nanoscale Water Capillary Bridges". Langmuir 39, 13449–13458 (2023).
 
 - Yizhi Liu\*, Chen Fang†, Shaoqin Jiang, Yuan Li, Limei Xu†. "Spin Nernst effect and spatiotemporal dynamic simulation of topological magnons in the antiferromagnet Cu3TeO6". Physical Review B 108, 094427. (2023).
 
@@ -92,21 +90,19 @@ Publications:
 
 - Zhen Wei Wu\*†, Yixiao Chen, Wei-Hua Wang, Walter Kob†, Limei Xu†. "Topology of vibrational modes predicts plastic events in glasses". Nature Communications 14, 2955. (2023).
 
-- Xuejia Yu\*, Chengxiang Ding, Limei Xu†. "Quantum criticality of a Z3-symmetric spin chain with long-range interactions".Physical ReviewE 107 (5), 054122. (2023).
+- Xuejia Yu\*, Chengxiang Ding, Limei Xu†. "Quantum criticality of a Z3-symmetric spin chain with long-range interactions". Physical Review E 107 (5), 054122 (2023).
 
-------------------------------------------------------------------------
+## 2022
 
-2022
+### Publications
 
-Publications:
-
-- XueJia Yu\*, Sheng Yang, Jingbo Xu†, Limei Xu†. "Fidelity susceptibility as a diagnostic of the commensurate-incommensurate transition: A revisit of the programmable Rydberg chain".Physical Review B 106 (16), 165124. (2022).
+- XueJia Yu\*, Sheng Yang, Jingbo Xu†, Limei Xu†. "Fidelity susceptibility as a diagnostic of the commensurate-incommensurate transition: A revisit of the programmable Rydberg chain". Physical Review B 106 (16), 165124 (2022).
 
 - Xuejia Yu\*, Ruizhen Huang\*, Honghao Song, Limei Xu, Chengxiang Ding, and Long Zhang†, "Conformal boundary conditions of symmetry-enriched quantum critical spin chains". Physical Review Letters 129(21), 210601. (2022).
 
 - Ye Tian\*, Jiani Hong\*, Duanyun Cao\*, Sifan You\*, Yizhi Song, Bowei Cheng, Zhichang Wang, Dong Guan, Xinmeng Liu, Zhengpu Zhao, Xin-Zheng Li, Limei Xu, Jing Guo†, Ji Chen†, En-Ge Wang†, Ying Jiang†. "Visualizing Eigen/Zundel cations and their interconversion in monolayer water on metal surfaces". Science 377(6603), 315–319. (2022).
 
-Awards:
+### Awards and events
 
 - Yu Xuejia, Peking University Li Huirong Scholarship
 
@@ -118,11 +114,9 @@ Awards:
 
 - Tang Binze, Oral presentation, CPS Fall Meeting 2022, Shenzhen, China, Nov. 18-20, 2022
 
-------------------------------------------------------------------------
+## 2021
 
-2021
-
-Publications:
+### Publications
 
 - Yingqi Zhang\*, Liying Zhou, Shengye Tao, Yuzhang Jiao, JinFeng Li, KaiMing Zheng, YuanChao Hu, KaiXuan Fang, Cheng Song, XiaoYan Zhong, Limei Xu†, KeFu Yao, ZhengJun Zhang and Na Chen†. "Widely tunable optical properties via oxygen manipulation in an amorphous alloy". Science China-Materials 64(9), 2305-2312. (2021).
 
@@ -130,11 +124,11 @@ Publications:
 
 - Qiong Gao\*, Jingdong Ai\*, Shixiang Tang, Minhuan Li, Yanshuang Chen, Jiping Huang, Hua Tong, Lei Xu, Limei Xu†, Hajime Tanaka† & Peng Tan†. "Fast crystal growth at ultra-low temperatures". Nature Materials 20(10), 1431–1439. (2021).
 
-- Duanyun Cao\*†, Yizhi Song\*, Binze Tang, Limei Xu†. "Advances in Atomic Force Microscopy: Imaging of Two-and Three-Dimensional Interfacial Water". Frontiers in Chemistry 9, 745446. (2021).
+- Duanyun Cao\*†, Yizhi Song\*, Binze Tang, Limei Xu†. "Advances in Atomic Force Microscopy: Imaging of Two- and Three-Dimensional Interfacial Water". Frontiers in Chemistry 9, 745446 (2021).
 
-- Botao Huang\*†, Reshma Rao, Sifan You, Kyaw Hpone Myint, Yizhi Song, Yanming Wang, Wendu Ding, Livia Giordano, Yirui Zhang, Tao Wang, Sokseiha Muy, Yu Katayama, Jeffrey Grossman, Adam Willard, Kang Xu, Ying Jiang, Yang Shao-Horn†, Cation- and pH- dependent hydrogen evolution and oxidation reaction kinetics. JACS Au (2021).
+- Botao Huang\*†, Reshma Rao, Sifan You, Kyaw Hpone Myint, Yizhi Song, Yanming Wang, Wendu Ding, Livia Giordano, Yirui Zhang, Tao Wang, Sokseiha Muy, Yu Katayama, Jeffrey Grossman, Adam Willard, Kang Xu, Ying Jiang, Yang Shao-Horn†, "Cation- and pH-dependent hydrogen evolution and oxidation reaction kinetics". JACS Au (2021).
 
-Awards:
+### Awards and events
 
 - Song Yizhi, Merit Student
 
@@ -142,21 +136,19 @@ Awards:
 
 - Huang Zhiyuan, The Outstanding Teaching Awards for Teaching Assistants
 
-- Tang Binze, Oral presentation, The 6th Conference Statistical Physics and Complex System (SPCSC2021), Jilin, China, July 30 – Aug. 3, 2021
+- Tang Binze, oral presentation, the 6th Conference on Statistical Physics and Complex Systems (SPCSC 2021), Jilin, China, July 30–Aug. 3, 2021.
 
-- Yu Xuejia, 2021 Europhysics letters (EPL) Distinguished Referee
+- Yu Xuejia, 2021 Europhysics Letters (EPL) Distinguished Referee.
 
-------------------------------------------------------------------------
+## 2020
 
-2020
-
-Publications:
+### Publications
 
 - Binze Tang\*, Sergey V. Buldyrev†, Limei Xu†, and Nicolas Giovambattista†. "Energy Stored in Nanoscale Water Capillary Bridges between Patchy Surfaces". Langmuir 36(26), 7246–7251. (2020).
 
 - Binze Tang\*, Xuejia Yu\*, Sergey V. Buldyrev†, Nicolas Giovambattista†, Limei Xu†. "Energy stored in nanoscale water capillary bridges formed between chemically heterogeneous surfaces with circular patches". Chinese Physics B 29, 114703 (2020).
 
-- Runze Ma\*, Duanyun Cao\*, Chongqin Zhu\*, Ye Tian\*, Jinbo Peng, Jing Guo, Ji Chen, XinZheng Li, Joseph S. Francisco, Xiao Cheng Zeng†,  Limei Xu†, EnGe Wang† & Ying Jiang†. "Atomic imaging of the edge structure and growth of a two-dimensional hexagonal ice". Nature 577(7788), 60–63. (2020).
+- Runze Ma\*, Duanyun Cao\*, Chongqin Zhu\*, Ye Tian\*, Jinbo Peng, Jing Guo, Ji Chen, XinZheng Li, Joseph S. Francisco, Xiao Cheng Zeng†, Limei Xu†, EnGe Wang† & Ying Jiang†. "Atomic imaging of the edge structure and growth of a two-dimensional hexagonal ice". Nature 577(7788), 60–63. (2020).
 
 - Yizhi Liu\*, Gang Sun\*, Ali Eltareb\*, Gustavo E. Lopez†, Nicolas Giovambattista†, Limei Xu†. "Nuclear quantum effects on the thermodynamic response functions of a polymorphic waterlike monatomic liquid". Physical Review Research 2(1), 013153. (2020).
 
@@ -164,7 +156,7 @@ Publications:
 
 - Jing Guo\*†, Duanyun Cao, Ji Chen, Ke Bian, Limei Xu, En-Ge Wang, Ying Jiang†. "Probing the intermolecular coupled vibrations in a water cluster with inelastic electron tunneling spectroscopy". Journal of Chemical Physics 152(23). (2020).
 
-Awards:
+### Awards and events
 
 - Huang Zhiyuan, Peking University President's Scholarship for Doctoral Students
 
@@ -176,11 +168,9 @@ Awards:
 
 - Yu Xuejia, Peking University Excellent Research Award
 
-------------------------------------------------------------------------
+## 2019
 
-2019
-
-Publications:
+### Publications
 
 - Liying Zhou\*, Jianhang Xu, Limei Xu†, Xifan Wu†. "Importance of van der Waals effects on the hydration of metal ions from the Hofmeister series". The Journal of Chemical Physics 150(12), 124505. (2019).
 
@@ -190,7 +180,7 @@ Publications:
 
 - Duanyun Cao\*, Yizhi Song\*, Jinbo Peng\*, Runze Ma, Jing Guo, Ji Chen, Xinzheng Li, Ying Jiang, Enge Wang, Limei Xu†. "Advances in atomic force microscopy: weakly perturbative imaging of the interfacial water". Frontiers in Chemistry 7, 626. (2019).
 
-Awards:
+### Awards and events
 
 - Song Yizhi, Peking University President's Scholarship for Doctoral Students
 
@@ -200,4 +190,4 @@ Awards:
 
 - Liu Yizhi, Merit Student of Peking University
 
-- Tang Binze, Oral presentation, The 7th Workshop of Condensed Matter Physics, Suzhou, China, Nov.8-11, 2019
+- Tang Binze, oral presentation, the 7th Workshop of Condensed Matter Physics, Suzhou, China, Nov. 8–11, 2019.
