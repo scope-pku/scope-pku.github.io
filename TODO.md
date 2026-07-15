@@ -164,7 +164,7 @@ only after the English design is approved.
 
 - [x] **最新消息** `/zh/news/` — 对照 `/news/`，逐条中文化新闻叙述并保留
   `YYYY.MM` 日期、论文英文题目、期刊名称与原始链接。
-- [ ] **全部新闻与活动** `/zh/news/all-news/` — 对照 `/news/all-news/`，
+- [x] **全部新闻与活动** `/zh/news/all-news/` — 对照 `/news/all-news/`，
   保留全部记录、年份与分类结构；论文相关元数据继续使用英文原文。
 
 ### 8.5 Publications
