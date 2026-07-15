@@ -117,6 +117,8 @@ only after the English design is approved.
   interior title scale, archive reading width, and section-aware language links.
 - [x] Replace the mobile horizontal navigation strip with an accessible native
   disclosure drawer containing the current page and language switch.
+- [x] Rebuild the bilingual footer as three responsive blocks for the PKU
+  wordmark, canonical contact details, and locale-specific quick links.
 - [ ] Obtain final English visual approval and tag the English design as locked.
 
 ## 8. Chinese parity after English approval
