@@ -219,6 +219,7 @@ a:focus-visible {
   display: block;
   grid-column: 2;
   grid-row: 1;
+  align-self: center;
   width: 180px;
   height: auto;
   margin: 0;
@@ -554,9 +555,8 @@ h1 {
 .site-footer {
   margin-top: 3rem;
   padding: 2.5rem 0;
-  color: var(--muted);
-  border-top: 1px solid var(--line);
-  background: #f0eee9;
+  color: white;
+  background: #2b2525;
 }
 
 .footer-inner {
@@ -567,17 +567,18 @@ h1 {
 }
 
 .footer-brand img { display: block; width: min(100%, 290px); height: auto; }
-.footer-brand .copyright { margin: 1.25rem 0 0; color: var(--ink); }
-.footer-inner h2 { margin: 0 0 1.25rem; color: var(--ink); font-size: 1.15rem; }
+.footer-brand .copyright { margin: 1.25rem 0 0; color: white; }
+.footer-inner h2 { margin: 0 0 1.25rem; color: white; font-size: 1.15rem; }
+.site-footer a { color: white; text-decoration-color: rgba(255, 255, 255, .65); }
 .footer-contact address { display: grid; gap: 1rem; font-style: normal; }
 .footer-contact__item { display: grid; grid-template-columns: 1.35rem minmax(0, 1fr); gap: .75rem; align-items: start; }
-.footer-contact__item svg { width: 1.35rem; height: 1.35rem; margin-top: .15rem; fill: none; stroke: var(--accent); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-.footer-contact__item strong { display: block; margin-bottom: .1rem; color: var(--ink); font-size: .85rem; }
+.footer-contact__item svg { width: 1.35rem; height: 1.35rem; margin-top: .15rem; fill: none; stroke: white; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.footer-contact__item strong { display: block; margin-bottom: .1rem; color: white; font-size: .85rem; }
 .footer-contact__item a,
 .footer-contact__item span { display: block; overflow-wrap: anywhere; }
 .footer-quick ul { display: grid; gap: .65rem; margin: 0; padding: 0; list-style: none; }
 .footer-quick li { display: grid; grid-template-columns: 1rem minmax(0, 1fr); gap: .4rem; }
-.footer-quick li > span { color: var(--accent); }
+.footer-quick li > span { color: white; }
 
 @media (max-width: 860px) {
   .masthead-inner {
@@ -659,7 +660,7 @@ h1 {
   .research-story:nth-of-type(even) .research-story__media { order: initial; }
   .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
   .footer-contact,
-  .footer-quick { padding-top: 1.5rem; border-top: 1px solid var(--line); }
+  .footer-quick { padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, .25); }
   .people-section--alumni .people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .profile-information,
   .contact-layout { grid-template-columns: 1fr; }
