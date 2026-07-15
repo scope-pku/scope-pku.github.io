@@ -1,0 +1,18 @@
+<section class="research-story">
+  <div class="research-story__copy">
+    <h2>{{ .Get "title" }}</h2>
+    <div class="research-story__body">{{ .Inner | markdownify }}</div>
+  </div>
+  <div class="research-story__media">
+    <figure>
+      <img src="{{ .Get "image" }}" width="{{ .Get "width" }}" height="{{ .Get "height" }}" alt="{{ .Get "alt" }}" loading="lazy">
+      {{ with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
+    </figure>
+    {{ with .Get "image2" }}
+      <figure>
+        <img src="{{ . }}" width="{{ $.Get "width2" }}" height="{{ $.Get "height2" }}" alt="{{ $.Get "alt2" }}" loading="lazy">
+        {{ with $.Get "caption2" }}<figcaption>{{ . }}</figcaption>{{ end }}
+      </figure>
+    {{ end }}
+  </div>
+</section>

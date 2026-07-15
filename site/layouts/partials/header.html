@@ -7,26 +7,32 @@
       <strong>{{ site.Title }}</strong>
       <span>{{ site.Params.affiliation }}</span>
     </a>
-    <nav class="language-list" aria-label="{{ if eq site.Language.Lang "zh" }}语言{{ else }}Language{{ end }}">
-      {{ $translations := .Translations }}
-      {{ if not $translations }}{{ $translations = site.Home.Translations }}{{ end }}
-      {{ range $translations }}
-        <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" aria-label="{{ if eq site.Language.Lang "zh" }}切换到英文{{ else }}Switch to Chinese{{ end }}">
-          <span class="language-icon" aria-hidden="true">🌐</span>
-          <span>{{ if eq .Language.Lang "en" }}EN{{ else }}CN{{ end }}</span>
-        </a>
-      {{ end }}
-    </nav>
   </div>
-  <nav class="primary-nav" aria-label="{{ if eq site.Language.Lang "zh" }}主导航{{ else }}Main navigation{{ end }}">
+  <div class="primary-nav">
     <div class="nav-inner">
-      <ul class="nav-list">
-        {{ range site.Menus.main }}
-          <li>
-            <a href="{{ .URL }}"{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
-          </li>
+      <nav class="nav-scroll" aria-label="{{ if eq site.Language.Lang "zh" }}主导航{{ else }}Main navigation{{ end }}">
+        <ul class="nav-list">
+          {{ range site.Menus.main }}
+            <li>
+              <a href="{{ .URL }}"{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      </nav>
+      <nav class="language-list" aria-label="{{ if eq site.Language.Lang "zh" }}语言{{ else }}Language{{ end }}">
+        {{ $translations := .Translations }}
+        {{ if not $translations }}{{ $translations = .CurrentSection.Translations }}{{ end }}
+        {{ if not $translations }}{{ $translations = site.Home.Translations }}{{ end }}
+        {{ range $translations }}
+          <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" aria-label="{{ if eq site.Language.Lang "zh" }}切换到英文{{ else }}Switch to Chinese{{ end }}">
+            <svg class="language-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path>
+            </svg>
+            <span>{{ if eq .Language.Lang "en" }}EN{{ else }}CN{{ end }}</span>
+          </a>
         {{ end }}
-      </ul>
+      </nav>
     </div>
-  </nav>
+  </div>
 </header>

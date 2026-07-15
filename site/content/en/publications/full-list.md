@@ -29,17 +29,17 @@ aliases:
 
 - Da Wu\*, Zhengpu Zhao\*, Bo Lin\*, Yizhi Song\*, Jiajie Qi\*, Jian Jiang, Zifeng Yuan, Bowei Cheng, Mengze Zhao, Ye Tian, Zhichang Wang, Muhong Wu, Ke Bian, Kai-Hui Liu†, Limei Xu†, Xiao Cheng Zeng†, En-Ge Wang†, Ying Jiang†, "Probing structural superlubricity of two-dimensional water transport with atomic resolution". Science 384, 1254–1259 (2024).
 
-- Jiani Hong\*, Ye Tian\*†, Tiancheng Liang\*, Xinmeng Liu\*, Yizhi Song, Dong Guan, Zixiang Yan, Jiadong Guo, Binze Tang, Duanyun Cao, Jing Guo, Ji Chen, Ding Pan, Limei Xu†, En-Ge Wang†, Ying Jiang†, "Imaging surface structure and premelting of ice Ih with atomic resolution". Nature 630, 375–380. (2024)
+- Jiani Hong\*, Ye Tian\*†, Tiancheng Liang\*, Xinmeng Liu\*, Yizhi Song, Dong Guan, Zixiang Yan, Jiadong Guo, Binze Tang, Duanyun Cao, Jing Guo, Ji Chen, Ding Pan, Limei Xu†, En-Ge Wang†, Ying Jiang†, "Imaging surface structure and premelting of ice Ih with atomic resolution". Nature 630, 375–380 (2024).
 
 - Dong Guan\*, Ye Tian, Yizhi Song, Mengze Zhao, Kaihui Liu, Limei Xu, En-Ge Wang, Ying Jiang†, "The effect of surface hydrophobicity and hydrophilicity on ion–ion interactions at water–solid interfaces". Faraday Discussions 249, 38–49 (2024).
 
-- Xue-Jia Yu\*, Zhiming Pan, Limei Xu, and Zi-Xiang Li†, "Non-Hermitian Strongly Interacting Dirac Fermions". Physical Review Letters 132, 116503. (2024)
+- Xue-Jia Yu\*, Zhiming Pan, Limei Xu, and Zi-Xiang Li†, "Non-Hermitian Strongly Interacting Dirac Fermions". Physical Review Letters 132, 116503 (2024).
 
-- Xue-Jia Yu\*, Shao-Hang Shi, Limei Xu, and Zi-Xiang Li†, "Emergence of Competing Orders and Possible Quantum Spin Liquid in SU(N) Fermions". Phys. Rev. Lett. 132, 036704. (2024)
+- Xue-Jia Yu\*, Shao-Hang Shi, Limei Xu, and Zi-Xiang Li†, "Emergence of Competing Orders and Possible Quantum Spin Liquid in SU(N) Fermions". Phys. Rev. Lett. 132, 036704 (2024).
 
 - Ye Tian\*, Yizhi Song\*, Y. Xia\*, Jiani Hong\*, Y. Huang, Runze Ma, S. You, Dong Guan, Duanyun Cao, M. Zhao, Ji Chen, C. Song, K. Liu, Limei Xu†, Yiqin Gao†, Enge Wang†, and Ying Jiang†, "Nanoscale one-dimensional close packing of interfacial alkali ions driven by water-mediated attraction". Nature Nanotechnology 19, 479–484 (2024).
 
-- Ye Tian\*†, Botao Huang\*, Yizhi Song\*, Yirui Zhang\*, Dong Guan, Jiani Hong, Duanyun Cao, Enge Wang, Limei Xu†, Yang Shao-Horn† and Ying Jiang†, "Effect of ion-specific water structures at metal surfaces on hydrogen production". Nature Communications 15, 7834. (2024)
+- Ye Tian\*†, Botao Huang\*, Yizhi Song\*, Yirui Zhang\*, Dong Guan, Jiani Hong, Duanyun Cao, Enge Wang, Limei Xu†, Yang Shao-Horn† and Ying Jiang†, "Effect of ion-specific water structures at metal surfaces on hydrogen production". Nature Communications 15, 7834 (2024).
 
 ## 2023
 
@@ -187,7 +187,7 @@ aliases:
 
 - Limei Xu, Sergey V. Buldyrev, Nicolas Giovambattista & H. Eugene Stanley. "Liquid-liquid phase transition and glass transition in a monoatomic model system". International Journal of Molecular Sciences 11(12), 5184–5200. (2010).
 
-- H.Eugene Stanley, S V Buldyrev, G Franzese, P Kumar, F Mallamace, M G Mazza, K Stokely, Limei Xu."Liquid polymorphism: water in nanoconfined and biological environments". Journal of Physics: Condensed Matter 22(28), 284101. (2010).
+- H. Eugene Stanley, S V Buldyrev, G Franzese, P Kumar, F Mallamace, M G Mazza, K Stokely, Limei Xu. "Liquid polymorphism: water in nanoconfined and biological environments". Journal of Physics: Condensed Matter 22(28), 284101. (2010).
 
 ## 2009
 
@@ -195,9 +195,9 @@ aliases:
 
 - Limei Xu, Sergey V. Buldyrev, Nicolas Giovambattista, C. Austen Angell, H. Eugene Stanley. "A monatomic system with a liquid-liquid critical point and two distinct glassy states". The Journal of Chemical Physics 130(5), 054505. (2009).
 
-- H.Eugene Stanley, P Kumar, S Han, M G Mazza, K Stokely, S V Buldyrev, G Franzese, F Mallamace, Limei Xu."Heterogeneities in confined water and protein hydration water". Journal of Physics: Condensed Matter 21(50), 504105. (2009).
+- H. Eugene Stanley, P Kumar, S Han, M G Mazza, K Stokely, S V Buldyrev, G Franzese, F Mallamace, Limei Xu. "Heterogeneities in confined water and protein hydration water". Journal of Physics: Condensed Matter 21(50), 504105. (2009).
 
-- S V Buldyrev, G Malescio, C A Angell, N Giovambattista, S Prestipino, F Saija,H. Eugene Stanley, Limei Xu. "Unusual phase behavior of one-component systems with two-scale isotropic interactions". Journal of Physics: Condensed Matter 21(50), 504106. (2009).
+- S V Buldyrev, G Malescio, C A Angell, N Giovambattista, S Prestipino, F Saija, H. Eugene Stanley, Limei Xu. "Unusual phase behavior of one-component systems with two-scale isotropic interactions". Journal of Physics: Condensed Matter 21(50), 504106. (2009).
 
 ## 2008
 
@@ -219,6 +219,6 @@ aliases:
 
 ## 2005
 
-- Limei Xu, Pradeep Kumar, S. V. Buldyrev, S.-H. Chen, P. H. Poole, F. Sciortino, andH. Eugene Stanley. "Relation between the Widom line and the dynamic crossover in systems with a liquid–liquid phase transition". Proceedings of the National Academy of Sciences 102(46), 16558–16562. (2005).
+- Limei Xu, Pradeep Kumar, S. V. Buldyrev, S.-H. Chen, P. H. Poole, F. Sciortino, and H. Eugene Stanley. "Relation between the Widom line and the dynamic crossover in systems with a liquid–liquid phase transition". Proceedings of the National Academy of Sciences 102(46), 16558–16562. (2005).
 
 - Limei Xu, Plamen Ch. Ivanov, Kun Hu, Zhi Chen, Anna Carbone, H. Eugene Stanley. "Quantifying signals with power-law correlations: A comparative study of detrended fluctuation analysis and detrended moving average techniques". Physical Review E 71(5), 051101. (2005).
