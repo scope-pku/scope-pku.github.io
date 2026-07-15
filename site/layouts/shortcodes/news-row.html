@@ -1,0 +1,4 @@
+<article class="news-row">
+  {{ with .Get "date" }}<time datetime="{{ replace . "." "-" }}">{{ . }}</time>{{ end }}
+  <div class="news-row__content">{{ .Inner | markdownify }}</div>
+</article>

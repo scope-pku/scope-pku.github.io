@@ -59,7 +59,7 @@ only after the English design is approved.
 
 ## 3. News
 
-- [ ] **Breaking News** `/news/` — compare `News/Breaking_News.htm`; render all
+- [x] **Breaking News** `/news/` — compare `News/Breaking_News.htm`; render all
   43 records as semantic date-and-text editorial rows.
 - [ ] **All News and Events** `/news/all-news/` — compare
   `News/All_News_and_Events.htm`; preserve all 70 deduplicated records with clear

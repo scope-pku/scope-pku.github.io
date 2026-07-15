@@ -355,6 +355,11 @@ h1 {
 }
 .news-row time { color: var(--muted); font-variant-numeric: tabular-nums; }
 .news-row p { margin: 0; }
+.news-archive { padding-bottom: 2rem; }
+.news-row__content { min-width: 0; }
+.news-row__content > :first-child { margin-top: 0; }
+.news-row__content > :last-child { margin-bottom: 0; }
+.news-row__content a { overflow-wrap: anywhere; }
 
 .people-directory { padding-bottom: 3rem; }
 .people-section { padding: 1.5rem 0 3rem; border-top: 1px solid var(--line); }

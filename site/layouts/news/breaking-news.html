@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.intro }}<p>{{ . }}</p>{{ end }}
+  </header>
+  <div class="news-list news-archive">
+    {{ .Content }}
+  </div>
+  {{ with .Pages }}
+    <div class="index-list">
+      {{ range .ByWeight }}
+        <article class="index-entry">
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          {{ with .Summary }}<p>{{ . }}</p>{{ end }}
+        </article>
+      {{ end }}
+    </div>
+  {{ end }}
+{{ end }}
