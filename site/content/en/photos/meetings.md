@@ -1,7 +1,7 @@
 ---
 title: "Meetings"
 translationKey: photos-meetings
-summary: "Meetings photo gallery."
+summary: "Conference and workshop participation by group members."
 weight: 20
 layout: gallery
 gallery: meetings

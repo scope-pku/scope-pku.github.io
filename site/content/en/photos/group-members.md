@@ -1,7 +1,7 @@
 ---
 title: "Group Members"
 translationKey: photos-group-members
-summary: "Group Members photo gallery."
+summary: "Group portraits from 2021 and 2023."
 weight: 10
 layout: gallery
 gallery: group-members

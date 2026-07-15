@@ -90,17 +90,17 @@ only after the English design is approved.
 
 ## 6. Photos
 
-- [ ] **Photos index** `/photos/` — create an editorial entry point that
+- [x] **Photos index** `/photos/` — create an editorial entry point that
   preserves the role of each gallery.
-- [ ] **Group Members** `/photos/group-members/` — compare
+- [x] **Group Members** `/photos/group-members/` — compare
   `Photos/Group_Members.htm`; preserve three natural-ratio images.
-- [ ] **Meetings** `/photos/meetings/` — compare `Photos/Meetings.htm`; preserve
+- [x] **Meetings** `/photos/meetings/` — compare `Photos/Meetings.htm`; preserve
   two natural-ratio images.
-- [ ] **Have Fun** `/photos/have-fun/` — compare `Photos/Have_Fun.htm`; preserve
+- [x] **Have Fun** `/photos/have-fun/` — compare `Photos/Have_Fun.htm`; preserve
   three natural-ratio images.
-- [ ] **Dine Together** `/photos/dine-together/` — compare the legacy typo route
+- [x] **Dine Together** `/photos/dine-together/` — compare the legacy typo route
   `Photos/Dine_Toghter.htm`; preserve its image and alias.
-- [ ] **Graduation** `/photos/graduation/` — compare `Photos/Graduation.htm`;
+- [x] **Graduation** `/photos/graduation/` — compare `Photos/Graduation.htm`;
   preserve four natural-ratio images.
 
 ## 7. Contact and English release gate

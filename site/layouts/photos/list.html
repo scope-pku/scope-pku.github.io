@@ -1,0 +1,24 @@
+{{ define "main" }}
+  <article class="photos-index-page">
+    <header class="page-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Summary }}<p>{{ . }}</p>{{ end }}
+    </header>
+    <div class="photos-index">
+      {{ range .Pages.ByWeight }}
+        {{ $gallery := index hugo.Data.photos .Params.gallery }}
+        {{ $preview := index $gallery.images 0 }}
+        <article class="photos-index-entry">
+          <a href="{{ .RelPermalink }}" aria-hidden="true" tabindex="-1">
+            <img src="{{ $preview.src }}" width="{{ $preview.width }}" height="{{ $preview.height }}" alt="" loading="lazy">
+          </a>
+          <div>
+            <p>{{ len $gallery.images }} {{ cond (eq (len $gallery.images) 1) "photo" "photos" }}</p>
+            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            {{ with .Summary }}<p>{{ . }}</p>{{ end }}
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  </article>
+{{ end }}

@@ -1,78 +1,112 @@
 {
   "group-members": {
-    "title": "Group Members",
     "images": [
       {
         "src": "/media/photos-group-members-01.jpg",
-        "alt": "Xu Research Group members, photo 1"
+        "width": 1800,
+        "height": 1267,
+        "alt": "Xu Research Group members posing at the Lakeview Hotel Beijing.",
+        "caption": "Group photo at the Lakeview Hotel Beijing, on the bank of Weiming Lake at Peking University, January 2, 2021."
       },
       {
         "src": "/media/photos-group-members-02.png",
-        "alt": "Xu Research Group members, photo 2"
+        "width": 1084,
+        "height": 1400,
+        "alt": "Xu Research Group members posing in front of the School of Physics at Peking University.",
+        "caption": "Group photo in front of the School of Physics, Peking University, June 15, 2023."
       },
       {
         "src": "/media/photos-group-members-03.png",
-        "alt": "Xu Research Group members, photo 3"
+        "width": 1800,
+        "height": 1124,
+        "alt": "Xu Research Group members, including graduates in academic gowns, in Peking University Library.",
+        "caption": "Group photo in Peking University Library, June 15, 2023."
       }
     ]
   },
   "meetings": {
-    "title": "Meetings",
     "images": [
       {
         "src": "/media/photos-meetings-01.jpg",
-        "alt": "Xu Research Group meeting, photo 1"
+        "width": 1050,
+        "height": 1400,
+        "alt": "Xuejia Yu standing beside a research poster at the 11th Workshop on Quantum Many-Body Computation.",
+        "caption": "Xuejia Yu at the 11th Workshop on Quantum Many-Body Computation, Fuzhou, Fujian, April 2023."
       },
       {
         "src": "/media/photos-meetings-02.jpg",
-        "alt": "Xu Research Group meeting, photo 2"
+        "width": 1800,
+        "height": 1350,
+        "alt": "Yizhi Liu presenting research at a statistical physics conference.",
+        "caption": "Yizhi Liu at the 6th Statistical Physics and Complex Systems Conference and Cross-Strait Statistical Physics Conference, Jilin, 2021."
       }
     ]
   },
   "have-fun": {
-    "title": "Have Fun",
     "images": [
       {
         "src": "/media/photos-have-fun-01.jpg",
-        "alt": "Xu Research Group activity, photo 1"
+        "width": 1600,
+        "height": 1200,
+        "alt": "Six group members posing during a National Day activity.",
+        "caption": "Group activity on the National Day of the People's Republic of China, 2022."
       },
       {
         "src": "/media/photos-have-fun-02.jpg",
-        "alt": "Xu Research Group activity, photo 2"
+        "width": 1050,
+        "height": 1400,
+        "alt": "Three group members playing a tabletop game in a classroom.",
+        "caption": "Group members playing a tabletop game."
       },
       {
         "src": "/media/photos-have-fun-03.jpg",
-        "alt": "Xu Research Group activity, photo 3"
+        "width": 1050,
+        "height": 1400,
+        "alt": "Two group members playing Nintendo Switch games in the School of Physics.",
+        "caption": "New Year's Eve at the School of Physics, Peking University, December 31, 2021."
       }
     ]
   },
   "dine-together": {
-    "title": "Dine Together",
     "images": [
       {
         "src": "/media/photos-dine-together-01.jpg",
-        "alt": "Xu Research Group dining together, photo 1"
+        "width": 1800,
+        "height": 1350,
+        "alt": "Group members sharing dinner around a table.",
+        "caption": "Group dinner at Peking University, 2022."
       }
     ]
   },
   "graduation": {
-    "title": "Graduation",
     "images": [
       {
         "src": "/media/photos-graduation-01.jpg",
-        "alt": "Xu Research Group graduation, photo 1"
+        "width": 1800,
+        "height": 1347,
+        "alt": "Xuejia Yu with faculty members after his PhD thesis defense.",
+        "caption": "Xuejia Yu completed his PhD thesis defense on May 30, 2023."
       },
       {
         "src": "/media/photos-graduation-02.jpg",
-        "alt": "Xu Research Group graduation, photo 2"
+        "width": 1800,
+        "height": 1347,
+        "alt": "Yizhi Song with faculty members after her PhD thesis defense.",
+        "caption": "Yizhi Song completed her PhD thesis defense on May 30, 2023."
       },
       {
         "src": "/media/photos-graduation-03.jpg",
-        "alt": "Xu Research Group graduation, photo 3"
+        "width": 1800,
+        "height": 1354,
+        "alt": "Yizhi Song holding flowers beneath a graduation banner.",
+        "caption": "Yizhi Song completed her PhD thesis defense on May 30, 2023."
       },
       {
         "src": "/media/photos-graduation-04.jpg",
-        "alt": "Xu Research Group graduation, photo 4"
+        "width": 1800,
+        "height": 1350,
+        "alt": "Yizhi Liu with faculty members after his PhD thesis defense.",
+        "caption": "Yizhi Liu completed his PhD thesis defense on May 30, 2023."
       }
     ]
   }

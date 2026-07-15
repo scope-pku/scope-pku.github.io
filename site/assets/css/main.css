@@ -385,10 +385,14 @@ h1 {
 .teaching-overview__content h3 { font-size: 1rem; }
 .teaching-overview__content ol { padding-left: 1.2rem; color: var(--muted); font-size: .9rem; }
 .teaching-overview__content li + li { margin-top: .5rem; }
-.teaching-year-nav { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 1rem; padding: 1.25rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.teaching-year-nav p { margin: 0; color: var(--muted); font-size: .85rem; }
-.teaching-year-nav div { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
-.teaching-year-nav a[aria-current="page"] { color: var(--accent); text-decoration-thickness: 2px; }
+.teaching-year-nav,
+.photo-gallery-nav { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 1rem; padding: 1.25rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.teaching-year-nav p,
+.photo-gallery-nav p { margin: 0; color: var(--muted); font-size: .85rem; }
+.teaching-year-nav div,
+.photo-gallery-nav div { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
+.teaching-year-nav a[aria-current="page"],
+.photo-gallery-nav a[aria-current="page"] { color: var(--accent); text-decoration-thickness: 2px; }
 .teaching-courses { max-width: 920px; }
 .teaching-course { padding: 2.5rem 0; border-bottom: 1px solid var(--line); }
 .teaching-course:first-child { border-top: 3px solid var(--accent); }
@@ -477,9 +481,19 @@ h1 {
 .profile-resources a { padding: .75rem 0; border-bottom: 1px solid var(--line); }
 .profile-resources span { color: var(--muted); }
 
-.gallery-grid { padding-bottom: 5rem; }
-.gallery-grid figure { margin: 0; }
-.gallery-grid img { display: block; width: 100%; height: auto; }
+.photos-index-page,
+.photo-gallery { padding-bottom: 5rem; }
+.photos-index { border-top: 3px solid var(--accent); }
+.photos-index-entry { display: grid; grid-template-columns: minmax(240px, 360px) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: start; padding: 2rem 0; border-bottom: 1px solid var(--line); }
+.photos-index-entry img { display: block; width: 100%; height: auto; }
+.photos-index-entry h2 { margin: .35rem 0 0; font-size: clamp(1.4rem, 3vw, 1.8rem); }
+.photos-index-entry p { max-width: 56ch; margin: .5rem 0 0; color: var(--muted); }
+.photos-index-entry div > p:first-child { margin-top: 0; font-size: .8rem; }
+.photo-gallery .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 1.5rem; padding: 2.5rem 0 0; }
+.photo-gallery .gallery-grid figure { margin: 0; }
+.photo-gallery .gallery-grid figure:first-child { grid-column: 1 / -1; }
+.photo-gallery .gallery-grid img { display: block; width: 100%; height: auto; }
+.photo-gallery .gallery-grid figcaption { margin-top: .75rem; color: var(--muted); font-size: .85rem; line-height: 1.5; }
 
 .site-footer {
   margin-top: 3rem;
@@ -540,6 +554,9 @@ h1 {
   .teaching-course dl { grid-template-columns: 1fr; }
   .teaching-course dl div:nth-child(odd) { padding-right: 0; }
   .teaching-course dl div { grid-template-columns: 7rem minmax(0, 1fr); }
+  .photos-index-entry,
+  .photo-gallery .gallery-grid { grid-template-columns: 1fr; }
+  .photo-gallery .gallery-grid figure:first-child { grid-column: auto; }
   .person-card,
   .people-section--leader .person-card,
   .people-section--alumni .person-card { grid-template-columns: 88px minmax(0, 1fr); gap: .85rem; }

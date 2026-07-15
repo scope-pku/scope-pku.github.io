@@ -1,12 +1,25 @@
 {{ define "main" }}
-  <header class="page-header">
-    <h1>{{ .Title }}</h1>
-    <div class="prose">{{ .Content }}</div>
-  </header>
   {{ $gallery := index hugo.Data.photos .Params.gallery }}
-  <div class="gallery-grid">
-    {{ range $gallery.images }}
-      <figure><img src="{{ .src }}" alt="{{ .alt }}" loading="lazy"></figure>
-    {{ end }}
-  </div>
+  <article class="photo-gallery">
+    <header class="page-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Summary }}<p>{{ . }}</p>{{ end }}
+    </header>
+    <nav class="photo-gallery-nav" aria-label="Photo galleries">
+      <p>Browse galleries</p>
+      <div>
+        {{ range .CurrentSection.Pages.ByWeight }}
+          <a href="{{ .RelPermalink }}"{{ if eq . $ }} aria-current="page"{{ end }}>{{ .Title }}</a>
+        {{ end }}
+      </div>
+    </nav>
+    <div class="gallery-grid">
+      {{ range $index, $image := $gallery.images }}
+        <figure>
+          <img src="{{ $image.src }}" width="{{ $image.width }}" height="{{ $image.height }}" alt="{{ $image.alt }}"{{ if gt $index 0 }} loading="lazy"{{ end }} decoding="async">
+          {{ with $image.caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+        </figure>
+      {{ end }}
+    </div>
+  </article>
 {{ end }}
