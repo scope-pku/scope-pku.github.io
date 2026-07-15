@@ -23,7 +23,7 @@
           <article class="person-card">
             <img src="{{ .image }}" width="{{ if $isLeader }}180{{ else }}120{{ end }}" height="{{ if $isLeader }}209{{ else }}120{{ end }}" alt="{{ if $isZh }}{{ with .name_zh }}{{ . }}的照片{{ else }}{{ $personName }}的照片{{ end }}{{ else }}Portrait of {{ .name }}{{ end }}" loading="lazy">
             <div class="person-card__body">
-              <h3>{{ if .profile }}<a href="{{ .profile }}">{{ $personName }}</a>{{ else }}{{ $personName }}{{ end }}</h3>
+              <h3>{{ if .profile }}<a href="{{ .profile | relLangURL }}">{{ $personName }}</a>{{ else }}{{ $personName }}{{ end }}</h3>
               {{ if or $isZh $isGraduate }}{{ with .name_zh }}<p class="person-card__name-zh" lang="zh">{{ . }}</p>{{ end }}{{ end }}
               {{ if $isZh }}{{ with .role_zh }}<p>{{ . }}</p>{{ end }}{{ else }}{{ with .role }}<p>{{ . }}</p>{{ end }}{{ end }}
               {{ if $isZh }}{{ range .details_zh }}<p>{{ . }}</p>{{ end }}{{ else }}{{ range .details }}<p>{{ . }}</p>{{ end }}{{ end }}

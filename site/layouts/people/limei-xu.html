@@ -2,44 +2,45 @@
   {{ $leaderCategory := index hugo.Data.people.categories 0 }}
   {{ $leader := index $leaderCategory.people 0 }}
   {{ $contact := hugo.Data.contact }}
+  {{ $isZh := eq site.Language.Lang "zh" }}
   <article class="profile-page">
     <header class="profile-hero">
-      <img src="{{ $leader.image }}" alt="Portrait of {{ .Title }}" width="180" height="209">
+      <img src="{{ $leader.image }}" alt="{{ if $isZh }}徐莉梅的照片{{ else }}Portrait of {{ .Title }}{{ end }}" width="180" height="209">
       <div>
-        <p class="eyebrow">Group Leader</p>
+        <p class="eyebrow">{{ if $isZh }}课题组负责人{{ else }}Group Leader{{ end }}</p>
         <h1>{{ .Title }}</h1>
-        <p class="profile-role">{{ $leader.role }}</p>
-        {{ range $leader.details }}<p class="profile-affiliation">{{ . }}</p>{{ end }}
+        <p class="profile-role">{{ if $isZh }}{{ $leader.role_zh }}{{ else }}{{ $leader.role }}{{ end }}</p>
+        {{ range cond $isZh $leader.details_zh $leader.details }}<p class="profile-affiliation">{{ . }}</p>{{ end }}
       </div>
     </header>
 
     <div class="profile-information">
       <section aria-labelledby="profile-contact-heading">
-        <h2 id="profile-contact-heading">Contact</h2>
+        <h2 id="profile-contact-heading">{{ if $isZh }}联系方式{{ else }}Contact{{ end }}</h2>
         <dl class="profile-contact-list">
           <div>
-            <dt>Address</dt>
-            <dd>{{ $contact.address }}</dd>
+            <dt>{{ if $isZh }}地址{{ else }}Address{{ end }}</dt>
+            <dd>{{ if $isZh }}{{ $contact.address_zh }}{{ else }}{{ $contact.address }}{{ end }}</dd>
           </div>
           <div>
-            <dt>Office</dt>
-            <dd>{{ $contact.office }}</dd>
+            <dt>{{ if $isZh }}办公室{{ else }}Office{{ end }}</dt>
+            <dd>{{ if $isZh }}{{ $contact.office_zh }}{{ else }}{{ $contact.office }}{{ end }}</dd>
           </div>
           <div>
-            <dt>Telephone</dt>
+            <dt>{{ if $isZh }}电话{{ else }}Telephone{{ end }}</dt>
             <dd><a href="tel:{{ $contact.telephone_href }}">{{ $contact.telephone }}</a></dd>
           </div>
           <div>
-            <dt>Email</dt>
+            <dt>{{ if $isZh }}邮箱{{ else }}Email{{ end }}</dt>
             <dd><a href="mailto:{{ $contact.email }}">{{ $contact.email }}</a></dd>
           </div>
         </dl>
       </section>
 
       <section class="profile-resources" aria-labelledby="profile-resources-heading">
-        <h2 id="profile-resources-heading">Profiles and documents</h2>
-        <a href="{{ $contact.personal_page }}">Peking University faculty profile <span>(Chinese)</span></a>
-        <a href="{{ $leader.cv }}">Curriculum vitae <span>(PDF)</span></a>
+        <h2 id="profile-resources-heading">{{ if $isZh }}个人主页与资料{{ else }}Profiles and documents{{ end }}</h2>
+        <a href="{{ $contact.personal_page }}">{{ if $isZh }}北京大学教师个人主页{{ else }}Peking University faculty profile <span>(Chinese)</span>{{ end }}</a>
+        <a href="{{ $leader.cv }}">{{ if $isZh }}个人简历（PDF）{{ else }}Curriculum vitae <span>(PDF)</span>{{ end }}</a>
       </section>
     </div>
   </article>
