@@ -3,41 +3,48 @@
     <h1>{{ .Title }}</h1>
     <div class="prose">{{ .Content }}</div>
   </header>
-  {{ if eq site.Language.Lang "en" }}
-    <div class="people-directory">
-      {{ range hugo.Data.people.categories }}
-        {{ $isLeader := eq .name "Group Leader" }}
-        {{ $isGraduate := eq .name "Graduate Students" }}
-        {{ $isAlumni := hasPrefix .name "Alumni" }}
-        <section class="people-section{{ if $isLeader }} people-section--leader{{ end }}{{ if $isGraduate }} people-section--graduate{{ end }}{{ if $isAlumni }} people-section--alumni{{ end }}">
-          <header class="people-section-heading">
-            <h2>{{ .name }}</h2>
-            <p>{{ len .people }} {{ if $isAlumni }}alumni{{ else if eq (len .people) 1 }}member{{ else }}members{{ end }}</p>
-          </header>
-          <div class="people-grid">
-          {{ range .people }}
-            <article class="person-card">
-              <img src="{{ .image }}" width="{{ if $isLeader }}180{{ else }}120{{ end }}" height="{{ if $isLeader }}209{{ else }}120{{ end }}" alt="Portrait of {{ .name }}" loading="lazy">
-              <div class="person-card__body">
-                <h3>{{ if .profile }}<a href="{{ .profile }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}</h3>
-                {{ with .name_zh }}<p class="person-card__name-zh" lang="zh">{{ . }}</p>{{ end }}
-                {{ with .role }}<p>{{ . }}</p>{{ end }}
-                {{ range .details }}<p>{{ . }}</p>{{ end }}
+  {{ $isZh := eq site.Language.Lang "zh" }}
+  <div class="people-directory">
+    {{ range hugo.Data.people.categories }}
+      {{ $isLeader := eq .name "Group Leader" }}
+      {{ $isGraduate := eq .name "Graduate Students" }}
+      {{ $isAlumni := hasPrefix .name "Alumni" }}
+      {{ $categoryName := .name }}
+      {{ if and $isZh .name_zh }}{{ $categoryName = .name_zh }}{{ end }}
+      <section class="people-section{{ if $isLeader }} people-section--leader{{ end }}{{ if $isGraduate }} people-section--graduate{{ end }}{{ if $isAlumni }} people-section--alumni{{ end }}">
+        <header class="people-section-heading">
+          <h2>{{ $categoryName }}</h2>
+          <p>{{ if $isZh }}{{ len .people }}名{{ if $isAlumni }}校友{{ else }}成员{{ end }}{{ else }}{{ len .people }} {{ if $isAlumni }}alumni{{ else if eq (len .people) 1 }}member{{ else }}members{{ end }}{{ end }}</p>
+        </header>
+        <div class="people-grid">
+        {{ range .people }}
+          {{ $personName := .name }}
+          {{ if and $isZh .name_en }}{{ $personName = .name_en }}{{ end }}
+          <article class="person-card">
+            <img src="{{ .image }}" width="{{ if $isLeader }}180{{ else }}120{{ end }}" height="{{ if $isLeader }}209{{ else }}120{{ end }}" alt="{{ if $isZh }}{{ with .name_zh }}{{ . }}的照片{{ else }}{{ $personName }}的照片{{ end }}{{ else }}Portrait of {{ .name }}{{ end }}" loading="lazy">
+            <div class="person-card__body">
+              <h3>{{ if .profile }}<a href="{{ .profile }}">{{ $personName }}</a>{{ else }}{{ $personName }}{{ end }}</h3>
+              {{ if or $isZh $isGraduate }}{{ with .name_zh }}<p class="person-card__name-zh" lang="zh">{{ . }}</p>{{ end }}{{ end }}
+              {{ if $isZh }}{{ with .role_zh }}<p>{{ . }}</p>{{ end }}{{ else }}{{ with .role }}<p>{{ . }}</p>{{ end }}{{ end }}
+              {{ if $isZh }}{{ range .details_zh }}<p>{{ . }}</p>{{ end }}{{ else }}{{ range .details }}<p>{{ . }}</p>{{ end }}{{ end }}
+              {{ if $isZh }}
+                {{ with .research_interest_zh }}<p class="person-card__research"><strong>研究方向：</strong> {{ . }}</p>{{ end }}
+              {{ else }}
                 {{ with .research_interest }}<p class="person-card__research"><strong>{{ if $isGraduate }}Interest:{{ else }}Research interest:{{ end }}</strong> {{ . }}</p>{{ end }}
-                {{ if or .email .telephone .personal_page .cv }}
-                  <div class="person-card__links">
-                    {{ with .email }}<a href="mailto:{{ . }}">{{ . }}</a>{{ end }}
-                    {{ with .telephone }}<a href="tel:{{ replaceRE `[^0-9+]` `` . }}">{{ . }} (office)</a>{{ end }}
-                    {{ with .personal_page }}<a href="{{ . }}">Personal page (Chinese)</a>{{ end }}
-                    {{ with .cv }}<a href="{{ . }}">Detailed CV</a>{{ end }}
-                  </div>
-                {{ end }}
-              </div>
-            </article>
+              {{ end }}
+              {{ if or .email .telephone .personal_page .cv }}
+                <div class="person-card__links">
+                  {{ with .email }}<a href="mailto:{{ . }}">{{ . }}</a>{{ end }}
+                  {{ with .telephone }}<a href="tel:{{ replaceRE `[^0-9+]` `` . }}">{{ . }}{{ if $isZh }}（办公室）{{ else }} (office){{ end }}</a>{{ end }}
+                  {{ with .personal_page }}<a href="{{ . }}">{{ if $isZh }}北京大学个人主页{{ else }}Personal page (Chinese){{ end }}</a>{{ end }}
+                  {{ with .cv }}<a href="{{ . }}">{{ if $isZh }}详细简历（PDF）{{ else }}Detailed CV{{ end }}</a>{{ end }}
+                </div>
+              {{ end }}
+            </div>
+          </article>
           {{ end }}
-          </div>
-        </section>
-      {{ end }}
-    </div>
-  {{ end }}
+        </div>
+      </section>
+    {{ end }}
+  </div>
 {{ end }}

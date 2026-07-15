@@ -2,12 +2,19 @@
   "categories": [
     {
       "name": "Group Leader",
+      "name_zh": "课题组负责人",
       "people": [
         {
           "name": "Limei Xu 徐莉梅",
+          "name_en": "Limei Xu",
+          "name_zh": "徐莉梅",
           "role": "Boya Distinguished Professor, Peking University",
+          "role_zh": "北京大学博雅特聘教授",
           "details": [
             "International Center for Quantum Materials (ICQM), School of Physics, Peking University, Beijing, China"
+          ],
+          "details_zh": [
+            "北京大学物理学院量子材料科学中心（ICQM），北京，中国"
           ],
           "telephone": "+86 10-6275-5043",
           "email": "limei.xu@pku.edu.cn",
@@ -21,11 +28,17 @@
     },
     {
       "name": "Visiting Scholar",
+      "name_zh": "访问学者",
       "people": [
         {
           "name": "Gang Sun 孙刚",
+          "name_en": "Gang Sun",
+          "name_zh": "孙刚",
           "details": [
             "Beijing Normal University"
+          ],
+          "details_zh": [
+            "北京师范大学"
           ],
           "email": "gangsun@bnu.edu.cn",
           "research_interest": "",
@@ -34,8 +47,13 @@
         },
         {
           "name": "Zhenwei Wu 武振伟",
+          "name_en": "Zhenwei Wu",
+          "name_zh": "武振伟",
           "details": [
             "Beijing Normal University"
+          ],
+          "details_zh": [
+            "北京师范大学"
           ],
           "email": "zwwu@bnu.edu.cn",
           "research_interest": "",
@@ -46,24 +64,37 @@
     },
     {
       "name": "Post-doctor",
+      "name_zh": "博士后",
       "people": [
         {
           "name": "Binze Tang 唐宾泽",
+          "name_en": "Binze Tang",
+          "name_zh": "唐宾泽",
           "details": [
             "Ph.D. 2024, Peking University"
           ],
+          "details_zh": [
+            "2024年获北京大学博士学位"
+          ],
           "email": "bztang@pku.edu.cn",
           "research_interest": "Capillarity and wetting at nanoscale, Application of machine learning on studying interface",
+          "research_interest_zh": "纳米尺度毛细与润湿；机器学习在界面研究中的应用",
           "image": "/media/people-03.jpg",
           "status": "current"
         },
         {
           "name": "Tiancheng Liang 梁天成",
+          "name_en": "Tiancheng Liang",
+          "name_zh": "梁天成",
           "details": [
             "Ph.D. 2025, Peking University"
           ],
+          "details_zh": [
+            "2025年获北京大学博士学位"
+          ],
           "email": "liangtch@pku.edu.cn",
           "research_interest": "First-principles study of ice surface properties, Kinetic study of ice crystal growth",
+          "research_interest_zh": "冰表面性质的第一性原理研究；冰晶生长动力学研究",
           "image": "/media/people-04.jpg",
           "status": "current"
         }
@@ -71,6 +102,7 @@
     },
     {
       "name": "Graduate Students",
+      "name_zh": "研究生",
       "people": [
         {
           "name": "Zhiyuan Huang",
@@ -78,8 +110,12 @@
           "details": [
             "B.S. 2020, Wuhan University"
           ],
+          "details_zh": [
+            "2020年获武汉大学学士学位"
+          ],
           "email": "huang.zhy@stu.pku.edu.cn",
           "research_interest": "Deformation of amorphous solids, Topology of vibrational modes in glasses",
+          "research_interest_zh": "非晶固体形变；玻璃中振动模式的拓扑",
           "image": "/media/people-05.jpg",
           "status": "current"
         },
@@ -89,8 +125,12 @@
           "details": [
             "B.S. 2021, East China Normal University"
           ],
+          "details_zh": [
+            "2021年获华东师范大学学士学位"
+          ],
           "email": "zf.yuan@stu.pku.edu.cn",
           "research_interest": "Crystallization process",
+          "research_interest_zh": "结晶过程",
           "image": "/media/people-06.jpg",
           "status": "current"
         },
@@ -100,8 +140,12 @@
           "details": [
             "B.S. 2021, Northwest University"
           ],
+          "details_zh": [
+            "2021年获西北大学学士学位"
+          ],
           "email": "alusizhao@stu.pku.edu.cn",
           "research_interest": "Dynamic evolution mechanism of liquid bridge in confined system",
+          "research_interest_zh": "受限体系中液桥的动态演化机制",
           "image": "/media/people-07.jpg",
           "status": "current"
         },
@@ -111,8 +155,12 @@
           "details": [
             "B.S. 2022, Hohai University"
           ],
+          "details_zh": [
+            "2022年获河海大学学士学位"
+          ],
           "email": "phyyxchen@stu.pku.edu.cn",
           "research_interest": "Density anomaly of liquids",
+          "research_interest_zh": "液体的密度反常",
           "image": "/media/people-08.jpg",
           "status": "current"
         },
@@ -122,8 +170,12 @@
           "details": [
             "B.S. 2023, Xiamen University"
           ],
+          "details_zh": [
+            "2023年获厦门大学学士学位"
+          ],
           "email": "shuwei@stu.pku.edu.cn",
           "research_interest": "The effect of liquid-liquid phase transition on nucleation process",
+          "research_interest_zh": "液-液相变对成核过程的影响",
           "image": "/media/people-09.jpg",
           "status": "current"
         },
@@ -132,6 +184,9 @@
           "name_zh": "高天",
           "details": [
             "M.S. 2023, Tsinghua University"
+          ],
+          "details_zh": [
+            "2023年获清华大学硕士学位"
           ],
           "email": "ak.babar2023@outlook.com",
           "research_interest": "",
@@ -144,8 +199,12 @@
           "details": [
             "B.S. 2024, Peking University"
           ],
+          "details_zh": [
+            "2024年获北京大学学士学位"
+          ],
           "email": "seelooooo@stu.pku.edu.cn",
           "research_interest": "Physics-informed machine learning on studying interface",
+          "research_interest_zh": "面向界面研究的物理信息机器学习",
           "image": "/media/people-11.png",
           "status": "current"
         },
@@ -154,6 +213,9 @@
           "name_zh": "杜梦宇",
           "details": [
             "B.S. 2025, Peking University"
+          ],
+          "details_zh": [
+            "2025年获北京大学学士学位"
           ],
           "email": "2657053067@qq.com",
           "research_interest": "",
@@ -164,14 +226,21 @@
     },
     {
       "name": "Undergraduate",
+      "name_zh": "本科生",
       "people": [
         {
           "name": "Mian Qin 秦勉",
+          "name_en": "Mian Qin",
+          "name_zh": "秦勉",
           "details": [
             "Post-graduation Destination: University of Pennsylvania, Chemical and Biomolecular Engineering"
           ],
+          "details_zh": [
+            "毕业去向：宾夕法尼亚大学化学与生物分子工程系"
+          ],
           "email": "mianqin@seas.upenn.edu",
           "research_interest": "Scientific Machine Learning",
+          "research_interest_zh": "科学机器学习",
           "image": "/media/people-13.jpg",
           "status": "current"
         }
@@ -179,12 +248,19 @@
     },
     {
       "name": "Alumni — Postdocs and Ph.D.s",
+      "name_zh": "校友 — 博士后与博士毕业生",
       "people": [
         {
           "name": "Zhaoru Sun 孙兆茹",
+          "name_en": "Zhaoru Sun",
+          "name_zh": "孙兆茹",
           "details": [
             "Ph.D 2014",
             "Present: Assistant Professor/PI, ShanghaiTech University"
+          ],
+          "details_zh": [
+            "2014年获博士学位",
+            "现任：上海科技大学助理教授、课题组负责人"
           ],
           "email": "sunzhr@shanghaitech.edu.cn",
           "research_interest": "",
@@ -193,9 +269,15 @@
         },
         {
           "name": "Gang Sun 孙刚",
+          "name_en": "Gang Sun",
+          "name_zh": "孙刚",
           "details": [
             "Ph.D 2016",
             "Present: Professor, Beijing Normal University"
+          ],
+          "details_zh": [
+            "2016年获博士学位",
+            "现任：北京师范大学教授"
           ],
           "email": "gangsun@bnu.edu.cn",
           "research_interest": "",
@@ -204,9 +286,15 @@
         },
         {
           "name": "Renzhong Li 李任重",
+          "name_en": "Renzhong Li",
+          "name_zh": "李任重",
           "details": [
             "Ph.D 2017",
             "Present: AI Expert, Sunshine Insurance Group"
+          ],
+          "details_zh": [
+            "2017年获博士学位",
+            "现任：阳光保险集团人工智能专家"
           ],
           "email": "",
           "research_interest": "",
@@ -215,9 +303,15 @@
         },
         {
           "name": "Huaze Shen 申化泽",
+          "name_en": "Huaze Shen",
+          "name_zh": "申化泽",
           "details": [
             "Ph.D 2017",
             "Present: Lecturer, Chongqing university of arts and sciences"
+          ],
+          "details_zh": [
+            "2017年获博士学位",
+            "现任：重庆文理学院讲师"
           ],
           "email": "shenhuaze@pku.edu.cn",
           "research_interest": "",
@@ -226,9 +320,15 @@
         },
         {
           "name": "Rui Wang 王睿",
+          "name_en": "Rui Wang",
+          "name_zh": "王睿",
           "details": [
             "Ph.D 2018",
             "Present: Assistant Researcher, Shanghai Jiao Tong University"
+          ],
+          "details_zh": [
+            "2018年获博士学位",
+            "现任：上海交通大学助理研究员"
           ],
           "email": "rui.wang@sjtu.edu.cn",
           "research_interest": "",
@@ -237,9 +337,15 @@
         },
         {
           "name": "Fujie Tang 汤富杰",
+          "name_en": "Fujie Tang",
+          "name_zh": "汤富杰",
           "details": [
             "Ph.D 2018",
             "Present: Associate Professor, Xiamen University"
+          ],
+          "details_zh": [
+            "2018年获博士学位",
+            "现任：厦门大学副教授"
           ],
           "email": "tangfujie@xmu.edu.cn",
           "research_interest": "",
@@ -248,9 +354,15 @@
         },
         {
           "name": "Zhenwei Wu 武振伟",
+          "name_en": "Zhenwei Wu",
+          "name_zh": "武振伟",
           "details": [
             "Postdoc, 2015-2018",
             "Present: Associate Professor, Beijing Normal University"
+          ],
+          "details_zh": [
+            "博士后，2015—2018年",
+            "现任：北京师范大学副教授"
           ],
           "email": "zwwu@bnu.edu.cn",
           "research_interest": "",
@@ -259,8 +371,13 @@
         },
         {
           "name": "Liying Zhou 周丽颖",
+          "name_en": "Liying Zhou",
+          "name_zh": "周丽颖",
           "details": [
             "Ph.D 2020"
+          ],
+          "details_zh": [
+            "2020年获博士学位"
           ],
           "email": "",
           "research_interest": "",
@@ -269,9 +386,15 @@
         },
         {
           "name": "Duanyun Cao 曹端云",
+          "name_en": "Duanyun Cao",
+          "name_zh": "曹端云",
           "details": [
             "Ph.D 2020",
             "Present: Associate Researcher, Beijing Institute of Technology"
+          ],
+          "details_zh": [
+            "2020年获博士学位",
+            "现任：北京理工大学副研究员"
           ],
           "email": "dycao@bit.edu.cn",
           "research_interest": "",
@@ -280,9 +403,15 @@
         },
         {
           "name": "Jingdong Ai 艾靖东",
+          "name_en": "Jingdong Ai",
+          "name_zh": "艾靖东",
           "details": [
             "Ph.D 2022",
             "Present: Researcher, SSRS Fund (Hainan) Corp, Ltd"
+          ],
+          "details_zh": [
+            "2022年获博士学位",
+            "现任：SSRS Fund (Hainan) Corp, Ltd 研究员"
           ],
           "email": "",
           "research_interest": "",
@@ -291,9 +420,15 @@
         },
         {
           "name": "Jianqing Guo 郭见青",
+          "name_en": "Jianqing Guo",
+          "name_zh": "郭见青",
           "details": [
             "Ph.D 2022",
             "Present: Quant Researcher, Ubiquant Investment (Beijing) Corp, Ltd."
+          ],
+          "details_zh": [
+            "2022年获博士学位",
+            "现任：Ubiquant Investment (Beijing) Corp, Ltd. 量化研究员"
           ],
           "email": "",
           "research_interest": "",
@@ -302,9 +437,15 @@
         },
         {
           "name": "Shaoqin Jiang 江少钦",
+          "name_en": "Shaoqin Jiang",
+          "name_zh": "江少钦",
           "details": [
             "Postdoc, 2020-2022",
             "Present: Software R&D Engineer, Longxun Quantum Science and Technology Ltd."
+          ],
+          "details_zh": [
+            "博士后，2020—2022年",
+            "现任：Longxun Quantum Science and Technology Ltd. 软件研发工程师"
           ],
           "email": "",
           "research_interest": "",
@@ -313,19 +454,31 @@
         },
         {
           "name": "Yizhi Liu 刘益志",
+          "name_en": "Yizhi Liu",
+          "name_zh": "刘益志",
           "details": [
             "Ph.D 2023"
           ],
+          "details_zh": [
+            "2023年获博士学位"
+          ],
           "email": "lyz2018@pku.edu.cn",
           "research_interest": "Phase transitions in complex amorphous systems",
+          "research_interest_zh": "复杂非晶体系中的相变",
           "image": "/media/people-26.jpg",
           "status": "alumni"
         },
         {
           "name": "Yizhi Song 宋易知",
+          "name_en": "Yizhi Song",
+          "name_zh": "宋易知",
           "details": [
             "Ph.D 2023",
             "Present: Postdoc, University of North Texas"
+          ],
+          "details_zh": [
+            "2023年获博士学位",
+            "现任：北德克萨斯大学博士后"
           ],
           "email": "yizhi.song@unt.edu",
           "research_interest": "",
@@ -334,9 +487,15 @@
         },
         {
           "name": "Xuejia Yu 余雪佳",
+          "name_en": "Xuejia Yu",
+          "name_zh": "余雪佳",
           "details": [
             "Ph.D 2023",
             "Present: Assistant Professor/PI, Eastern Institute of Technology, Ningbo"
+          ],
+          "details_zh": [
+            "2023年获博士学位",
+            "现任：宁波东方理工大学助理教授、课题组负责人"
           ],
           "email": "xuejiayu@eitech.edu.cn",
           "research_interest": "",

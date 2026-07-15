@@ -155,7 +155,7 @@ only after the English design is approved.
 
 ### 8.3 People
 
-- [ ] **成员列表** `/zh/people/` — 对照 `/people/`，保留全部成员、照片、
+- [x] **成员列表** `/zh/people/` — 对照 `/people/`，保留全部成员、照片、
   英文姓名、中文姓名、学历、研究方向、邮箱与分类顺序，不推断空缺字段。
 - [ ] **徐莉梅个人页** `/zh/people/limei-xu/` — 对照 `/people/limei-xu/`，
   中文化职称、单位、联系方式与资源标签，保持资料来源和链接不变。
