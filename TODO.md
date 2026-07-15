@@ -121,11 +121,97 @@ only after the English design is approved.
   wordmark, canonical contact details, and locale-specific quick links.
 - [ ] Obtain final English visual approval and tag the English design as locked.
 
-## 8. Chinese parity after English approval
+## 8. Chinese localization after English approval
 
-- [ ] Create a second page-by-page Chinese checklist matching every approved
-  English route and `translationKey`.
-- [ ] Migrate and review Chinese pages without inventing translations, claims,
-  biographies, captions, or affiliations.
-- [ ] Run bilingual navigation, alternate-language metadata, route parity, and
-  production-readiness checks.
+### 中文化规则与逐页验收
+
+- [x] 确认中文化原则：中文版与已核准英文版使用相同的信息层级、组件、
+  图片角色与响应式排版。
+- [x] 中文不要求逐句直译；优先使用自然、专业、符合中文学术网站习惯的
+  表达。英文原文已经准确自然时，不为制造差异而改写。
+- [x] 论文题目、期刊名称与作者名单保留英文原文，不翻译、不改写作者顺序；
+  年份、卷期、页码、DOI 与原始链接保持不变。
+- [ ] 每次只处理一个页面；当前页面完成内容核对、桌面与手机检查并获得确认后，
+  才开始下一页。
+- [ ] 每个中文页面必须与英文对应页面共享正确的 `translationKey`，并验证
+  `CN` / `EN` 切换会到达对应页面，而不是退回首页。
+- [ ] 每页核对事实、数字、姓名、机构、图片、链接、科学条件与谨慎措辞；
+  不补写未经来源支持的结论、履历、研究方向或宣传性表述。
+- [ ] 每页在 1440 px 桌面、768 px 平板与 390 px 手机检查相同版式结构、
+  阅读顺序、图片裁切、标题层级、键盘焦点、对比度及水平溢出。
+- [ ] 每页完成后运行干净 Hugo 构建、勾选对应项目，并建立一个聚焦提交。
+
+### 8.1 Shared Chinese interface
+
+- [ ] **共用界面** — 核对中文页首、导航、面包屑、语言切换、移动抽屉、
+  Footer、联系方式与机构名称；只本地化文字，不改变已核准的英文版尺寸和布局。
+
+### 8.2 Home and Research
+
+- [ ] **首页** `/zh/` — 对照 `/`，中文化课题组简介、研究方向、研究亮点与
+  近期新闻；保持宽幅合照、左文右图和相同首屏节奏。
+- [ ] **研究方向** `/zh/research/` — 对照 `/research/`，按相同图文交替结构
+  中文化研究问题、方法、证据、限制与开放方向；参考文献条目保持英文原文。
+
+### 8.3 People
+
+- [ ] **成员列表** `/zh/people/` — 对照 `/people/`，保留全部成员、照片、
+  英文姓名、中文姓名、学历、研究方向、邮箱与分类顺序，不推断空缺字段。
+- [ ] **徐莉梅个人页** `/zh/people/limei-xu/` — 对照 `/people/limei-xu/`，
+  中文化职称、单位、联系方式与资源标签，保持资料来源和链接不变。
+
+### 8.4 News
+
+- [ ] **最新消息** `/zh/news/` — 对照 `/news/`，逐条中文化新闻叙述并保留
+  `YYYY.MM` 日期、论文英文题目、期刊名称与原始链接。
+- [ ] **全部新闻与活动** `/zh/news/all-news/` — 对照 `/news/all-news/`，
+  保留全部记录、年份与分类结构；论文相关元数据继续使用英文原文。
+
+### 8.5 Publications
+
+- [ ] **成果首页** `/zh/publications/` — 对照 `/publications/`，中文化栏目说明
+  与导航标签，保持相同入口与记录统计。
+- [ ] **研究亮点** `/zh/publications/highlights/` — 对照
+  `/publications/highlights/`，中文化说明文字；论文题目、作者、期刊与链接
+  保持英文原文。
+- [ ] **论文列表** `/zh/publications/full-list/` — 对照
+  `/publications/full-list/`，完整保留全部英文引文、作者顺序、年份分组、DOI
+  与期刊信息，不翻译论文题目。
+- [ ] **学位论文** `/zh/publications/theses/` — 对照
+  `/publications/theses/`，保留姓名、题目、年份、学位类别和既有中英文信息，
+  不自行补译缺失内容。
+
+### 8.6 Teaching
+
+- [ ] **教学首页** `/zh/teaching/` — 对照 `/teaching/`，中文化课程说明与年份
+  导航，保持课程字段和页面结构一致。
+- [ ] **2022 年课程** `/zh/teaching/2022/` — 对照 `/teaching/2022/`。
+- [ ] **2021 年课程** `/zh/teaching/2021/` — 对照 `/teaching/2021/`。
+- [ ] **2020 年课程** `/zh/teaching/2020/` — 对照 `/teaching/2020/`。
+- [ ] **2019 年课程** `/zh/teaching/2019/` — 对照 `/teaching/2019/`。
+
+### 8.7 Photos
+
+- [ ] **照片首页** `/zh/photos/` — 对照 `/photos/`，中文化图库标题、简介与
+  图片说明，保持图片数量、顺序和自然比例。
+- [ ] **课题组成员** `/zh/photos/group-members/` — 对照
+  `/photos/group-members/`。
+- [ ] **会议活动** `/zh/photos/meetings/` — 对照 `/photos/meetings/`。
+- [ ] **休闲活动** `/zh/photos/have-fun/` — 对照 `/photos/have-fun/`。
+- [ ] **聚餐** `/zh/photos/dine-together/` — 对照 `/photos/dine-together/`，
+  保留旧地址别名。
+- [ ] **毕业留影** `/zh/photos/graduation/` — 对照 `/photos/graduation/`。
+
+### 8.8 Contact
+
+- [ ] **联系我们** `/zh/contact/` — 对照 `/contact/`，中文化负责人、办公地点、
+  学生办公室与 Join Us 文案；电话、邮箱、地址事实和个人主页链接保持不变。
+
+### 8.9 Chinese release gate
+
+- [ ] 检查所有中英文路由、`translationKey`、alternate-language metadata、
+  旧地址别名、语言切换与 404 行为。
+- [ ] 检查中英文记录数量、图片资产、外部链接、邮件和电话链接一致且无遗漏。
+- [ ] 完成 1440 / 768 / 390 px 全站响应式与无障碍回归，确认无水平溢出。
+- [ ] 运行最终干净 Hugo 构建并检查无 VSB 资源、无构建警告和无未提交改动。
+- [ ] 获得中文版最终视觉与文字确认，标记双语网站可发布。
