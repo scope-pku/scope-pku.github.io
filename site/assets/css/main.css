@@ -236,6 +236,66 @@ h1 {
 .prose th,
 .prose td { padding: .6rem; border: 1px solid var(--line); text-align: left; vertical-align: top; }
 
+.research-header {
+  max-width: 760px;
+  padding: 4rem 0 2rem;
+}
+
+.research-header h1 { font-size: clamp(2rem, 5vw, 3.6rem); }
+
+.research-article {
+  max-width: 760px;
+  padding-bottom: 5rem;
+}
+
+.research-article > p:first-child {
+  margin-top: 0;
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+.research-article h2 {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 3px solid var(--accent);
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+}
+
+.research-article h3 {
+  margin-top: 2.5rem;
+  color: var(--secondary);
+  font-size: 1rem;
+  letter-spacing: .04em;
+}
+
+.research-article figure {
+  width: min(920px, calc(100vw - 2rem));
+  margin: 2.5rem 0 2.5rem max(-5rem, min(0px, calc((760px - 100vw + 2rem) / 2)));
+}
+
+.research-article figure img {
+  display: block;
+  max-width: 100%;
+  max-height: 680px;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.research-article figcaption {
+  max-width: 72ch;
+  margin: .75rem auto 0;
+  color: var(--muted);
+  font-size: .875rem;
+  text-align: center;
+}
+
+.research-article h3 + ol {
+  padding-left: 1.5rem;
+  font-size: .94rem;
+}
+
+.research-article h3 + ol li + li { margin-top: .45rem; }
+
 .index-list {
   padding-bottom: 5rem;
   border-top: 1px solid var(--line);
@@ -339,7 +399,13 @@ h1 {
   }
   .university-brand img { width: 175px; }
   .group-brand { grid-column: 1 / -1; grid-row: 2; justify-self: start; text-align: left; }
-  .primary-nav { overflow-x: auto; }
+  .primary-nav {
+    overflow-x: auto;
+    scrollbar-color: rgba(255, 255, 255, .7) #650000;
+  }
+  .primary-nav::-webkit-scrollbar { height: .4rem; }
+  .primary-nav::-webkit-scrollbar-track { background: #650000; }
+  .primary-nav::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, .7); }
   .home-intro { grid-template-columns: 1fr; padding-top: 2rem; }
   .home-identity { display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 1rem; }
   .home-identity .eyebrow,

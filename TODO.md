@@ -11,6 +11,8 @@ only after the English design is approved.
 - Mark an item complete only after its route passes the page-level definition of
   done below.
 - Preserve `source/xulm.pku.edu.cn/` as the immutable comparison source.
+- Do not run `tools/migrate_english.py` during optimization; refine every page
+  manually against its source and rendered output.
 
 ## Definition of done for every page
 
@@ -43,7 +45,7 @@ only after the English design is approved.
 - [x] **Home** `/` — compare `source/xulm.pku.edu.cn/index.htm`; restore the
   strong PKU masthead and wide group-photo viewpoint, then refine research
   identity, interests, highlights, and recent news without a carousel.
-- [ ] **Research** `/research/` — compare `Research.htm`; create a dedicated
+- [x] **Research** `/research/` — compare `Research.htm`; create a dedicated
   reading layout with known figures, captions, references, caveats, and wider
   evidence images.
 

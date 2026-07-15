@@ -18,3 +18,7 @@
   changes before publishing.
 - Do not add dependencies unless the existing project cannot meet the need.
 - Keep patches small and verify changed pages locally before handoff.
+- `tools/migrate_english.py` is retained only as a record of the initial bulk
+  bootstrap. Do not run it during page-by-page optimization. Compare each page
+  with the immutable source and edit its content, semantics, captions, and
+  layout deliberately by hand.

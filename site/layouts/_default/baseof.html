@@ -9,7 +9,9 @@
     {{ range .AllTranslations }}
       <link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
     {{ end }}
-    <link rel="stylesheet" href="{{ "css/main.css" | relURL }}?v=2">
+    {{ with resources.Get "css/main.css" | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+    {{ end }}
   </head>
   <body>
     <a class="skip-link" href="#main">{{ if eq site.Language.Lang "zh" }}跳到正文{{ else }}Skip to content{{ end }}</a>

@@ -1,0 +1,9 @@
+{{ define "main" }}
+  <article class="research-page">
+    <header class="research-header">
+      <p class="eyebrow">{{ if eq site.Language.Lang "zh" }}研究方向{{ else }}Research programme{{ end }}</p>
+      <h1>{{ .Title }}</h1>
+    </header>
+    <div class="research-article prose">{{ .Content }}</div>
+  </article>
+{{ end }}
