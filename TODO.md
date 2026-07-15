@@ -174,7 +174,7 @@ only after the English design is approved.
 - [x] **研究亮点** `/zh/publications/highlights/` — 对照
   `/publications/highlights/`，中文化说明文字；论文题目、作者、期刊与链接
   保持英文原文。
-- [ ] **论文列表** `/zh/publications/full-list/` — 对照
+- [x] **论文列表** `/zh/publications/full-list/` — 对照
   `/publications/full-list/`，完整保留全部英文引文、作者顺序、年份分组、DOI
   与期刊信息，不翻译论文题目。
 - [ ] **学位论文** `/zh/publications/theses/` — 对照

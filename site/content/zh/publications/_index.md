@@ -9,8 +9,7 @@ resources:
     url: /zh/publications/highlights/
   - title: 完整论文列表
     summary: 查阅 2005 至 2026 年的完整论文列表。
-    url: /publications/full-list/
-    hreflang: en
+    url: /zh/publications/full-list/
   - title: 博士学位论文
     summary: 查阅课题组指导的博士学位论文。
     url: /publications/theses/
