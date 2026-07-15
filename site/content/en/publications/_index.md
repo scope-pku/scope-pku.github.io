@@ -1,5 +1,6 @@
 ---
 title: "Publications"
 translationKey: publications
+layout: publication-index
 ---
-Research highlights, the complete publication list, and student theses.
+Explore selected research stories, browse the complete publication record, or consult the group’s thesis archive.

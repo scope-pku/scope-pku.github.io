@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    <div class="prose">{{ .Content }}</div>
+  </header>
+  <nav class="publication-index" aria-label="Publication resources">
+    {{ range $index, $page := .Pages.ByWeight }}
+      <article class="publication-index-entry">
+        <span class="publication-index-number" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
+        <div>
+          <h2><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h2>
+          {{ with $page.Summary }}<p>{{ . }}</p>{{ end }}
+        </div>
+      </article>
+    {{ end }}
+  </nav>
+{{ end }}

@@ -313,6 +313,12 @@ h1 {
 .index-entry p { margin: 0; }
 .index-entry h2 { font-size: 1.35rem; }
 
+.publication-index { padding-bottom: 5rem; border-top: 3px solid var(--accent); }
+.publication-index-entry { display: grid; grid-template-columns: 4rem minmax(0, 1fr); gap: 1.5rem; padding: 2rem 0; border-bottom: 1px solid var(--line); }
+.publication-index-number { color: var(--muted); font-family: "Source Serif 4", "Noto Serif SC", Georgia, serif; font-size: 1.4rem; font-variant-numeric: tabular-nums; }
+.publication-index-entry h2 { margin: 0; font-size: clamp(1.4rem, 3vw, 1.8rem); }
+.publication-index-entry p { max-width: 60ch; margin: .5rem 0 0; color: var(--muted); }
+
 .home-section { padding: 2rem 0 4rem; border-top: 1px solid var(--line); }
 .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
 .section-heading h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); }
@@ -486,6 +492,8 @@ h1 {
   .people-section--leader .person-card,
   .people-section--alumni .person-card { grid-template-columns: 88px minmax(0, 1fr); gap: .85rem; }
   .person-card img { width: 88px; height: 88px; }
+  .publication-index-entry { grid-template-columns: 2rem minmax(0, 1fr); gap: .75rem; padding: 1.5rem 0; }
+  .publication-index-number { font-size: 1rem; }
   .people-section--leader .person-card img { width: 88px; height: auto; }
   .people-section--alumni .people-grid { grid-template-columns: 1fr; }
   .people-section-heading { align-items: flex-start; }
