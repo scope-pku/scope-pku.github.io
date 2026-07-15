@@ -109,9 +109,10 @@ only after the English design is approved.
   address, office, telephone, email, personal page, and student-office details.
 - [x] Run the final English route, content-count, asset, alias, accessibility,
   responsive, and broken-link regression checks.
-- [x] Resolve final visual review notes: compact the Home introduction, alternate
-  Research text and figures, format the footer as a postal block, and move the
-  SVG language switch to the right side of the navigation row.
+- [x] Resolve final visual review notes: use one left Home text column with a
+  right-side figure, alternate Research text and figures with left-aligned
+  references, format the footer as a postal block, and move the SVG language
+  switch to the right side of the navigation row.
 - [x] Review the complete English visual system and normalize mobile gutters,
   interior title scale, archive reading width, and section-aware language links.
 - [ ] Obtain final English visual approval and tag the English design as locked.

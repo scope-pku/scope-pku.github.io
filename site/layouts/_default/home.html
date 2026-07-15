@@ -5,14 +5,14 @@
         <img class="home-group-photo" src="{{ hugo.Data.home.hero }}" width="{{ hugo.Data.home.hero_width }}" height="{{ hugo.Data.home.hero_height }}" alt="Xu Research Group members on the Peking University campus" fetchpriority="high">
       {{ end }}
       <div class="home-intro">
-        <div class="home-identity">
+        <div class="home-copy">
           <p class="eyebrow">{{ site.Params.affiliation }}</p>
           <h1>{{ .Title }}</h1>
-          {{ if eq site.Language.Lang "en" }}
-            <img class="home-water-figure" src="{{ hugo.Data.home.water_figure }}" width="{{ hugo.Data.home.water_figure_width }}" height="{{ hugo.Data.home.water_figure_height }}" alt="Molecular structure illustration from the original Xu Research Group website">
-          {{ end }}
+          <div class="prose">{{ .Content }}</div>
         </div>
-        <div class="prose">{{ .Content }}</div>
+        {{ if eq site.Language.Lang "en" }}
+          <img class="home-water-figure" src="{{ hugo.Data.home.water_figure }}" width="{{ hugo.Data.home.water_figure_width }}" height="{{ hugo.Data.home.water_figure_height }}" alt="Molecular structure illustration from the original Xu Research Group website">
+        {{ end }}
       </div>
     </header>
     {{ if eq site.Language.Lang "en" }}
