@@ -7,6 +7,8 @@
   `https://xulm.pku.edu.cn/index.htm` on 2026-07-15. Preserve its paths and do
   not edit it when building the replacement site.
 - `site/` contains the Hugo replacement. Run Hugo commands from that directory.
+- `DESIGN.md` is the visual and editorial source of truth. Read it before
+  changing layouts, styles, components, or public-facing copy.
 
 ## Working rules
 
