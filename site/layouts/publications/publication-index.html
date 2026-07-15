@@ -3,15 +3,27 @@
     <h1>{{ .Title }}</h1>
     <div class="prose">{{ .Content }}</div>
   </header>
-  <nav class="publication-index" aria-label="Publication resources">
-    {{ range $index, $page := .Pages.ByWeight }}
-      <article class="publication-index-entry">
-        <span class="publication-index-number" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
-        <div>
-          <h2><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h2>
-          {{ with $page.Summary }}<p>{{ . }}</p>{{ end }}
-        </div>
-      </article>
+  <nav class="publication-index" aria-label="{{ .Params.resourcesLabel | default "Publication resources" }}">
+    {{ with .Params.resources }}
+      {{ range $index, $resource := . }}
+        <article class="publication-index-entry">
+          <span class="publication-index-number" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
+          <div>
+            <h2><a href="{{ $resource.url }}"{{ with $resource.hreflang }} hreflang="{{ . }}"{{ end }}>{{ $resource.title }}</a></h2>
+            {{ with $resource.summary }}<p>{{ . }}</p>{{ end }}
+          </div>
+        </article>
+      {{ end }}
+    {{ else }}
+      {{ range $index, $page := .Pages.ByWeight }}
+        <article class="publication-index-entry">
+          <span class="publication-index-number" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
+          <div>
+            <h2><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h2>
+            {{ with $page.Summary }}<p>{{ . }}</p>{{ end }}
+          </div>
+        </article>
+      {{ end }}
     {{ end }}
   </nav>
 {{ end }}

@@ -169,7 +169,7 @@ only after the English design is approved.
 
 ### 8.5 Publications
 
-- [ ] **成果首页** `/zh/publications/` — 对照 `/publications/`，中文化栏目说明
+- [x] **成果首页** `/zh/publications/` — 对照 `/publications/`，中文化栏目说明
   与导航标签，保持相同入口与记录统计。
 - [ ] **研究亮点** `/zh/publications/highlights/` — 对照
   `/publications/highlights/`，中文化说明文字；论文题目、作者、期刊与链接
