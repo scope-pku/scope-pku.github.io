@@ -1,7 +1,15 @@
 {
+  "https://xulm.pku.edu.cn/images/23/05/17/1hbmtqwdbb/PKU.png": {
+    "path": "/media/pku-wordmark.png",
+    "sha256": "1637857105070239a6c8b8d5171d142dcb3ddd40af88e56b13175f266fbcfb56"
+  },
   "https://xulm.pku.edu.cn/images/Group_Photo_512_100.png": {
     "path": "/media/home-group-photo.jpg",
     "sha256": "7659f60224e52a3df5a8a9f7e01a71bd458a520bfce2c5e77390b4aa9505be98"
+  },
+  "https://xulm.pku.edu.cn/images/water_white.png": {
+    "path": "/media/home-water-figure.png",
+    "sha256": "f66beafba309147f71cda2546e16d4c93e4cfe00ed19ace6f4d1b8e31afd98f8"
   },
   "https://xulm.pku.edu.cn/pdf/LimeiXu_CV.pdf": {
     "path": "/media/limei-xu-cv.pdf",

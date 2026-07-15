@@ -239,6 +239,14 @@ def migrate_home() -> None:
     home = soup_for("index.htm")
     hero_source = home.select_one("#flashBoxu_u3_ img")["src"]
     hero = download_image(hero_source, "home-group-photo", force_jpeg=True)
+    pku_logo = download_image(
+        home.select_one(".LOGO1 img")["src"],
+        "pku-wordmark",
+    )
+    water_figure = download_image(
+        home.select_one('img[src="images/water_white.png"]')["src"],
+        "home-water-figure",
+    )
     body = (
         "We are a computational research group in soft condensed matter physics and computational physics. "
         "Our group focuses on investigating the behavior of matter at the nanoscale, utilizing state-of-the-art "
@@ -255,7 +263,20 @@ def migrate_home() -> None:
         translation_key="home",
         aliases=["/index.htm"],
     )
-    (DATA / "home.json").write_text(json.dumps({"hero": hero}, indent=2))
+    (DATA / "home.json").write_text(json.dumps({
+        "hero": hero,
+        "pku_logo": pku_logo,
+        "water_figure": water_figure,
+    }, indent=2))
+
+    (DATA / "contact.json").write_text(json.dumps({
+        "address": "School of Physics, Peking University, No. 209 Chengfu Road, Haidian District, Beijing, China, 100871",
+        "office": "Room 537, West Building, School of Physics, Peking University",
+        "telephone": "+86 10-6275-5043",
+        "telephone_href": "+861062755043",
+        "email": "limei.xu@pku.edu.cn",
+        "personal_page": "https://faculty.pku.edu.cn/xulm/zh_CN/index.htm",
+    }, indent=2))
 
 
 def migrate_research_and_contact() -> None:

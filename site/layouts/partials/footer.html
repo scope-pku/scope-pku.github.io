@@ -1,6 +1,16 @@
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <p>{{ site.Params.affiliation }}</p>
-    <p>© {{ now.Year }} {{ site.Title }}</p>
+  <div class="container footer-inner{{ if eq site.Language.Lang "en" }} footer-with-contact{{ end }}">
+    <div>
+      <strong>{{ site.Title }}</strong>
+      <p>{{ site.Params.affiliation }}</p>
+    </div>
+    {{ if eq site.Language.Lang "en" }}
+      <address>
+        <span>{{ hugo.Data.contact.address }}</span>
+        <a href="mailto:{{ hugo.Data.contact.email }}">{{ hugo.Data.contact.email }}</a>
+        <a href="tel:{{ hugo.Data.contact.telephone_href }}">{{ hugo.Data.contact.telephone }}</a>
+      </address>
+    {{ end }}
+    <p class="copyright">© {{ now.Year }} {{ site.Title }}</p>
   </div>
 </footer>

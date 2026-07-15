@@ -1,15 +1,12 @@
 <header class="site-header">
-  <div class="header-inner">
-    <a class="brand" href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>
-    <nav aria-label="{{ if eq site.Language.Lang "zh" }}主导航{{ else }}Main navigation{{ end }}">
-      <ul class="nav-list">
-        {{ range site.Menus.main }}
-          <li>
-            <a href="{{ .URL }}"{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
-          </li>
-        {{ end }}
-      </ul>
-    </nav>
+  <div class="masthead-inner">
+    <a class="university-brand" href="https://www.pku.edu.cn/" aria-label="{{ if eq site.Language.Lang "zh" }}北京大学主页{{ else }}Peking University homepage{{ end }}">
+      <img src="{{ hugo.Data.home.pku_logo }}" alt="{{ if eq site.Language.Lang "zh" }}北京大学{{ else }}Peking University{{ end }}">
+    </a>
+    <a class="group-brand" href="{{ site.Home.RelPermalink }}">
+      <strong>{{ site.Title }}</strong>
+      <span>{{ site.Params.affiliation }}</span>
+    </a>
     <nav class="language-list" aria-label="{{ if eq site.Language.Lang "zh" }}语言{{ else }}Language{{ end }}">
       {{ $translations := .Translations }}
       {{ if not $translations }}{{ $translations = site.Home.Translations }}{{ end }}
@@ -21,4 +18,15 @@
       {{ end }}
     </nav>
   </div>
+  <nav class="primary-nav" aria-label="{{ if eq site.Language.Lang "zh" }}主导航{{ else }}Main navigation{{ end }}">
+    <div class="nav-inner">
+      <ul class="nav-list">
+        {{ range site.Menus.main }}
+          <li>
+            <a href="{{ .URL }}"{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </nav>
 </header>

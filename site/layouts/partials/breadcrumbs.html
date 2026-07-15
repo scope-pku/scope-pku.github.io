@@ -1,0 +1,9 @@
+<nav class="breadcrumbs" aria-label="{{ if eq site.Language.Lang "zh" }}面包屑导航{{ else }}Breadcrumb{{ end }}">
+  <ol>
+    <li><a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "zh" }}首页{{ else }}Home{{ end }}</a></li>
+    {{ with .CurrentSection }}
+      {{ if ne .RelPermalink $.RelPermalink }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
+    {{ end }}
+    <li aria-current="page">{{ .Title }}</li>
+  </ol>
+</nav>
