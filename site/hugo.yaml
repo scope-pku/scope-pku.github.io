@@ -1,0 +1,84 @@
+baseURL: https://xulm.pku.edu.cn/
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
+disableKinds:
+  - RSS
+  - taxonomy
+  - term
+
+languages:
+  zh:
+    locale: zh-CN
+    label: 中文
+    contentDir: content/zh
+    title: 徐莉梅课题组
+    weight: 1
+    params:
+      description: 北京大学徐莉梅课题组网站
+      affiliation: 北京大学物理学院
+    menus:
+      main:
+        - name: 首页
+          pageRef: /
+          weight: 10
+        - name: 新闻
+          pageRef: /news
+          weight: 20
+        - name: 研究
+          pageRef: /research
+          weight: 30
+        - name: 成果
+          pageRef: /publications
+          weight: 40
+        - name: 成员
+          pageRef: /people
+          weight: 50
+        - name: 照片
+          pageRef: /photos
+          weight: 60
+        - name: 教学
+          pageRef: /teaching
+          weight: 70
+        - name: 联系我们
+          pageRef: /contact
+          weight: 80
+  en:
+    locale: en
+    label: English
+    contentDir: content/en
+    title: Xu Research Group
+    weight: 2
+    params:
+      description: Website of the Xu Research Group at Peking University
+      affiliation: School of Physics, Peking University
+    menus:
+      main:
+        - name: Home
+          pageRef: /
+          weight: 10
+        - name: News
+          pageRef: /news
+          weight: 20
+        - name: Research
+          pageRef: /research
+          weight: 30
+        - name: Publications
+          pageRef: /publications
+          weight: 40
+        - name: People
+          pageRef: /people
+          weight: 50
+        - name: Photos
+          pageRef: /photos
+          weight: 60
+        - name: Teaching
+          pageRef: /teaching
+          weight: 70
+        - name: Contact
+          pageRef: /contact
+          weight: 80
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: false

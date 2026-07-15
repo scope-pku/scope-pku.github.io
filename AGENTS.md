@@ -6,7 +6,7 @@
 - `source/xulm.pku.edu.cn/` is a read-only snapshot of public HTML fetched from
   `https://xulm.pku.edu.cn/index.htm` on 2026-07-15. Preserve its paths and do
   not edit it when building the replacement site.
-- Put the new site in a separate top-level directory when implementation starts.
+- `site/` contains the Hugo replacement. Run Hugo commands from that directory.
 
 ## Working rules
 

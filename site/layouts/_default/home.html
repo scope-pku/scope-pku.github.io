@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <article class="home">
+    <header class="hero">
+      <p class="eyebrow">{{ site.Params.affiliation }}</p>
+      <h1>{{ .Title }}</h1>
+    </header>
+    <div class="prose">
+      {{ .Content }}
+    </div>
+  </article>
+{{ end }}
