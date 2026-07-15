@@ -1,0 +1,22 @@
+{{ define "main" }}
+  <article class="theses-page">
+    <header class="page-header">
+      <h1>{{ .Title }}</h1>
+      <p>{{ .Summary }}</p>
+    </header>
+    <ol class="thesis-list" reversed start="{{ len .Params.theses }}">
+      {{ range .Params.theses }}
+        <li>
+          <article>
+            <header>
+              <h2>{{ .name }}</h2>
+              <p>PhD thesis</p>
+            </header>
+            <p class="thesis-title-en">{{ .titleEn }}</p>
+            <p class="thesis-title-zh" lang="zh-Hans">{{ .titleZh }}</p>
+          </article>
+        </li>
+      {{ end }}
+    </ol>
+  </article>
+{{ end }}

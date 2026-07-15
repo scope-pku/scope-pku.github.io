@@ -366,6 +366,15 @@ h1 {
 .publication-list h2:first-child { margin-top: 0; }
 .publication-list ul { margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
 .publication-list li { padding: 1rem 0; border-bottom: 1px solid var(--line); line-height: 1.65; overflow-wrap: anywhere; }
+.theses-page { max-width: 920px; padding-bottom: 5rem; }
+.thesis-list { margin: 0; padding-left: 3rem; border-top: 3px solid var(--accent); }
+.thesis-list > li { padding: 1.5rem 0 1.5rem .5rem; border-bottom: 1px solid var(--line); }
+.thesis-list > li::marker { color: var(--muted); font-family: "Source Serif 4", "Noto Serif SC", Georgia, serif; font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+.thesis-list header { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem 1rem; }
+.thesis-list h2 { margin: 0; font-size: clamp(1.25rem, 3vw, 1.55rem); }
+.thesis-list header p { margin: 0; color: var(--muted); font-size: .85rem; }
+.thesis-title-en { margin: .65rem 0 0; }
+.thesis-title-zh { margin: .25rem 0 0; color: var(--muted); }
 .news-list { border-top: 1px solid var(--line); }
 .news-row {
   display: grid;
