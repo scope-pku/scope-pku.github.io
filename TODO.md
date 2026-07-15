@@ -115,6 +115,8 @@ only after the English design is approved.
   switch to the right side of the navigation row.
 - [x] Review the complete English visual system and normalize mobile gutters,
   interior title scale, archive reading width, and section-aware language links.
+- [x] Replace the mobile horizontal navigation strip with an accessible native
+  disclosure drawer containing the current page and language switch.
 - [ ] Obtain final English visual approval and tag the English design as locked.
 
 ## 8. Chinese parity after English approval

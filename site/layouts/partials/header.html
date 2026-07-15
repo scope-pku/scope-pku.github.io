@@ -1,3 +1,6 @@
+{{ $translations := .Translations }}
+{{ if not $translations }}{{ $translations = .CurrentSection.Translations }}{{ end }}
+{{ if not $translations }}{{ $translations = site.Home.Translations }}{{ end }}
 <header class="site-header">
   <div class="masthead-inner">
     <a class="university-brand" href="https://www.pku.edu.cn/" aria-label="{{ if eq site.Language.Lang "zh" }}北京大学主页{{ else }}Peking University homepage{{ end }}">
@@ -20,9 +23,6 @@
         </ul>
       </nav>
       <nav class="language-list" aria-label="{{ if eq site.Language.Lang "zh" }}语言{{ else }}Language{{ end }}">
-        {{ $translations := .Translations }}
-        {{ if not $translations }}{{ $translations = .CurrentSection.Translations }}{{ end }}
-        {{ if not $translations }}{{ $translations = site.Home.Translations }}{{ end }}
         {{ range $translations }}
           <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" aria-label="{{ if eq site.Language.Lang "zh" }}切换到英文{{ else }}Switch to Chinese{{ end }}">
             <svg class="language-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -35,4 +35,36 @@
       </nav>
     </div>
   </div>
+  <details class="mobile-menu">
+    <summary class="mobile-menu-toggle">
+      <svg class="mobile-menu__open-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M4 7h16M4 12h16M4 17h10"></path>
+      </svg>
+      <svg class="mobile-menu__close-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M6 6l12 12M18 6 6 18"></path>
+      </svg>
+      <span class="visually-hidden">{{ if eq site.Language.Lang "zh" }}切换导航{{ else }}Toggle navigation{{ end }}</span>
+    </summary>
+    <nav class="mobile-menu-panel" aria-label="{{ if eq site.Language.Lang "zh" }}移动导航{{ else }}Mobile navigation{{ end }}">
+      <div class="mobile-menu__header">
+        <strong>{{ site.Title }}</strong>
+      </div>
+      <ul class="mobile-menu__list">
+        {{ range site.Menus.main }}
+          <li><a href="{{ .URL }}"{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
+        {{ end }}
+        {{ range $translations }}
+          <li class="mobile-menu__language">
+            <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" aria-label="{{ if eq site.Language.Lang "zh" }}切换到英文{{ else }}Switch to Chinese{{ end }}">
+              <svg class="language-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path>
+              </svg>
+              <span>{{ if eq .Language.Lang "en" }}EN{{ else }}CN{{ end }}</span>
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
+  </details>
 </header>
