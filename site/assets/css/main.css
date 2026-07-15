@@ -361,6 +361,11 @@ h1 {
 .research-highlight__content > p:first-child { margin-top: .75rem; }
 .research-highlight__content > p:last-child { display: flex; flex-wrap: wrap; gap: .25rem .65rem; margin-bottom: 0; color: var(--ink); font-size: .88rem; }
 .research-highlight__content a { overflow-wrap: anywhere; }
+.publication-list-page { max-width: 920px; padding-bottom: 5rem; }
+.publication-list h2 { margin: 4rem 0 0; padding: 1rem 0 .75rem; border-top: 3px solid var(--accent); font-size: clamp(1.75rem, 4vw, 2.4rem); font-variant-numeric: tabular-nums; }
+.publication-list h2:first-child { margin-top: 0; }
+.publication-list ul { margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+.publication-list li { padding: 1rem 0; border-bottom: 1px solid var(--line); line-height: 1.65; overflow-wrap: anywhere; }
 .news-list { border-top: 1px solid var(--line); }
 .news-row {
   display: grid;

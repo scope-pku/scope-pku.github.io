@@ -72,7 +72,7 @@ only after the English design is approved.
 - [x] **Research Highlights** `/publications/highlights/` — compare
   `Publications/Highlights.htm`; preserve 15 image-led records, complete titles,
   evidence text, and source links.
-- [ ] **Full Publication List** `/publications/full-list/` — compare
+- [x] **Full Publication List** `/publications/full-list/` — compare
   `Publications/Full_List.htm`; preserve all 86 citations and author order in
   readable newest-first year groups.
 - [ ] **Theses** `/publications/theses/` — compare
