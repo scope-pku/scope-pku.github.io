@@ -132,6 +132,15 @@ a:focus-visible {
   border-bottom: .25rem solid transparent;
 }
 
+.nav-list a::before {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  content: attr(data-label);
+  font-weight: 700;
+}
+
 .nav-list a:hover { background: rgba(255, 255, 255, .08); }
 
 .nav-list a[aria-current="page"] {
