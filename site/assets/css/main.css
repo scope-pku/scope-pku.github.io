@@ -481,6 +481,20 @@ h1 {
 .profile-resources a { padding: .75rem 0; border-bottom: 1px solid var(--line); }
 .profile-resources span { color: var(--muted); }
 
+.contact-page { padding-bottom: 5rem; }
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  padding-top: 2.5rem;
+  border-top: 3px solid var(--accent);
+}
+.contact-layout h2 { margin: 0 0 1rem; font-size: clamp(1.5rem, 3vw, 2rem); }
+.contact-layout address { font-style: normal; }
+.contact-layout .profile-contact-list div { grid-template-columns: 8rem minmax(0, 1fr); }
+.contact-layout .profile-contact-list dd { overflow-wrap: anywhere; }
+.contact-students .profile-contact-list div { grid-template-columns: 1fr; gap: .25rem; }
+
 .photos-index-page,
 .photo-gallery { padding-bottom: 5rem; }
 .photos-index { border-top: 3px solid var(--accent); }
@@ -541,7 +555,8 @@ h1 {
   .home-water-figure { grid-column: 2; grid-row: 1 / span 2; width: 100px; margin-top: 0; }
   .footer-inner { grid-template-columns: 1fr; gap: 1.25rem; }
   .people-section--alumni .people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .profile-information { grid-template-columns: 1fr; }
+  .profile-information,
+  .contact-layout { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 520px) {
@@ -572,4 +587,5 @@ h1 {
   .profile-hero h1 { font-size: 1.75rem; }
   .profile-role { margin-top: .75rem; }
   .profile-contact-list div { grid-template-columns: 1fr; gap: .15rem; }
+  .contact-layout .profile-contact-list div { grid-template-columns: 1fr; }
 }

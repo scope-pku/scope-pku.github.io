@@ -1,0 +1,50 @@
+{{ define "main" }}
+  {{ $contact := hugo.Data.contact }}
+  <article class="contact-page">
+    <header class="page-header">
+      <h1>{{ .Title }}</h1>
+    </header>
+
+    <div class="contact-layout">
+      <section aria-labelledby="contact-leader-heading">
+        <p class="eyebrow">Group leader</p>
+        <h2 id="contact-leader-heading">Limei Xu</h2>
+        <address>
+          <dl class="profile-contact-list">
+            <div>
+              <dt>Address</dt>
+              <dd>{{ $contact.address }}</dd>
+            </div>
+            <div>
+              <dt>Office</dt>
+              <dd>{{ $contact.office }}</dd>
+            </div>
+            <div>
+              <dt>Telephone</dt>
+              <dd><a href="tel:{{ $contact.telephone_href }}">{{ $contact.telephone }}</a></dd>
+            </div>
+            <div>
+              <dt>Email</dt>
+              <dd><a href="mailto:{{ $contact.email }}">{{ $contact.email }}</a></dd>
+            </div>
+            <div>
+              <dt>Personal page</dt>
+              <dd><a href="{{ $contact.personal_page }}">Peking University faculty profile <span>(Chinese)</span></a></dd>
+            </div>
+          </dl>
+        </address>
+      </section>
+
+      <section class="contact-students" aria-labelledby="contact-students-heading">
+        <p class="eyebrow">Workspace</p>
+        <h2 id="contact-students-heading">Students</h2>
+        <dl class="profile-contact-list">
+          <div>
+            <dt>Student offices</dt>
+            <dd>{{ $contact.student_offices }}</dd>
+          </div>
+        </dl>
+      </section>
+    </div>
+  </article>
+{{ end }}
