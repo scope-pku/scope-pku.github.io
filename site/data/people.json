@@ -73,7 +73,8 @@
       "name": "Graduate Students",
       "people": [
         {
-          "name": "Zhiyuan Huang 黄志远",
+          "name": "Zhiyuan Huang",
+          "name_zh": "黄志远",
           "details": [
             "B.S. 2020, Wuhan University"
           ],
@@ -83,7 +84,8 @@
           "status": "current"
         },
         {
-          "name": "Zifeng Yuan 袁梓峰",
+          "name": "Zifeng Yuan",
+          "name_zh": "袁梓峰",
           "details": [
             "B.S. 2021, East China Normal University"
           ],
@@ -93,7 +95,8 @@
           "status": "current"
         },
         {
-          "name": "Alusi Zhao 赵阿鲁斯",
+          "name": "Alusi Zhao",
+          "name_zh": "赵阿鲁斯",
           "details": [
             "B.S. 2021, Northwest University"
           ],
@@ -103,7 +106,8 @@
           "status": "current"
         },
         {
-          "name": "Yixiang Chen 陈一翔",
+          "name": "Yixiang Chen",
+          "name_zh": "陈一翔",
           "details": [
             "B.S. 2022, Hohai University"
           ],
@@ -113,7 +117,8 @@
           "status": "current"
         },
         {
-          "name": "Shuwei Wang 王舒炜",
+          "name": "Shuwei Wang",
+          "name_zh": "王舒炜",
           "details": [
             "B.S. 2023, Xiamen University"
           ],
@@ -123,7 +128,8 @@
           "status": "current"
         },
         {
-          "name": "Akaash Babar 高天",
+          "name": "Akaash Babar",
+          "name_zh": "高天",
           "details": [
             "M.S. 2023, Tsinghua University"
           ],
@@ -133,7 +139,8 @@
           "status": "current"
         },
         {
-          "name": "Chon Hei Lo 羅俊熙",
+          "name": "Chon Hei Lo",
+          "name_zh": "羅俊熙",
           "details": [
             "B.S. 2024, Peking University"
           ],
@@ -143,7 +150,8 @@
           "status": "current"
         },
         {
-          "name": "Mengyu Du 杜梦宇",
+          "name": "Mengyu Du",
+          "name_zh": "杜梦宇",
           "details": [
             "B.S. 2025, Peking University"
           ],

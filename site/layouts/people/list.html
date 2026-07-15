@@ -7,8 +7,9 @@
     <div class="people-directory">
       {{ range hugo.Data.people.categories }}
         {{ $isLeader := eq .name "Group Leader" }}
+        {{ $isGraduate := eq .name "Graduate Students" }}
         {{ $isAlumni := hasPrefix .name "Alumni" }}
-        <section class="people-section{{ if $isLeader }} people-section--leader{{ end }}{{ if $isAlumni }} people-section--alumni{{ end }}">
+        <section class="people-section{{ if $isLeader }} people-section--leader{{ end }}{{ if $isGraduate }} people-section--graduate{{ end }}{{ if $isAlumni }} people-section--alumni{{ end }}">
           <header class="people-section-heading">
             <h2>{{ .name }}</h2>
             <p>{{ len .people }} {{ if $isAlumni }}alumni{{ else if eq (len .people) 1 }}member{{ else }}members{{ end }}</p>
@@ -19,9 +20,10 @@
               <img src="{{ .image }}" width="{{ if $isLeader }}183{{ else }}120{{ end }}" height="{{ if $isLeader }}211{{ else }}120{{ end }}" alt="Portrait of {{ .name }}" loading="lazy">
               <div class="person-card__body">
                 <h3>{{ if .profile }}<a href="{{ .profile }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}</h3>
+                {{ with .name_zh }}<p class="person-card__name-zh" lang="zh">{{ . }}</p>{{ end }}
                 {{ with .role }}<p>{{ . }}</p>{{ end }}
                 {{ range .details }}<p>{{ . }}</p>{{ end }}
-                {{ with .research_interest }}<p class="person-card__research"><strong>Research interest:</strong> {{ . }}</p>{{ end }}
+                {{ with .research_interest }}<p class="person-card__research"><strong>{{ if $isGraduate }}Interest:{{ else }}Research interest:{{ end }}</strong> {{ . }}</p>{{ end }}
                 {{ if or .email .telephone .personal_page .cv }}
                   <div class="person-card__links">
                     {{ with .email }}<a href="mailto:{{ . }}">{{ . }}</a>{{ end }}
