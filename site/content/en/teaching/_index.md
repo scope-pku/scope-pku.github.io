@@ -1,39 +1,20 @@
 ---
 title: "Teaching"
 translationKey: teaching
+summary: "Course information and annual teaching records from the Xu Research Group."
+featureImage: "/media/teaching-thermodynamics.png"
+featureImageAlt: "Three-dimensional thermodynamic energy landscapes with multiple peaks and basins."
 aliases:
   - "/Teaching.htm"
 ---
-## Thermodynamics and Statistical Physics (A)
+## Thermodynamics and Statistical Physics
 
-**Teacher**: Limei Xu
+**Instructor:** Professor Limei Xu
 
-**Members of Teaching Group**: Zifeng Yuan, Ziqi Liu
+### Main references
 
-**Venue**: The second teaching building
-
-**Schedule**: 10:10-12:00 a.m. on Mon; 1:00-2:50 p.m. on Wed
-
-**Target Students**: Undergraduate students
-
-**Class classroom**: Room 307
-
-**Semester**: Spring Term
-
-**Credits**: 4.0
-
-**Course Type**: Undergraduate Course
-
-------------------------------------------------------------------------
-
-## Seminar of Equilibrium Statistical Physics
-
-**Teacher**: Limei Xu
-
-**Target Students**: Undergraduate student
-
-**Semester**: Autumn Term
-
-**Credits**: 2.0
-
-**Course Type**: Undergraduate Course
+1. 汪志诚. 《热力学·统计物理》. 1993, pp. 62–65.
+2. 刘川. 《热力学与统计物理》. 北京大学出版社, 2022.
+3. 林宗涵. 《热力学与统计物理学》. 北京大学出版社, 2007.
+4. Landau, L. D., and E. M. Lifshitz. *Statistical Physics, Volume 5*. Elsevier, 2013.
+5. Plischke, M., and B. Bergersen. *Equilibrium Statistical Physics*. World Scientific, 1994.

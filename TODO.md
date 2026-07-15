@@ -81,12 +81,12 @@ only after the English design is approved.
 
 ## 5. Teaching
 
-- [ ] **Teaching index** `/teaching/` — compare `Teaching.htm`; establish stable
+- [x] **Teaching index** `/teaching/` — compare `Teaching.htm`; establish stable
   course fields and visible year navigation.
-- [ ] **Teaching 2022** `/teaching/2022/` — compare `Teaching/a2022.htm`.
-- [ ] **Teaching 2021** `/teaching/2021/` — compare `Teaching/a2021.htm`.
-- [ ] **Teaching 2020** `/teaching/2020/` — compare `Teaching/a2020.htm`.
-- [ ] **Teaching 2019** `/teaching/2019/` — compare `Teaching/a2019.htm`.
+- [x] **Teaching 2022** `/teaching/2022/` — compare `Teaching/a2022.htm`.
+- [x] **Teaching 2021** `/teaching/2021/` — compare `Teaching/a2021.htm`.
+- [x] **Teaching 2020** `/teaching/2020/` — compare `Teaching/a2020.htm`.
+- [x] **Teaching 2019** `/teaching/2019/` — compare `Teaching/a2019.htm`.
 
 ## 6. Photos
 
