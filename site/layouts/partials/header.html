@@ -1,7 +1,7 @@
 <header class="site-header">
   <div class="masthead-inner">
     <a class="university-brand" href="https://www.pku.edu.cn/" aria-label="{{ if eq site.Language.Lang "zh" }}北京大学主页{{ else }}Peking University homepage{{ end }}">
-      <img src="{{ hugo.Data.home.pku_logo }}" alt="{{ if eq site.Language.Lang "zh" }}北京大学{{ else }}Peking University{{ end }}">
+      <img src="{{ hugo.Data.home.pku_logo }}" width="{{ hugo.Data.home.pku_logo_width }}" height="{{ hugo.Data.home.pku_logo_height }}" alt="{{ if eq site.Language.Lang "zh" }}北京大学{{ else }}Peking University{{ end }}">
     </a>
     <a class="group-brand" href="{{ site.Home.RelPermalink }}">
       <strong>{{ site.Title }}</strong>
@@ -11,7 +11,7 @@
       {{ $translations := .Translations }}
       {{ if not $translations }}{{ $translations = site.Home.Translations }}{{ end }}
       {{ range $translations }}
-        <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" aria-label="{{ if eq .Language.Lang "en" }}Switch to English{{ else }}切换到中文{{ end }}">
+        <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" aria-label="{{ if eq site.Language.Lang "zh" }}切换到英文{{ else }}Switch to Chinese{{ end }}">
           <span class="language-icon" aria-hidden="true">🌐</span>
           <span>{{ if eq .Language.Lang "en" }}EN{{ else }}CN{{ end }}</span>
         </a>

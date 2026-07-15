@@ -1,5 +1,11 @@
 {
   "hero": "/media/home-group-photo.jpg",
+  "hero_width": 1800,
+  "hero_height": 351,
   "pku_logo": "/media/pku-wordmark.png",
-  "water_figure": "/media/home-water-figure.png"
+  "pku_logo_width": 233,
+  "pku_logo_height": 66,
+  "water_figure": "/media/home-water-figure.png",
+  "water_figure_width": 715,
+  "water_figure_height": 1096
 }

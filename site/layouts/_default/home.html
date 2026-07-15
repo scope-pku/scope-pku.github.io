@@ -2,14 +2,14 @@
   <article class="home">
     <header class="home-hero">
       {{ if eq site.Language.Lang "en" }}
-        <img class="home-group-photo" src="{{ hugo.Data.home.hero }}" alt="Xu Research Group members on the Peking University campus" fetchpriority="high">
+        <img class="home-group-photo" src="{{ hugo.Data.home.hero }}" width="{{ hugo.Data.home.hero_width }}" height="{{ hugo.Data.home.hero_height }}" alt="Xu Research Group members on the Peking University campus" fetchpriority="high">
       {{ end }}
       <div class="home-intro">
         <div class="home-identity">
           <p class="eyebrow">{{ site.Params.affiliation }}</p>
           <h1>{{ .Title }}</h1>
           {{ if eq site.Language.Lang "en" }}
-            <img class="home-water-figure" src="{{ hugo.Data.home.water_figure }}" alt="Molecular structure illustration from the original Xu Research Group website">
+            <img class="home-water-figure" src="{{ hugo.Data.home.water_figure }}" width="{{ hugo.Data.home.water_figure_width }}" height="{{ hugo.Data.home.water_figure_height }}" alt="Molecular structure illustration from the original Xu Research Group website">
           {{ end }}
         </div>
         <div class="prose">{{ .Content }}</div>
@@ -24,7 +24,7 @@
         <div class="highlight-list">
           {{ range first 3 hugo.Data.highlights }}
             <article class="highlight-row">
-              <img src="{{ .image }}" alt="Research image for {{ .title }}" loading="lazy">
+              <img src="{{ .image }}" width="{{ .width }}" height="{{ .height }}" alt="Research image for {{ .title }}" loading="lazy">
               <div>
                 <h3>{{ if .url }}<a href="{{ .url }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
                 <p>{{ .summary }}</p>

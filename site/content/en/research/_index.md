@@ -14,7 +14,7 @@ In the liquid-liquid critical point scenario, a single-component substance may e
 
 Experimental verification remains challenging because LLCPs are usually buried in the deeply supercooled region, where crystallization occurs rapidly. A central open question is how LLPT and LLCP behavior can be traced through more readily accessible conditions.
 
-{{< figure src="/media/research-01.png" alt="Simulation snapshot illustrating two liquid structures" caption="Illustration accompanying the group's work on liquid-liquid phase transitions." >}}
+{{< figure src="/media/research-01.png" width="1600" height="1200" alt="Simulation snapshot illustrating two liquid structures" caption="Illustration accompanying the group's work on liquid-liquid phase transitions." >}}
 
 ### References:
 
@@ -33,7 +33,7 @@ Using density functional theory calculations and AFM image simulations based on 
 
 Because matching simulated and experimental AFM images by trial and error can be time-consuming, we also investigate machine-learning-assisted structure determination\[9\]. We developed [AmorAFM](https://github.com/seasonlo/AmorAFM) to resolve the atomic structure of the amorphous ice layer (AIL) from AFM images using machine learning.
 
-{{< figure src="/media/research-02.jpg" alt="AFM imaging and simulation of an interfacial water molecule" caption="AFM imaging and simulation of interfacial water with a quadrupole-like tip." >}}
+{{< figure src="/media/research-02.jpg" width="1395" height="1400" alt="AFM imaging and simulation of an interfacial water molecule" caption="AFM imaging and simulation of interfacial water with a quadrupole-like tip." >}}
 
 ### References:
 
@@ -51,11 +51,11 @@ Because matching simulated and experimental AFM images by trial and error can be
 
 Almost four decades ago, a first-order-like non-equilibrium glass-glass transition (GGT) was discovered in water, in which two forms of amorphous ice were identified. GGT was subsequently observed in other systems, including water-like complex substances\[1,2\], colloids, particulate matter, polymers, and liquid crystals. Describing non-equilibrium phase transitions such as glass transition and glass-glass transition remains challenging because well-established theories are lacking.
 
-{{< figure src="/media/research-03.png" alt="Three simulation snapshots of confined liquid crystallization" caption="Evolution of a confined liquid in simulation at three successive times." >}}
+{{< figure src="/media/research-03.png" width="976" height="472" alt="Three simulation snapshots of confined liquid crystallization" caption="Evolution of a confined liquid in simulation at three successive times." >}}
 
 One direction is the study of confined liquids in the supercooled region. Such liquids are relevant in biology, geology, and other settings where material properties depend strongly on the amount and behavior of water\[3\]. Crystallization under nanoscale confinement is also important in scientific and engineering applications, but remains poorly understood. Using molecular dynamics simulations, we study a confined liquid with isotropic pair interactions and water-like properties. Increasing the liquid-surface interaction strength favors crystallization at structureless surfaces, but tends to suppress crystallization at amorphous surfaces\[4\].
 
-{{< figure src="/media/research-04.png" alt="Eigenvector field in a two-dimensional model glass" caption="Eigenvector field of vibrational excitations in a two-dimensional model glass." >}}
+{{< figure src="/media/research-04.png" width="1381" height="1400" alt="Eigenvector field in a two-dimensional model glass" caption="Eigenvector field of vibrational excitations in a two-dimensional model glass." >}}
 
 We also study the behavior of amorphous solids. Glasses are commonplace, but the fundamental physics underlying several of their shared features is not yet well understood. They respond elastically to small applied strain, then undergo irreversible structural rearrangements at moderate deformation that are difficult to characterize and predict.
 

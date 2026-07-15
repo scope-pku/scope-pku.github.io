@@ -7,7 +7,7 @@
     <section class="teaching-overview">
       {{ with .Params.featureImage }}
         <figure>
-          <img src="{{ . }}" alt="{{ $.Params.featureImageAlt }}">
+          <img src="{{ . }}" width="{{ $.Params.featureImageWidth }}" height="{{ $.Params.featureImageHeight }}" alt="{{ $.Params.featureImageAlt }}">
         </figure>
       {{ end }}
       <div class="teaching-overview__content prose">{{ .Content }}</div>

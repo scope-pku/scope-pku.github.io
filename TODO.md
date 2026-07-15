@@ -107,7 +107,7 @@ only after the English design is approved.
 
 - [x] **Contact** `/contact/` — compare `Contact_Us.htm`; use the canonical
   address, office, telephone, email, personal page, and student-office details.
-- [ ] Run the final English route, content-count, asset, alias, accessibility,
+- [x] Run the final English route, content-count, asset, alias, accessibility,
   responsive, and broken-link regression checks.
 - [ ] Obtain final English visual approval and tag the English design as locked.
 

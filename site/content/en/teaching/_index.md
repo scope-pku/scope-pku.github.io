@@ -3,6 +3,8 @@ title: "Teaching"
 translationKey: teaching
 summary: "Course information and annual teaching records from the Xu Research Group."
 featureImage: "/media/teaching-thermodynamics.png"
+featureImageWidth: 1350
+featureImageHeight: 899
 featureImageAlt: "Three-dimensional thermodynamic energy landscapes with multiple peaks and basins."
 aliases:
   - "/Teaching.htm"
