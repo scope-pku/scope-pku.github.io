@@ -115,11 +115,10 @@
         {
           "name": "Shuwei Wang 王舒炜",
           "details": [
-            "B.S. 2023, Xiamen University",
-            "Research interest: The effect of liquid-liquid phase transition on nucleation process"
+            "B.S. 2023, Xiamen University"
           ],
           "email": "shuwei@stu.pku.edu.cn",
-          "research_interest": "",
+          "research_interest": "The effect of liquid-liquid phase transition on nucleation process",
           "image": "/media/people-09.jpg",
           "status": "current"
         },
@@ -171,7 +170,7 @@
       ]
     },
     {
-      "name": "Alumni: Postdoctor and Ph.D",
+      "name": "Alumni — Postdocs and Ph.D.s",
       "people": [
         {
           "name": "Zhaoru Sun 孙兆茹",
@@ -182,7 +181,7 @@
           "email": "sunzhr@shanghaitech.edu.cn",
           "research_interest": "",
           "image": "/media/people-14.jpg",
-          "status": "current"
+          "status": "alumni"
         },
         {
           "name": "Gang Sun 孙刚",
@@ -193,7 +192,7 @@
           "email": "gangsun@bnu.edu.cn",
           "research_interest": "",
           "image": "/media/people-15.jpg",
-          "status": "current"
+          "status": "alumni"
         },
         {
           "name": "Renzhong Li 李任重",
@@ -204,7 +203,7 @@
           "email": "",
           "research_interest": "",
           "image": "/media/people-16.jpg",
-          "status": "current"
+          "status": "alumni"
         },
         {
           "name": "Huaze Shen 申化泽",
@@ -215,7 +214,7 @@
           "email": "shenhuaze@pku.edu.cn",
           "research_interest": "",
           "image": "/media/people-17.jpg",
-          "status": "current"
+          "status": "alumni"
         },
         {
           "name": "Rui Wang 王睿",
@@ -226,7 +225,7 @@
           "email": "rui.wang@sjtu.edu.cn",
           "research_interest": "",
           "image": "/media/people-18.jpg",
-          "status": "current"
+          "status": "alumni"
         },
         {
           "name": "Fujie Tang 汤富杰",
@@ -237,7 +236,7 @@
           "email": "tangfujie@xmu.edu.cn",
           "research_interest": "",
           "image": "/media/people-19.jpg",
-          "status": "current"
+          "status": "alumni"
         },
         {
           "name": "Zhenwei Wu 武振伟",
@@ -248,7 +247,7 @@
           "email": "zwwu@bnu.edu.cn",
           "research_interest": "",
           "image": "/media/people-20.jpg",
-          "status": "current"
+          "status": "alumni"
         },
         {
           "name": "Liying Zhou 周丽颖",
@@ -258,7 +257,7 @@
           "email": "",
           "research_interest": "",
           "image": "/media/people-21.jpg",
-          "status": "current"
+          "status": "alumni"
         },
         {
           "name": "Duanyun Cao 曹端云",
@@ -269,7 +268,7 @@
           "email": "dycao@bit.edu.cn",
           "research_interest": "",
           "image": "/media/people-22.jpg",
-          "status": "current"
+          "status": "alumni"
         },
         {
           "name": "Jingdong Ai 艾靖东",
@@ -280,7 +279,7 @@
           "email": "",
           "research_interest": "",
           "image": "/media/people-23.jpg",
-          "status": "current"
+          "status": "alumni"
         },
         {
           "name": "Jianqing Guo 郭见青",
@@ -291,10 +290,10 @@
           "email": "",
           "research_interest": "",
           "image": "/media/people-24.jpg",
-          "status": "current"
+          "status": "alumni"
         },
         {
-          "name": "Shaoqin jiang 江少钦",
+          "name": "Shaoqin Jiang 江少钦",
           "details": [
             "Postdoc, 2020-2022",
             "Present: Software R&D Engineer, Longxun Quantum Science and Technology Ltd."
@@ -302,7 +301,7 @@
           "email": "",
           "research_interest": "",
           "image": "/media/people-25.jpg",
-          "status": "current"
+          "status": "alumni"
         },
         {
           "name": "Yizhi Liu 刘益志",
@@ -310,9 +309,9 @@
             "Ph.D 2023"
           ],
           "email": "lyz2018@pku.edu.cn",
-          "research_interest": "Phase transitions in complex amrphous systems",
+          "research_interest": "Phase transitions in complex amorphous systems",
           "image": "/media/people-26.jpg",
-          "status": "current"
+          "status": "alumni"
         },
         {
           "name": "Yizhi Song 宋易知",
@@ -323,7 +322,7 @@
           "email": "yizhi.song@unt.edu",
           "research_interest": "",
           "image": "/media/people-27.jpg",
-          "status": "current"
+          "status": "alumni"
         },
         {
           "name": "Xuejia Yu 余雪佳",
@@ -334,7 +333,7 @@
           "email": "xuejiayu@eitech.edu.cn",
           "research_interest": "",
           "image": "/media/people-28.png",
-          "status": "current"
+          "status": "alumni"
         }
       ]
     }

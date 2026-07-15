@@ -51,7 +51,7 @@ only after the English design is approved.
 
 ## 2. People
 
-- [ ] **People index** `/people/` — compare `People.htm`; optimize Group Leader,
+- [x] **People index** `/people/` — compare `People.htm`; optimize Group Leader,
   current member, and alumni hierarchy while preserving all 29 records.
 - [ ] **Limei Xu profile** `/people/limei-xu/` — compare
   `info/1011/1012.htm`; present verified role, affiliation, contact links, and CV

@@ -356,12 +356,34 @@ h1 {
 .news-row time { color: var(--muted); font-variant-numeric: tabular-nums; }
 .news-row p { margin: 0; }
 
-.people-section { padding-bottom: 3rem; }
-.people-section > h2 { padding-bottom: .6rem; border-bottom: 1px solid var(--line); }
-.person-card { display: grid; grid-template-columns: 120px 1fr; gap: 1rem; }
-.person-card img { width: 120px; height: 120px; object-fit: cover; background: var(--wash); }
-.person-card h3 { margin: 0 0 .5rem; }
-.person-card p { margin: .2rem 0; color: var(--muted); font-size: .9rem; }
+.people-directory { padding-bottom: 3rem; }
+.people-section { padding: 1.5rem 0 3rem; border-top: 1px solid var(--line); }
+.people-section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.people-section-heading h2 { margin: 0 0 1.5rem; font-size: clamp(1.55rem, 3vw, 2rem); }
+.people-section-heading p { margin: 0; color: var(--muted); font-size: .85rem; }
+.person-card { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 1rem; align-items: start; }
+.person-card img { display: block; width: 120px; height: 120px; object-fit: cover; background: var(--wash); }
+.person-card h3 { margin: 0 0 .45rem; font-size: 1.18rem; }
+.person-card p { margin: .15rem 0; color: var(--muted); font-size: .9rem; }
+.person-card__research { padding-top: .25rem; }
+.person-card__research strong { color: var(--ink); font-weight: 600; }
+.person-card__links { display: flex; flex-wrap: wrap; gap: .15rem 1rem; margin-top: .45rem; font-size: .9rem; }
+.person-card__links a { overflow-wrap: anywhere; }
+
+.people-section--leader { padding-top: 1.75rem; border-top: 3px solid var(--accent); }
+.people-section--leader .people-grid { grid-template-columns: 1fr; }
+.people-section--leader .person-card { grid-template-columns: 168px minmax(0, 1fr); gap: 2rem; }
+.people-section--leader .person-card img { width: 168px; height: auto; object-fit: contain; }
+.people-section--leader .person-card h3 { font-size: 1.45rem; }
+.people-section--leader .person-card__body { max-width: 760px; padding-top: .25rem; }
+
+.people-section--alumni { margin-top: 1rem; padding-top: 2rem; }
+.people-section--alumni .people-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.people-section--alumni .person-card { grid-template-columns: 72px minmax(0, 1fr); padding-top: 1rem; border-top: 1px solid var(--line); }
+.people-section--alumni .person-card img { width: 72px; height: 72px; }
+.people-section--alumni .person-card h3 { font-size: 1.05rem; }
+.people-section--alumni .person-card p,
+.people-section--alumni .person-card__links { font-size: .82rem; }
 
 .gallery-grid { padding-bottom: 5rem; }
 .gallery-grid figure { margin: 0; }
@@ -412,6 +434,7 @@ h1 {
   .home-identity h1 { grid-column: 1; }
   .home-water-figure { grid-column: 2; grid-row: 1 / span 2; width: 100px; margin-top: 0; }
   .footer-inner { grid-template-columns: 1fr; gap: 1.25rem; }
+  .people-section--alumni .people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 520px) {
@@ -419,6 +442,11 @@ h1 {
   .news-row { grid-template-columns: 1fr; gap: .5rem; }
   .highlight-row { grid-template-columns: 1fr; }
   .highlight-row img { height: auto; max-height: 220px; }
-  .person-card { grid-template-columns: 88px 1fr; }
+  .person-card,
+  .people-section--leader .person-card,
+  .people-section--alumni .person-card { grid-template-columns: 88px minmax(0, 1fr); gap: .85rem; }
   .person-card img { width: 88px; height: 88px; }
+  .people-section--leader .person-card img { width: 88px; height: auto; }
+  .people-section--alumni .people-grid { grid-template-columns: 1fr; }
+  .people-section-heading { align-items: flex-start; }
 }

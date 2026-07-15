@@ -4,26 +4,38 @@
     <div class="prose">{{ .Content }}</div>
   </header>
   {{ if eq site.Language.Lang "en" }}
-    {{ range hugo.Data.people.categories }}
-      <section class="people-section">
-        <h2>{{ .name }}</h2>
-        <div class="people-grid">
+    <div class="people-directory">
+      {{ range hugo.Data.people.categories }}
+        {{ $isLeader := eq .name "Group Leader" }}
+        {{ $isAlumni := hasPrefix .name "Alumni" }}
+        <section class="people-section{{ if $isLeader }} people-section--leader{{ end }}{{ if $isAlumni }} people-section--alumni{{ end }}">
+          <header class="people-section-heading">
+            <h2>{{ .name }}</h2>
+            <p>{{ len .people }} {{ if $isAlumni }}alumni{{ else if eq (len .people) 1 }}member{{ else }}members{{ end }}</p>
+          </header>
+          <div class="people-grid">
           {{ range .people }}
             <article class="person-card">
               <img src="{{ .image }}" alt="Portrait of {{ .name }}" loading="lazy">
-              <div>
+              <div class="person-card__body">
                 <h3>{{ if .profile }}<a href="{{ .profile }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}</h3>
                 {{ with .role }}<p>{{ . }}</p>{{ end }}
                 {{ range .details }}<p>{{ . }}</p>{{ end }}
-                {{ with .research_interest }}<p><strong>Research:</strong> {{ . }}</p>{{ end }}
-                {{ with .email }}<p><a href="mailto:{{ . }}">{{ . }}</a></p>{{ end }}
-                {{ with .personal_page }}<p><a href="{{ . }}">Personal page</a></p>{{ end }}
-                {{ with .cv }}<p><a href="{{ . }}">Detailed CV</a></p>{{ end }}
+                {{ with .research_interest }}<p class="person-card__research"><strong>Research interest:</strong> {{ . }}</p>{{ end }}
+                {{ if or .email .telephone .personal_page .cv }}
+                  <div class="person-card__links">
+                    {{ with .email }}<a href="mailto:{{ . }}">{{ . }}</a>{{ end }}
+                    {{ with .telephone }}<a href="tel:{{ replaceRE `[^0-9+]` `` . }}">{{ . }} (office)</a>{{ end }}
+                    {{ with .personal_page }}<a href="{{ . }}">Personal page (Chinese)</a>{{ end }}
+                    {{ with .cv }}<a href="{{ . }}">Detailed CV</a>{{ end }}
+                  </div>
+                {{ end }}
               </div>
             </article>
           {{ end }}
-        </div>
-      </section>
-    {{ end }}
+          </div>
+        </section>
+      {{ end }}
+    </div>
   {{ end }}
 {{ end }}
