@@ -1,14 +1,13 @@
 ---
-title: Xu Research Group
+title: "Xu Research Group"
 translationKey: home
 aliases:
-  - /index.htm
+  - "/index.htm"
 ---
-
-We are a research group in soft condensed matter physics and computational physics. We study the behavior of matter at the nanoscale using advanced computational tools and methods.
+We are a computational research group in soft condensed matter physics and computational physics. Our group focuses on investigating the behavior of matter at the nanoscale, utilizing state-of-the-art computational tools and techniques.
 
 ## Research interests
 
-- Water science: water structure and phase transitions, nanoconfined water, and water at two-dimensional interfaces.
-- Theoretical and computational physics: phase transitions and supercritical phenomena.
-- Nonequilibrium statistical physics: the dynamics and thermodynamics of glass transition and crystallization.
+- **Water science:** Structure and phase transition of water, water under nano confinement, and water at two-dimensional interfaces.
+- **Theoretical and computational physics:** Phase transitions and supercritical phenomena.
+- **Non-equilibrium statistical physics:** Dynamic and thermodynamic processes of glass transition and crystallization.

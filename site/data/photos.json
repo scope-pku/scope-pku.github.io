@@ -1,0 +1,79 @@
+{
+  "group-members": {
+    "title": "Group Members",
+    "images": [
+      {
+        "src": "/media/photos-group-members-01.jpg",
+        "alt": "Xu Research Group members, photo 1"
+      },
+      {
+        "src": "/media/photos-group-members-02.png",
+        "alt": "Xu Research Group members, photo 2"
+      },
+      {
+        "src": "/media/photos-group-members-03.png",
+        "alt": "Xu Research Group members, photo 3"
+      }
+    ]
+  },
+  "meetings": {
+    "title": "Meetings",
+    "images": [
+      {
+        "src": "/media/photos-meetings-01.jpg",
+        "alt": "Xu Research Group meeting, photo 1"
+      },
+      {
+        "src": "/media/photos-meetings-02.jpg",
+        "alt": "Xu Research Group meeting, photo 2"
+      }
+    ]
+  },
+  "have-fun": {
+    "title": "Have Fun",
+    "images": [
+      {
+        "src": "/media/photos-have-fun-01.jpg",
+        "alt": "Xu Research Group activity, photo 1"
+      },
+      {
+        "src": "/media/photos-have-fun-02.jpg",
+        "alt": "Xu Research Group activity, photo 2"
+      },
+      {
+        "src": "/media/photos-have-fun-03.jpg",
+        "alt": "Xu Research Group activity, photo 3"
+      }
+    ]
+  },
+  "dine-together": {
+    "title": "Dine Together",
+    "images": [
+      {
+        "src": "/media/photos-dine-together-01.jpg",
+        "alt": "Xu Research Group dining together, photo 1"
+      }
+    ]
+  },
+  "graduation": {
+    "title": "Graduation",
+    "images": [
+      {
+        "src": "/media/photos-graduation-01.jpg",
+        "alt": "Xu Research Group graduation, photo 1"
+      },
+      {
+        "src": "/media/photos-graduation-02.jpg",
+        "alt": "Xu Research Group graduation, photo 2"
+      },
+      {
+        "src": "/media/photos-graduation-03.jpg",
+        "alt": "Xu Research Group graduation, photo 3"
+      },
+      {
+        "src": "/media/photos-graduation-04.jpg",
+        "alt": "Xu Research Group graduation, photo 4"
+      }
+    ]
+  }
+}

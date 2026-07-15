@@ -1,9 +1,7 @@
 ---
-title: People
+title: "People"
 translationKey: people
 aliases:
-  - /People.htm
-  - /info/1011/1012.htm
+  - "/People.htm"
 ---
-
-Information about the principal investigator, postdoctoral researchers, students, and alumni will be maintained here.
+Current members and alumni of the Xu Research Group.

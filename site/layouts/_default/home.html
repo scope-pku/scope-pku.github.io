@@ -1,11 +1,44 @@
 {{ define "main" }}
   <article class="home">
     <header class="hero">
-      <p class="eyebrow">{{ site.Params.affiliation }}</p>
-      <h1>{{ .Title }}</h1>
+      <div class="hero-copy">
+        <p class="eyebrow">{{ site.Params.affiliation }}</p>
+        <h1>{{ .Title }}</h1>
+        <div class="prose">{{ .Content }}</div>
+      </div>
+      {{ if eq site.Language.Lang "en" }}
+        <img src="{{ hugo.Data.home.hero }}" alt="Xu Research Group members" fetchpriority="high">
+      {{ end }}
     </header>
-    <div class="prose">
-      {{ .Content }}
-    </div>
+    {{ if eq site.Language.Lang "en" }}
+      <section class="home-section">
+        <div class="section-heading">
+          <h2>Research highlights</h2>
+          <a href="{{ relLangURL "publications/highlights/" }}">View all</a>
+        </div>
+        <div class="highlight-grid">
+          {{ range first 4 hugo.Data.highlights }}
+            <article class="highlight-card">
+              <img src="{{ .image }}" alt="" loading="lazy">
+              <h3>{{ if .url }}<a href="{{ .url }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
+            </article>
+          {{ end }}
+        </div>
+      </section>
+      <section class="home-section">
+        <div class="section-heading">
+          <h2>Recent news</h2>
+          <a href="{{ relLangURL "news/" }}">View all</a>
+        </div>
+        <div class="news-list">
+          {{ range hugo.Data.recent_news }}
+            <article class="news-row">
+              {{ with .date }}<time datetime="{{ replace . "." "-" }}">{{ . }}</time>{{ end }}
+              <p>{{ if .url }}<a href="{{ .url }}">{{ .text }}</a>{{ else }}{{ .text }}{{ end }}</p>
+            </article>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
   </article>
 {{ end }}

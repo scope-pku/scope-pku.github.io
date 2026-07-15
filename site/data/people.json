@@ -1,0 +1,342 @@
+{
+  "categories": [
+    {
+      "name": "Group Leader",
+      "people": [
+        {
+          "name": "Limei Xu 徐莉梅",
+          "role": "Boya Distinguished Professor, Peking University",
+          "details": [
+            "International Center for Quantum Materials (ICQM), School of Physics, Peking University, Beijing, China"
+          ],
+          "telephone": "+86 10-6275-5043",
+          "email": "limei.xu@pku.edu.cn",
+          "profile": "/people/limei-xu/",
+          "personal_page": "https://faculty.pku.edu.cn/xulm/zh_CN/index.htm",
+          "cv": "/media/limei-xu-cv.pdf",
+          "image": "/media/people-limei-xu.jpg",
+          "status": "current"
+        }
+      ]
+    },
+    {
+      "name": "Visiting Scholar",
+      "people": [
+        {
+          "name": "Gang Sun 孙刚",
+          "details": [
+            "Beijing Normal University"
+          ],
+          "email": "gangsun@bnu.edu.cn",
+          "research_interest": "",
+          "image": "/media/people-01.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Zhenwei Wu 武振伟",
+          "details": [
+            "Beijing Normal University"
+          ],
+          "email": "zwwu@bnu.edu.cn",
+          "research_interest": "",
+          "image": "/media/people-02.jpg",
+          "status": "current"
+        }
+      ]
+    },
+    {
+      "name": "Post-doctor",
+      "people": [
+        {
+          "name": "Binze Tang 唐宾泽",
+          "details": [
+            "Ph.D. 2024, Peking University"
+          ],
+          "email": "bztang@pku.edu.cn",
+          "research_interest": "Capillarity and wetting at nanoscale, Application of machine learning on studying interface",
+          "image": "/media/people-03.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Tiancheng Liang 梁天成",
+          "details": [
+            "Ph.D. 2025, Peking University"
+          ],
+          "email": "liangtch@pku.edu.cn",
+          "research_interest": "First-principles study of ice surface properties, Kinetic study of ice crystal growth",
+          "image": "/media/people-04.jpg",
+          "status": "current"
+        }
+      ]
+    },
+    {
+      "name": "Graduate Students",
+      "people": [
+        {
+          "name": "Zhiyuan Huang 黄志远",
+          "details": [
+            "B.S. 2020, Wuhan University"
+          ],
+          "email": "huang.zhy@stu.pku.edu.cn",
+          "research_interest": "Deformation of amorphous solids, Topology of vibrational modes in glasses",
+          "image": "/media/people-05.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Zifeng Yuan 袁梓峰",
+          "details": [
+            "B.S. 2021, East China Normal University"
+          ],
+          "email": "zf.yuan@stu.pku.edu.cn",
+          "research_interest": "Crystallization process",
+          "image": "/media/people-06.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Alusi Zhao 赵阿鲁斯",
+          "details": [
+            "B.S. 2021, Northwest University"
+          ],
+          "email": "alusizhao@stu.pku.edu.cn",
+          "research_interest": "Dynamic evolution mechanism of liquid bridge in confined system",
+          "image": "/media/people-07.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Yixiang Chen 陈一翔",
+          "details": [
+            "B.S. 2022, Hohai University"
+          ],
+          "email": "phyyxchen@stu.pku.edu.cn",
+          "research_interest": "Density anomaly of liquids",
+          "image": "/media/people-08.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Shuwei Wang 王舒炜",
+          "details": [
+            "B.S. 2023, Xiamen University",
+            "Research interest: The effect of liquid-liquid phase transition on nucleation process"
+          ],
+          "email": "shuwei@stu.pku.edu.cn",
+          "research_interest": "",
+          "image": "/media/people-09.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Akaash Babar 高天",
+          "details": [
+            "M.S. 2023, Tsinghua University"
+          ],
+          "email": "ak.babar2023@outlook.com",
+          "research_interest": "",
+          "image": "/media/people-10.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Chon Hei Lo 羅俊熙",
+          "details": [
+            "B.S. 2024, Peking University"
+          ],
+          "email": "seelooooo@stu.pku.edu.cn",
+          "research_interest": "Physics-informed machine learning on studying interface",
+          "image": "/media/people-11.png",
+          "status": "current"
+        },
+        {
+          "name": "Mengyu Du 杜梦宇",
+          "details": [
+            "B.S. 2025, Peking University"
+          ],
+          "email": "2657053067@qq.com",
+          "research_interest": "",
+          "image": "/media/people-12.png",
+          "status": "current"
+        }
+      ]
+    },
+    {
+      "name": "Undergraduate",
+      "people": [
+        {
+          "name": "Mian Qin 秦勉",
+          "details": [
+            "Post-graduation Destination: University of Pennsylvania, Chemical and Biomolecular Engineering"
+          ],
+          "email": "mianqin@seas.upenn.edu",
+          "research_interest": "Scientific Machine Learning",
+          "image": "/media/people-13.jpg",
+          "status": "current"
+        }
+      ]
+    },
+    {
+      "name": "Alumni: Postdoctor and Ph.D",
+      "people": [
+        {
+          "name": "Zhaoru Sun 孙兆茹",
+          "details": [
+            "Ph.D 2014",
+            "Present: Assistant Professor/PI, ShanghaiTech University"
+          ],
+          "email": "sunzhr@shanghaitech.edu.cn",
+          "research_interest": "",
+          "image": "/media/people-14.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Gang Sun 孙刚",
+          "details": [
+            "Ph.D 2016",
+            "Present: Professor, Beijing Normal University"
+          ],
+          "email": "gangsun@bnu.edu.cn",
+          "research_interest": "",
+          "image": "/media/people-15.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Renzhong Li 李任重",
+          "details": [
+            "Ph.D 2017",
+            "Present: AI Expert, Sunshine Insurance Group"
+          ],
+          "email": "",
+          "research_interest": "",
+          "image": "/media/people-16.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Huaze Shen 申化泽",
+          "details": [
+            "Ph.D 2017",
+            "Present: Lecturer, Chongqing university of arts and sciences"
+          ],
+          "email": "shenhuaze@pku.edu.cn",
+          "research_interest": "",
+          "image": "/media/people-17.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Rui Wang 王睿",
+          "details": [
+            "Ph.D 2018",
+            "Present: Assistant Researcher, Shanghai Jiao Tong University"
+          ],
+          "email": "rui.wang@sjtu.edu.cn",
+          "research_interest": "",
+          "image": "/media/people-18.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Fujie Tang 汤富杰",
+          "details": [
+            "Ph.D 2018",
+            "Present: Associate Professor, Xiamen University"
+          ],
+          "email": "tangfujie@xmu.edu.cn",
+          "research_interest": "",
+          "image": "/media/people-19.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Zhenwei Wu 武振伟",
+          "details": [
+            "Postdoc, 2015-2018",
+            "Present: Associate Professor, Beijing Normal University"
+          ],
+          "email": "zwwu@bnu.edu.cn",
+          "research_interest": "",
+          "image": "/media/people-20.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Liying Zhou 周丽颖",
+          "details": [
+            "Ph.D 2020"
+          ],
+          "email": "",
+          "research_interest": "",
+          "image": "/media/people-21.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Duanyun Cao 曹端云",
+          "details": [
+            "Ph.D 2020",
+            "Present: Associate Researcher, Beijing Institute of Technology"
+          ],
+          "email": "dycao@bit.edu.cn",
+          "research_interest": "",
+          "image": "/media/people-22.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Jingdong Ai 艾靖东",
+          "details": [
+            "Ph.D 2022",
+            "Present: Researcher, SSRS Fund (Hainan) Corp, Ltd"
+          ],
+          "email": "",
+          "research_interest": "",
+          "image": "/media/people-23.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Jianqing Guo 郭见青",
+          "details": [
+            "Ph.D 2022",
+            "Present: Quant Researcher, Ubiquant Investment (Beijing) Corp, Ltd."
+          ],
+          "email": "",
+          "research_interest": "",
+          "image": "/media/people-24.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Shaoqin jiang 江少钦",
+          "details": [
+            "Postdoc, 2020-2022",
+            "Present: Software R&D Engineer, Longxun Quantum Science and Technology Ltd."
+          ],
+          "email": "",
+          "research_interest": "",
+          "image": "/media/people-25.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Yizhi Liu 刘益志",
+          "details": [
+            "Ph.D 2023"
+          ],
+          "email": "lyz2018@pku.edu.cn",
+          "research_interest": "Phase transitions in complex amrphous systems",
+          "image": "/media/people-26.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Yizhi Song 宋易知",
+          "details": [
+            "Ph.D 2023",
+            "Present: Postdoc, University of North Texas"
+          ],
+          "email": "yizhi.song@unt.edu",
+          "research_interest": "",
+          "image": "/media/people-27.jpg",
+          "status": "current"
+        },
+        {
+          "name": "Xuejia Yu 余雪佳",
+          "details": [
+            "Ph.D 2023",
+            "Present: Assistant Professor/PI, Eastern Institute of Technology, Ningbo"
+          ],
+          "email": "xuejiayu@eitech.edu.cn",
+          "research_interest": "",
+          "image": "/media/people-28.png",
+          "status": "current"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    <div class="prose">{{ .Content }}</div>
+  </header>
+  {{ $gallery := index hugo.Data.photos .Params.gallery }}
+  <div class="gallery-grid">
+    {{ range $gallery.images }}
+      <figure><img src="{{ .src }}" alt="{{ .alt }}" loading="lazy"></figure>
+    {{ end }}
+  </div>
+{{ end }}

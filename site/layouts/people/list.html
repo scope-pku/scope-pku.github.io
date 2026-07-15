@@ -1,0 +1,29 @@
+{{ define "main" }}
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    <div class="prose">{{ .Content }}</div>
+  </header>
+  {{ if eq site.Language.Lang "en" }}
+    {{ range hugo.Data.people.categories }}
+      <section class="people-section">
+        <h2>{{ .name }}</h2>
+        <div class="people-grid">
+          {{ range .people }}
+            <article class="person-card">
+              <img src="{{ .image }}" alt="Portrait of {{ .name }}" loading="lazy">
+              <div>
+                <h3>{{ if .profile }}<a href="{{ .profile }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}</h3>
+                {{ with .role }}<p>{{ . }}</p>{{ end }}
+                {{ range .details }}<p>{{ . }}</p>{{ end }}
+                {{ with .research_interest }}<p><strong>Research:</strong> {{ . }}</p>{{ end }}
+                {{ with .email }}<p><a href="mailto:{{ . }}">{{ . }}</a></p>{{ end }}
+                {{ with .personal_page }}<p><a href="{{ . }}">Personal page</a></p>{{ end }}
+                {{ with .cv }}<p><a href="{{ . }}">Detailed CV</a></p>{{ end }}
+              </div>
+            </article>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+  {{ end }}
+{{ end }}

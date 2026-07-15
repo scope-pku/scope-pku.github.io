@@ -5,13 +5,15 @@
       <ul class="nav-list">
         {{ range site.Menus.main }}
           <li>
-            <a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a>
+            <a href="{{ .URL }}"{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
           </li>
         {{ end }}
       </ul>
     </nav>
     <nav class="language-list" aria-label="{{ if eq site.Language.Lang "zh" }}语言{{ else }}Language{{ end }}">
-      {{ range .Translations }}
+      {{ $translations := .Translations }}
+      {{ if not $translations }}{{ $translations = site.Home.Translations }}{{ end }}
+      {{ range $translations }}
         <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" aria-label="{{ if eq .Language.Lang "en" }}Switch to English{{ else }}切换到中文{{ end }}">
           <span class="language-icon" aria-hidden="true">🌐</span>
           <span>{{ if eq .Language.Lang "en" }}EN{{ else }}CN{{ end }}</span>

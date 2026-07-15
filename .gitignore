@@ -1,4 +1,6 @@
 .DS_Store
+__pycache__/
+*.pyc
 site/.hugo_build.lock
 site/public/
 site/resources/_gen/

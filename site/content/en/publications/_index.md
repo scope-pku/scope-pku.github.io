@@ -1,10 +1,5 @@
 ---
-title: Publications
+title: "Publications"
 translationKey: publications
-aliases:
-  - /Publications/Highlights.htm
-  - /Publications/Full_List.htm
-  - /Publications/Theses.htm
 ---
-
-Research highlights and the full publication list will be maintained here.
+Research highlights, the complete publication list, and student theses.
