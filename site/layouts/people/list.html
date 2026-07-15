@@ -17,7 +17,7 @@
           <div class="people-grid">
           {{ range .people }}
             <article class="person-card">
-              <img src="{{ .image }}" width="{{ if $isLeader }}183{{ else }}120{{ end }}" height="{{ if $isLeader }}211{{ else }}120{{ end }}" alt="Portrait of {{ .name }}" loading="lazy">
+              <img src="{{ .image }}" width="{{ if $isLeader }}180{{ else }}120{{ end }}" height="{{ if $isLeader }}209{{ else }}120{{ end }}" alt="Portrait of {{ .name }}" loading="lazy">
               <div class="person-card__body">
                 <h3>{{ if .profile }}<a href="{{ .profile }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}</h3>
                 {{ with .name_zh }}<p class="person-card__name-zh" lang="zh">{{ . }}</p>{{ end }}
