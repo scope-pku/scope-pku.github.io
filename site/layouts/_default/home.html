@@ -1,52 +1,50 @@
 {{ define "main" }}
   <article class="home">
     <header class="home-hero">
-      {{ if eq site.Language.Lang "en" }}
-        <img class="home-group-photo" src="{{ hugo.Data.home.hero }}" width="{{ hugo.Data.home.hero_width }}" height="{{ hugo.Data.home.hero_height }}" alt="Xu Research Group members on the Peking University campus" fetchpriority="high">
-      {{ end }}
+      <img class="home-group-photo" src="{{ hugo.Data.home.hero }}" width="{{ hugo.Data.home.hero_width }}" height="{{ hugo.Data.home.hero_height }}" alt="{{ if eq site.Language.Lang "zh" }}徐莉梅课题组成员在北京大学校园合影{{ else }}Xu Research Group members on the Peking University campus{{ end }}" fetchpriority="high">
       <div class="home-intro">
         <div class="home-copy">
           <p class="eyebrow">{{ site.Params.affiliation }}</p>
           <h1>{{ .Title }}</h1>
           <div class="prose">{{ .Content }}</div>
         </div>
-        {{ if eq site.Language.Lang "en" }}
-          <img class="home-water-figure" src="{{ hugo.Data.home.water_figure }}" width="{{ hugo.Data.home.water_figure_width }}" height="{{ hugo.Data.home.water_figure_height }}" alt="Molecular structure illustration from the original Xu Research Group website">
-        {{ end }}
+        <img class="home-water-figure" src="{{ hugo.Data.home.water_figure }}" width="{{ hugo.Data.home.water_figure_width }}" height="{{ hugo.Data.home.water_figure_height }}" alt="{{ if eq site.Language.Lang "zh" }}原徐莉梅课题组网站中的分子结构示意图{{ else }}Molecular structure illustration from the original Xu Research Group website{{ end }}">
       </div>
     </header>
-    {{ if eq site.Language.Lang "en" }}
-      <section class="home-section">
-        <div class="section-heading">
-          <h2>Research highlights</h2>
-          <a href="{{ relLangURL "publications/highlights/" }}">View all</a>
-        </div>
-        <div class="highlight-list">
-          {{ range first 3 hugo.Data.highlights }}
-            <article class="highlight-row">
-              <img src="{{ .image }}" width="{{ .width }}" height="{{ .height }}" alt="Research image for {{ .title }}" loading="lazy">
-              <div>
-                <h3>{{ if .url }}<a href="{{ .url }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
-                <p>{{ .summary }}</p>
-              </div>
-            </article>
-          {{ end }}
-        </div>
-      </section>
-      <section class="home-section">
-        <div class="section-heading">
-          <h2>Recent news</h2>
-          <a href="{{ relLangURL "news/" }}">View all</a>
-        </div>
-        <div class="news-list">
-          {{ range hugo.Data.recent_news }}
-            <article class="news-row">
-              {{ with .date }}<time datetime="{{ replace . "." "-" }}">{{ . }}</time>{{ end }}
-              <p>{{ if .url }}<a href="{{ .url }}">{{ .text }}</a>{{ else }}{{ .text }}{{ end }}</p>
-            </article>
-          {{ end }}
-        </div>
-      </section>
-    {{ end }}
+    <section class="home-section">
+      <div class="section-heading">
+        <h2>{{ if eq site.Language.Lang "zh" }}研究亮点{{ else }}Research highlights{{ end }}</h2>
+        <a href="{{ relLangURL "publications/highlights/" }}">{{ if eq site.Language.Lang "zh" }}查看全部{{ else }}View all{{ end }}</a>
+      </div>
+      <div class="highlight-list">
+        {{ range first 3 hugo.Data.highlights }}
+          {{ $summary := .summary }}
+          {{ if and (eq site.Language.Lang "zh") .summary_zh }}{{ $summary = .summary_zh }}{{ end }}
+          <article class="highlight-row">
+            <img src="{{ .image }}" width="{{ .width }}" height="{{ .height }}" alt="{{ if eq site.Language.Lang "zh" }}论文 {{ .title }} 的研究图片{{ else }}Research image for {{ .title }}{{ end }}" loading="lazy">
+            <div>
+              <h3>{{ if .url }}<a href="{{ .url }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
+              <p>{{ $summary }}</p>
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </section>
+    <section class="home-section">
+      <div class="section-heading">
+        <h2>{{ if eq site.Language.Lang "zh" }}近期新闻{{ else }}Recent news{{ end }}</h2>
+        <a href="{{ relLangURL "news/" }}">{{ if eq site.Language.Lang "zh" }}查看全部{{ else }}View all{{ end }}</a>
+      </div>
+      <div class="news-list">
+        {{ range hugo.Data.recent_news }}
+          {{ $text := .text }}
+          {{ if and (eq site.Language.Lang "zh") .text_zh }}{{ $text = .text_zh }}{{ end }}
+          <article class="news-row">
+            {{ with .date }}<time datetime="{{ replace . "." "-" }}">{{ . }}</time>{{ end }}
+            <p>{{ if .url }}<a href="{{ .url }}">{{ $text }}</a>{{ else }}{{ $text }}{{ end }}</p>
+          </article>
+        {{ end }}
+      </div>
+    </section>
   </article>
 {{ end }}
