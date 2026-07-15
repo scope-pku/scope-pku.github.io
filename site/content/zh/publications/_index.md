@@ -6,8 +6,7 @@ resourcesLabel: 成果导航
 resources:
   - title: 研究亮点
     summary: 了解课题组的代表性研究成果及其科学背景。
-    url: /publications/highlights/
-    hreflang: en
+    url: /zh/publications/highlights/
   - title: 完整论文列表
     summary: 查阅 2005 至 2026 年的完整论文列表。
     url: /publications/full-list/
