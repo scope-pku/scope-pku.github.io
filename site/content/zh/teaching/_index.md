@@ -10,8 +10,7 @@ yearNavigationLabel: 教学年份
 yearNavigationIntro: 查看历年教学记录
 yearLinks:
   - label: "2022"
-    url: /teaching/2022/
-    hreflang: en
+    url: /zh/teaching/2022/
   - label: "2021"
     url: /teaching/2021/
     hreflang: en
