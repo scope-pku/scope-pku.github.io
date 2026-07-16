@@ -154,6 +154,56 @@ tools/build_boda_release.sh
 
 GitHub Actions 手工流程还要求 workflow 输入 `confirm` 为 `DEPLOY_NONATOMIC`，之后步骤再次以 `--apply --confirm DEPLOY_NONATOMIC` 调用 CLI；workflow 仅在 `main` 上运行，默认 `operation=plan`。当前 `.github/workflows/boda-release.yml` 将 `BODA_PATH_PREFIX` 固定为 `/new`，没有根路径输入，因此该 workflow 只能构建、探测和部署 `/new`；根路径部署必须使用本地 CLI，或先经过单独审核修改 workflow。
 
+### GitHub Actions 手动上传
+
+远端仓库的 `Boda release` workflow 通过 `workflow_dispatch` 手动触发，只接受 `main` 分支，并固定部署到 `/new`。它不会修改站点根路径。GitHub 的 `boda-production` concurrency group 会串行执行任务，避免两个非原子部署重叠。
+
+首次使用前，在 GitHub 仓库进入 `Settings` → `Secrets and variables` → `Actions`，建立以下 repository secrets：
+
+- `BODA_IAAA_USERNAME`
+- `BODA_IAAA_PASSWORD`
+- `BODA_IAAA_OTP`（可选；IAAA 要求二次验证时必须配置）
+
+如果配置 `BODA_IAAA_OTP`，应使用可持续生成验证码的 Base32 TOTP seed 或 `otpauth://` URI。不要把只在当前 30 秒有效的六位验证码保存为 GitHub secret。Secrets 设置后只能看到名称和更新时间，不能从 GitHub 读回原值。
+
+网页操作步骤：
+
+1. 打开仓库的 `Actions` → `Boda release` → `Run workflow`。
+2. Branch 选择 `main`。
+3. 先选择 `plan` 并运行；它只构建、校验并上传 GitHub artifact，不登录 Boda。
+4. 再选择 `probe`；它只登录并检查 `/new`，不上传站点文件。
+5. 正式全量上传时选择 `deploy`，并在 `confirm` 中精确填写 `DEPLOY_NONATOMIC`。
+6. 已建立并验证远端 state 后，可选择 `incremental`，并精确填写 `DEPLOY_INCREMENTAL`。
+7. 展开 workflow 日志确认 build、plan、probe 和 deploy 均成功，再检查 `https://xulm.pku.edu.cn/new/` 及中英文详情页。
+
+也可以使用已登录的 GitHub CLI：
+
+```sh
+# 只读构建与计划
+gh workflow run boda-release.yml --ref main -f operation=plan
+
+# 只读登录探测
+gh workflow run boda-release.yml --ref main -f operation=probe
+
+# 全量立即写入 /new
+gh workflow run boda-release.yml --ref main \
+  -f operation=deploy -f confirm=DEPLOY_NONATOMIC
+
+# 基于 state 的增量立即写入 /new
+gh workflow run boda-release.yml --ref main \
+  -f operation=incremental -f confirm=DEPLOY_INCREMENTAL
+```
+
+`gh workflow run` 成功时会尽量返回新运行的 URL；URL 最后的数字就是 `RUN_ID`。使用该编号查看刚触发的运行：
+
+```sh
+gh run watch RUN_ID --exit-status
+```
+
+如果命令没有返回 URL，请从 Actions 页面打开并核对 run name、触发者、`main` 分支和 commit 后再查看日志。不要用“最新一次运行”代替这个核对；其他运营者可能在相邻时间触发另一个任务。
+
+`plan` 和 `probe` 是安全的预检查；`deploy` 与 `incremental` 会立即公开写入 Boda。不要为测试写入而触发后两者，也不要在前一次 workflow 尚未结束时从本地并发部署。
+
 部署实现先按“浅目录到深目录”创建缺失目录，再上传全部 release 文件；根 `index.html` 和 `index.htm` 排在最后。所有上传结束后才统一进行公开 URL SHA-256 校验。校验最多尝试 5 次，每次失败间隔 1 秒。CSS/JS 的公开内容会去除 Boda 注入的 UTF-8 BOM 后再与本地 SHA-256 比较。
 
 普通 full deploy 上传完整 release，成功后刷新 state，但不删除远端多余文件。增量 deploy 只删除旧 state 声明且公开 checksum 仍匹配的文件；不自动删除目录或未由旧 state 管理的文件。普通和增量部署都不是原子操作，失败可能留下混合版本。

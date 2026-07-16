@@ -10,7 +10,7 @@
 
 ## 阅读路径
 
-- **开发者**：阅读 [`developer-guide.md`](developer-guide.md)，了解代码、内容、构建与本地验证相关工作。
+- **开发者**：先阅读 [`developer-guide.md`](developer-guide.md)，了解代码、内容、构建与本地验证相关工作；需要更新新闻、论文亮点、研究主题、论文列表、成员、照片或教学内容时，直接参考 [`content-update-examples.md`](content-update-examples.md) 的可复制示例。
 - **运营者**：阅读 [`operator-guide.md`](operator-guide.md)，了解发布前检查、部署操作与风险控制。
 
 遇到跨角色工作时，先按上述顺序阅读共同文档，再同时参考两份指南。

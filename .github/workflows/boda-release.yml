@@ -1,4 +1,5 @@
 name: Boda release
+run-name: Boda ${{ inputs.operation }} to /new by @${{ github.actor }}
 
 on:
   workflow_dispatch:
@@ -53,6 +54,16 @@ jobs:
           path: dist/boda-site
           if-no-files-found: error
           retention-days: 3
+      - name: Verify required Boda credentials
+        if: inputs.operation == 'probe' || inputs.operation == 'deploy' || inputs.operation == 'incremental'
+        env:
+          BODA_IAAA_USERNAME: ${{ secrets.BODA_IAAA_USERNAME }}
+          BODA_IAAA_PASSWORD: ${{ secrets.BODA_IAAA_PASSWORD }}
+          BODA_IAAA_OTP: ${{ secrets.BODA_IAAA_OTP }}
+        run: |
+          test -n "$BODA_IAAA_USERNAME"
+          test -n "$BODA_IAAA_PASSWORD"
+
       - name: Probe Boda session
         if: inputs.operation == 'probe' || inputs.operation == 'deploy' || inputs.operation == 'incremental'
         env:
