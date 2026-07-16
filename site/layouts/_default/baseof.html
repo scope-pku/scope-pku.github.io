@@ -1,9 +1,12 @@
 <!doctype html>
 <html lang="{{ site.Language.Locale }}">
   <head>
+    {{ $description := .Params.description | default .Summary | default site.Params.description | plainify | replaceRE `\s+` ` ` }}
+    {{ if not .IsHome }}{{ $description = printf "%s — %s" .Title $description }}{{ end }}
+    {{ $description = $description | truncate 160 }}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ site.Params.description }}">
+    <meta name="description" content="{{ $description }}">
     <title>{{ if eq .Kind "404" }}{{ i18n "page_not_found" }} · {{ site.Title }}{{ else if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
     <link rel="canonical" href="{{ .Permalink }}">
     {{ range .AllTranslations }}

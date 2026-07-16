@@ -3,8 +3,6 @@ title: "Breaking News"
 translationKey: news
 layout: breaking-news
 intro: "Recent publications, awards, presentations, and group updates."
-aliases:
-  - "/News/Breaking_News.htm"
 ---
 {{< news-row date="2026.02" >}}Our paper "[Kinetics of Stacking-Order Evolution during Heterogeneous Ice Formation](https://journals.aps.org/prl/abstract/10.1103/gns5-686v)" was published in Phys. Rev. Lett.{{< /news-row >}}
 

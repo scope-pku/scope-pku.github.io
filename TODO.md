@@ -24,7 +24,7 @@ only after the English design is approved.
   academic layout, natural scientific imagery, and no legacy CMS defects.
 - Verify headings, alt text, keyboard focus, WCAG AA contrast, and no
   document-level horizontal overflow.
-- Verify the page route and its legacy alias where one exists.
+- Verify the lowercase page route.
 - Run a clean Hugo build and check that no VSB resources remain.
 - Record the completed page in a focused Git commit.
 
@@ -38,7 +38,7 @@ only after the English design is approved.
 - [x] Rebuild the shared masthead, navigation, breadcrumbs, footer, typography,
   spacing, and canonical contact data before page-specific work.
 - [x] Verify shared desktop/mobile navigation, `🌐 CN` / `🌐 EN`, focus states,
-  and all 21 legacy aliases.
+  and lowercase routes.
 
 ## 1. Home and research
 
@@ -99,7 +99,8 @@ only after the English design is approved.
 - [x] **Have Fun** `/photos/have-fun/` — compare `Photos/Have_Fun.htm`; preserve
   three natural-ratio images.
 - [x] **Dine Together** `/photos/dine-together/` — compare the legacy typo route
-  `Photos/Dine_Toghter.htm`; preserve its image and alias.
+  `Photos/Dine_Toghter.htm`; preserve its image but publish only the lowercase
+  route.
 - [x] **Graduation** `/photos/graduation/` — compare `Photos/Graduation.htm`;
   preserve four natural-ratio images.
 
@@ -107,7 +108,7 @@ only after the English design is approved.
 
 - [x] **Contact** `/contact/` — compare `Contact_Us.htm`; use the canonical
   address, office, telephone, email, personal page, and student-office details.
-- [x] Run the final English route, content-count, asset, alias, accessibility,
+- [x] Run the final English route, content-count, asset, accessibility,
   responsive, and broken-link regression checks.
 - [x] Resolve final visual review notes: use one left Home text column with a
   right-side figure, alternate Research text and figures with left-aligned
@@ -199,7 +200,7 @@ only after the English design is approved.
 - [x] **会议活动** `/zh/photos/meetings/` — 对照 `/photos/meetings/`。
 - [x] **休闲活动** `/zh/photos/have-fun/` — 对照 `/photos/have-fun/`。
 - [x] **聚餐** `/zh/photos/dine-together/` — 对照 `/photos/dine-together/`，
-  保留旧地址别名。
+  仅发布小写地址。
 - [x] **毕业留影** `/zh/photos/graduation/` — 对照 `/photos/graduation/`。
 
 ### 8.8 Contact
@@ -209,8 +210,8 @@ only after the English design is approved.
 
 ### 8.9 Chinese release gate
 
-- [x] 检查所有中英文路由、`translationKey`、alternate-language metadata、
-  旧地址别名、语言切换与 404 行为。
+- [x] 检查所有中英文小写路由、`translationKey`、alternate-language metadata、
+  语言切换与 404 行为。
 - [x] 检查中英文记录数量、图片资产、外部链接、邮件和电话链接一致且无遗漏。
 - [x] 完成 1440 / 768 / 390 px 全站响应式与无障碍回归，确认无水平溢出。
 - [x] 运行最终干净 Hugo 构建并检查无 VSB 资源、无构建警告和无未提交改动。
@@ -228,7 +229,7 @@ only after the English design is approved.
   并确认 Boda 显示 `全检通过`。
 - [x] 确认 Boda 网站包用于 CMS 回滚，不能把普通 Hugo ZIP 当作网站包导入。
 - [x] 确认批量上传支持一次选择多个文件，但不保留目录树；当前正式输出分布在
-  49 个目录中。
+  46 个全小写目录中。
 - [x] 确认裸域名当前使用 `/index.htm`，并在正式建置脚本中以真实首页覆盖
   Hugo 的根目录跳转别名。
 - [x] 增加 `tools/build_boda_release.sh`，生成带校验清单的正式静态产物。
@@ -236,7 +237,7 @@ only after the English design is approved.
 - [ ] 获得英文版最终视觉批准及中文版最终视觉、文字批准。
 - [ ] 整理当前工作区，建立干净的发布提交与 release tag。
 - [ ] 向 Boda 管理员确认是否提供保留目录树的静态文件上传、服务器同步或正式
-  发布接口；若没有，再批准 49 个目录的 UI 批量上传方案。
+  发布接口；若没有，再批准 46 个目录的 UI 批量上传方案。
 - [ ] 指定维护时段、上线操作者、验收人及回滚决定人。
 - [ ] 按 `BODA_DEPLOYMENT.md` 完成发布前演练和逐项验收，但不得在正式站试做
   网站包导入。

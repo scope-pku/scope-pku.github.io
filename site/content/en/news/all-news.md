@@ -5,8 +5,6 @@ summary: "Complete archive of group publications, events, awards, and member new
 intro: "A year-by-year archive of group publications, awards, presentations, and appointments."
 layout: all-news
 weight: 10
-aliases:
-  - "/News/All_News_and_Events.htm"
 ---
 ## 2026
 

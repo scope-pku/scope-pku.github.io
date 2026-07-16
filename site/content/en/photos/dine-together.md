@@ -5,6 +5,4 @@ summary: "A group dinner at Peking University in 2022."
 weight: 40
 layout: gallery
 gallery: dine-together
-aliases:
-  - "/Photos/Dine_Toghter.htm"
 ---

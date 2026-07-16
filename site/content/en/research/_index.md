@@ -1,8 +1,6 @@
 ---
 title: "Research"
 translationKey: research
-aliases:
-  - "/Research.htm"
 ---
 We are a computational research group in soft condensed matter physics and computational physics. Our group focuses on investigating the behavior of matter at the nanoscale, utilizing state-of-the-art computational tools and techniques. Our research includes:
 

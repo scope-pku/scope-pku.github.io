@@ -35,9 +35,15 @@
   `https://xulm.pku.edu.cn/<directory>/` without using the global `发布` action.
   An unlinked directory and a title containing `未发布` provide obscurity, not
   access control. Never upload secrets or unfinished private material.
-- Apache resolves an uploaded `index.html` as the directory index, and both
-  HTTP and HTTPS served the probe with the original HTML and executable inline
-  JavaScript intact. Public responses currently use a 600-second cache.
+- Apache prefers `index.htm` over `index.html` when both exist. Keep the two
+  root entry files identical; a self-redirecting `index.htm` causes an infinite
+  refresh loop. Public responses currently use a 600-second cache.
+- Boda prepends a UTF-8 BOM to uploaded CSS and JavaScript. This invalidates
+  Hugo's subresource-integrity hashes and makes browsers reject those assets,
+  so Boda release HTML must not contain `integrity` attributes.
+- `BODA_PATH_PREFIX` is the single deployment-path setting. Empty or `/`
+  targets the root; `/new` and nested values such as `/trial/site` prefix Hugo
+  URLs, the Boda upload root, and public checksum verification together.
 - The file manager accepts static assets including HTML, HTM, CSS, JavaScript,
   SVG, images, fonts, XML, and PDF. Its upload page reports a 1000 MB total
   limit and restricts filenames to Chinese, English, digits, `-`, and `_`.
@@ -48,6 +54,15 @@
   JavaScript edits only in Boda.
 - No Git, SSH, SFTP, database, web-server configuration, or operating-system
   access has been found in the Boda UI.
+
+### Boda CLI safety rules
+
+- The formal general entry point is `tools/bodacli`; do not document or use a compatibility copy of the old wrapper. Install the client dependencies with `python3 -m pip install -r boda_release/requirements.txt`.
+- Authentication values come from environment variables or the repository-root `.env` (`BODA_IAAA_USERNAME`, `BODA_IAAA_PASSWORD`, and optional `BODA_IAAA_OTP`); never commit them. The client automatically stores and reuses the session in the user cache at `~/Library/Caches/bodacli/session.cookies` on macOS, `<XDG_CACHE_HOME>/bodacli/session.cookies` when `XDG_CACHE_HOME` is set, or `~/.cache/bodacli/session.cookies` on other systems. `BODA_SESSION_FILE` is an advanced override. The client creates the cache directory and keeps the session file at mode `0600`; keep `.env` at mode `0600` too.
+- Deployments use the English default security reason `Published by bodacli at <UTC ISO timestamp>.`; set optional `BODA_SECURITY_REASON` only when a custom audit explanation is needed.
+- `BODA_IAAA_OTP` accepts a Base32 seed, an `otpauth://` URI, or an already-generated six-digit one-time code.
+- `tools/boda_crud_test.sh` performs immediate production writes at `/test/A/B.txt`, then deletes the file and directory. It refuses to run if `A` already exists; never run it concurrently with another CRUD test or deployment.
+- New uploads may return a structured security receipt, while overwriting an existing file may return the exact plain-text body `ok`. Deployment may accept only that exact receiptless overwrite and must then verify the public checksum; structured receipts still require the Boda file-security update. The CRUD test may additionally confirm its known `B.txt` through a fresh directory listing.
 
 ### Boda browser pitfalls
 
@@ -77,9 +92,16 @@
 - Probe the smallest useful artifact first: one self-contained `index.html`
   with an unmistakable marker and inline CSS/JavaScript. Only after it is
   served correctly should the probe add nested `index.html` pages, independent
-  CSS/JS/media, and legacy `.htm` aliases.
+  CSS/JS/media, and lowercase content routes.
 - Upload only a clean production Hugo build, never Hugo source directories.
   `hugo server` output can contain `livereload.js` and localhost canonical
   URLs, so regenerate with plain `hugo` before deployment.
 - Do not publish or replace the existing site merely to test static-file
   storage. Confirm the isolated path through preview or a direct URL first.
+
+### Incremental deployment protocol
+
+- Every incremental deployment performs a complete local Hugo build. Select uploads from the SHA-256 manifest diff of the complete `dist/boda-site/` output; Hugo fan-out means `git diff` must not be treated as a source-to-output map. Use Git only for commit ancestry checks and source-change audit. The builder writes local `BODACLI_BUILD.json` provenance, which is excluded from upload; deploy must reject a release whose recorded commit/dirty state differs from the current worktree.
+- Invoke incremental deploy as `tools/bodacli deploy dist/boda-site --incremental --apply --confirm DEPLOY_INCREMENTAL`. A missing state bootstraps with a full deploy. `bodacli-state.txt` is a publicly served TXT file containing canonical JSON metadata only: schema, commit, dirty flag, path prefix, and generated-file SHA-256 entries; it must contain no source or credentials.
+- Incremental deployment requires a clean current Git worktree. State validation is fail-closed for corruption, path-prefix mismatch, non-ancestor commit, dirty baseline, remote checksum drift, or a state change detected during the operation. Delete only files declared by the old state whose remote checksum still matches; never delete directories. Confirm each deletion through the management listing and a cache-busted public 404 before writing state last. The server has no atomic compare-and-swap, so manual deployments must never overlap; GitHub Actions concurrency covers workflow runs. Full and incremental deploys are non-atomic.
+- Ordinary full deploy keeps `DEPLOY_NONATOMIC`, but all deployments require a clean worktree and matching `BODACLI_BUILD.json`; a dirty artifact must never be uploaded.

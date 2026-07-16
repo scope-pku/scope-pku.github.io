@@ -596,12 +596,13 @@ h1 {
 
 @media (max-width: 860px) {
   .masthead-inner {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(0, 175px) minmax(0, 1fr);
     gap: .75rem 1rem;
     padding: .75rem 0;
   }
-  .university-brand img { width: 175px; }
-  .group-brand { grid-column: 1 / -1; grid-row: 2; justify-self: start; text-align: left; }
+  .university-brand { min-width: 0; }
+  .university-brand img { width: min(175px, 100%); }
+  .group-brand { min-width: 0; justify-self: end; text-align: right; }
   .primary-nav { display: none; }
   .mobile-menu {
     display: block;
@@ -669,7 +670,7 @@ h1 {
   .mobile-menu__language { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, .25); }
   .mobile-menu__language a { display: flex; align-items: center; gap: .5rem; }
   .home-intro { grid-template-columns: 1fr; padding-top: 2rem; }
-  .home-water-figure { grid-column: 1; grid-row: auto; justify-self: start; width: 120px; }
+  .home-water-figure { display: none; }
   .research-story { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 0 2rem; }
   .research-story:nth-of-type(even) .research-story__media { order: initial; }
   .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
@@ -682,6 +683,10 @@ h1 {
 }
 
 @media (max-width: 520px) {
+  .masthead-inner { grid-template-columns: minmax(0, 140px) minmax(0, 1fr); gap: .75rem; }
+  .university-brand img { width: min(140px, 100%); }
+  .group-brand strong { font-size: 1rem; }
+  .group-brand span { font-size: .72rem; }
   .index-entry,
   .news-row { grid-template-columns: 1fr; gap: .5rem; }
   .highlight-row { grid-template-columns: 1fr; }

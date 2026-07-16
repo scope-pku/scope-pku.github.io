@@ -20,16 +20,15 @@ same `translationKey`. Keep the two files equivalent in meaning. Set
 
 The generated static website is written to `site/public/` by `hugo`.
 
-## Refresh the English migration
+## Historical English migration
 
-Run `python3 tools/migrate_english.py` from the repository root to rebuild the
-English Markdown, data files, and local media from the read-only HTML snapshot.
-The migration keeps source spellings and claims, removes two exact duplicate
-news items, and excludes the previous VSB scripts and styles.
+`tools/migrate_english.py` records the initial bulk bootstrap from the read-only
+HTML snapshot. Do not run it against the maintained site: it rewrites English
+Markdown, data files, and local media. Compare individual pages with the
+immutable source and edit them deliberately instead.
 
 ## Existing URLs
 
 English remains the default language at the site root, matching the previous
-website, while Chinese pages use `/zh/`. The English section files define
-aliases for the previous public `.htm` URLs. Keep these aliases when migrating
-content so existing links redirect to the corresponding replacement section.
+website, while Chinese pages use `/zh/`. All maintained routes and directories
+use lowercase names. The replacement site does not generate legacy aliases.

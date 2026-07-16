@@ -1,4 +1,6 @@
 .DS_Store
+.env
+.boda-session.cookies
 __pycache__/
 *.pyc
 site/.hugo_build.lock

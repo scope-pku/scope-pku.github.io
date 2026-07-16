@@ -4,8 +4,6 @@ translationKey: highlights
 summary: "Selected research highlights from the Xu Research Group."
 layout: highlights
 weight: 10
-aliases:
-  - "/Publications/Highlights.htm"
 ---
 {{< research-highlight title="Unveiling the Amorphous Ice Layer during Premelting Using AFM Integrating Machine Learning" image="/media/highlight-01.png" >}}
 Ice begins to change well before it melts. Even far below freezing, its surface forms a thin, liquidlike layer through premelting—a process relevant in cloud formation, cryopreservation, and planetary science. We provide a machine learning framework that combines high-resolution atomic force microscopy and computer simulations to map the ice surface at the atomic level, identifying an amorphous ice layer. This layer is a disordered, solidlike state that appears between 121 and 180 K prior to the liquidlike layer. Recognizing this previously overlooked phase informs our understanding of ice melting and growth. Our AI-assisted framework offers a promising approach to exploring other problems in materials and surface science, including complex, disordered surfaces, catalysts, functional materials, and biomolecules.

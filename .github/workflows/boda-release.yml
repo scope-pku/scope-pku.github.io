@@ -1,0 +1,84 @@
+name: Boda release
+
+on:
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: Safe operation to run
+        type: choice
+        options:
+          - plan
+          - probe
+          - deploy
+          - incremental
+        default: plan
+      confirm:
+        description: Type DEPLOY_NONATOMIC or DEPLOY_INCREMENTAL to allow production writes
+        required: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: boda-production
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      BODA_BASE_URL: https://boda.pku.edu.cn
+      BODA_PUBLIC_URL: https://xulm.pku.edu.cn
+      BODA_PATH_PREFIX: /new
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.164.0"
+          extended: true
+      - name: Build Boda release
+        run: ./tools/build_boda_release.sh
+      - name: Install Boda client
+        run: python3 -m pip install -r boda_release/requirements.txt
+      - name: Verify release plan
+        run: ./tools/bodacli plan dist/boda-site
+      - name: Upload release artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: boda-site-${{ github.sha }}
+          path: dist/boda-site
+          if-no-files-found: error
+          retention-days: 3
+      - name: Probe Boda session
+        if: inputs.operation == 'probe' || inputs.operation == 'deploy' || inputs.operation == 'incremental'
+        env:
+          BODA_IAAA_USERNAME: ${{ secrets.BODA_IAAA_USERNAME }}
+          BODA_IAAA_PASSWORD: ${{ secrets.BODA_IAAA_PASSWORD }}
+          BODA_IAAA_OTP: ${{ secrets.BODA_IAAA_OTP }}
+        run: ./tools/bodacli probe
+      - name: Confirm production deployment
+        if: inputs.operation == 'deploy' || inputs.operation == 'incremental'
+        env:
+          CONFIRM: ${{ inputs.confirm }}
+        run: |
+          if [ "${{ inputs.operation }}" = incremental ]; then
+            test "$CONFIRM" = DEPLOY_INCREMENTAL
+          else
+            test "$CONFIRM" = DEPLOY_NONATOMIC
+          fi
+      - name: Deploy to Boda
+        if: inputs.operation == 'deploy' || inputs.operation == 'incremental'
+        env:
+          BODA_IAAA_USERNAME: ${{ secrets.BODA_IAAA_USERNAME }}
+          BODA_IAAA_PASSWORD: ${{ secrets.BODA_IAAA_PASSWORD }}
+          BODA_IAAA_OTP: ${{ secrets.BODA_IAAA_OTP }}
+        run: |
+          if [ "${{ inputs.operation }}" = incremental ]; then
+            ./tools/bodacli deploy dist/boda-site --incremental --apply --confirm DEPLOY_INCREMENTAL
+          else
+            ./tools/bodacli deploy dist/boda-site --apply --confirm DEPLOY_NONATOMIC
+          fi
