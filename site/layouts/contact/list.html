@@ -8,46 +8,31 @@
 
     <div class="contact-layout">
       <section aria-labelledby="contact-leader-heading">
-        <p class="eyebrow">{{ if $isChinese }}课题组负责人{{ else }}Group leader{{ end }}</p>
+        <p class="eyebrow">{{ i18n "group_leader_label" }}</p>
         <h2 id="contact-leader-heading">{{ if $isChinese }}徐莉梅{{ else }}Limei Xu{{ end }}</h2>
         <address>
           <dl class="profile-contact-list">
+            {{ partial "contact-details.html" . }}
             <div>
-              <dt>{{ if $isChinese }}地址{{ else }}Address{{ end }}</dt>
-              <dd>{{ if $isChinese }}{{ $contact.address_zh }}{{ else }}{{ $contact.address }}{{ end }}</dd>
-            </div>
-            <div>
-              <dt>{{ if $isChinese }}办公室{{ else }}Office{{ end }}</dt>
-              <dd>{{ if $isChinese }}{{ $contact.office_zh }}{{ else }}{{ $contact.office }}{{ end }}</dd>
-            </div>
-            <div>
-              <dt>{{ if $isChinese }}电话{{ else }}Telephone{{ end }}</dt>
-              <dd><a href="tel:{{ $contact.telephone_href }}">{{ $contact.telephone }}</a></dd>
-            </div>
-            <div>
-              <dt>{{ if $isChinese }}邮箱{{ else }}Email{{ end }}</dt>
-              <dd><a href="mailto:{{ $contact.email }}">{{ $contact.email }}</a></dd>
-            </div>
-            <div>
-              <dt>{{ if $isChinese }}个人主页{{ else }}Personal page{{ end }}</dt>
-              <dd><a href="{{ $contact.personal_page }}">{{ if $isChinese }}北京大学教师个人主页{{ else }}Peking University faculty profile <span>(Chinese)</span>{{ end }}</a></dd>
+              <dt>{{ i18n "personal_page" }}</dt>
+              <dd><a href="{{ $contact.personal_page }}">{{ i18n "faculty_profile" | safeHTML }}</a></dd>
             </div>
           </dl>
         </address>
       </section>
 
       <section class="contact-students" aria-labelledby="contact-students-heading">
-        <p class="eyebrow">{{ if $isChinese }}办公区域{{ else }}Workspace{{ end }}</p>
-        <h2 id="contact-students-heading">{{ if $isChinese }}学生{{ else }}Students{{ end }}</h2>
+        <p class="eyebrow">{{ i18n "workspace" }}</p>
+        <h2 id="contact-students-heading">{{ i18n "students" }}</h2>
         <dl class="profile-contact-list">
           <div>
-            <dt>{{ if $isChinese }}学生办公室{{ else }}Student offices{{ end }}</dt>
+            <dt>{{ i18n "student_offices" }}</dt>
             <dd>{{ if $isChinese }}{{ $contact.student_offices_zh }}{{ else }}{{ $contact.student_offices }}{{ end }}</dd>
           </div>
         </dl>
         <div class="contact-join">
-          <h2>{{ if $isChinese }}加入我们{{ else }}Join Us{{ end }}</h2>
-          <p>{{ if $isChinese }}欢迎本科生和研究生加入我们的课题组。如有意加入，请通过邮箱 <a href="mailto:{{ $contact.email }}">{{ $contact.email }}</a> 联系我们。{{ else }}Undergraduate and graduate students are welcome to join our group. Please contact us at <a href="mailto:{{ $contact.email }}">{{ $contact.email }}</a>.{{ end }}</p>
+          <h2>{{ i18n "join_us" }}</h2>
+          <p>{{ i18n "join_us_body" (dict "Email" $contact.email) | safeHTML }}</p>
         </div>
       </section>
     </div>

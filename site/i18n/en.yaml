@@ -1,0 +1,137 @@
+page_not_found:
+  other: Page not found
+not_found_message:
+  other: The page you requested does not exist or may have moved.
+return_home:
+  other: Return to the home page
+skip_to_content:
+  other: Skip to content
+pku_homepage:
+  other: Peking University homepage
+pku:
+  other: Peking University
+main_navigation:
+  other: Main navigation
+language:
+  other: Language
+switch_language:
+  other: Switch to Chinese
+toggle_navigation:
+  other: Toggle navigation
+mobile_navigation:
+  other: Mobile navigation
+breadcrumbs:
+  other: Breadcrumb
+home:
+  other: Home
+footer_brand_label:
+  other: Peking University and the Xu Research Group
+contact_us:
+  other: Contact Us
+phone:
+  other: Phone
+email:
+  other: Email
+office:
+  other: Office
+quick_links:
+  other: Quick Links
+home_group_alt:
+  other: Xu Research Group members on the Peking University campus
+home_figure_alt:
+  other: Molecular structure illustration from the original Xu Research Group website
+research_highlights:
+  other: Research highlights
+view_all:
+  other: View all
+research_image_alt:
+  other: Research image for {{ .Title }}
+recent_news:
+  other: Recent news
+research_programme:
+  other: Research programme
+photo_galleries:
+  other: Photo galleries
+browse_galleries:
+  other: Browse galleries
+photo_count:
+  one: 1 photo
+  other: "{{ .Count }} photos"
+publication_resources:
+  other: Publication resources
+publication_index_highlights_summary:
+  other: Selected research highlights from the Xu Research Group.
+publication_index_full_publication_list_summary:
+  other: Complete publication list from 2005 to 2026.
+publication_index_theses_summary:
+  other: Doctoral theses supervised in the group.
+teaching_years:
+  other: Teaching years
+browse_annual_records:
+  other: Browse annual records
+teacher:
+  other: Teacher
+teaching_group:
+  other: Teaching group
+venue:
+  other: Venue
+schedule:
+  other: Schedule
+target_students:
+  other: Target students
+classroom:
+  other: Classroom
+semester:
+  other: Semester
+credits:
+  other: Credits
+course_type:
+  other: Course type
+group_leader_label:
+  other: Group leader
+group_leader_title:
+  other: Group Leader
+contact:
+  other: Contact
+address:
+  other: Address
+telephone:
+  other: Telephone
+personal_page:
+  other: Personal page
+faculty_profile:
+  other: Peking University faculty profile <span>(Chinese)</span>
+profiles_and_documents:
+  other: Profiles and documents
+curriculum_vitae:
+  other: Curriculum vitae <span>(PDF)</span>
+workspace:
+  other: Workspace
+students:
+  other: Students
+student_offices:
+  other: Student offices
+join_us:
+  other: Join Us
+join_us_body:
+  other: 'Undergraduate and graduate students are welcome to join our group. Please contact us at <a href="mailto:{{ .Email }}">{{ .Email }}</a>.'
+member_count:
+  one: 1 member
+  other: "{{ .Count }} members"
+alumni_count:
+  one: 1 alumnus
+  other: "{{ .Count }} alumni"
+portrait_alt:
+  other: Portrait of {{ .Name }}
+research_interest:
+  other: "Research interest:"
+interest:
+  other: "Interest:"
+office_suffix:
+  other: " (office)"
+personal_page_chinese:
+  other: Personal page (Chinese)
+detailed_cv:
+  other: Detailed CV
+phd_thesis:
+  other: PhD thesis

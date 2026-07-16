@@ -1,0 +1,18 @@
+{{ $contact := hugo.Data.contact }}
+{{ $isChinese := eq site.Language.Lang "zh" }}
+<div>
+  <dt>{{ i18n "address" }}</dt>
+  <dd>{{ if $isChinese }}{{ $contact.address_zh }}{{ else }}{{ $contact.address }}{{ end }}</dd>
+</div>
+<div>
+  <dt>{{ i18n "office" }}</dt>
+  <dd>{{ if $isChinese }}{{ $contact.office_zh }}{{ else }}{{ $contact.office }}{{ end }}</dd>
+</div>
+<div>
+  <dt>{{ i18n "telephone" }}</dt>
+  <dd><a href="tel:{{ $contact.telephone_href }}">{{ $contact.telephone }}</a></dd>
+</div>
+<div>
+  <dt>{{ i18n "email" }}</dt>
+  <dd><a href="mailto:{{ $contact.email }}">{{ $contact.email }}</a></dd>
+</div>

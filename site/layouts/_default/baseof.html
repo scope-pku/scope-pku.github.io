@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ site.Params.description }}">
-    <title>{{ if eq .Kind "404" }}{{ if eq site.Language.Lang "zh" }}页面未找到{{ else }}Page not found{{ end }} · {{ site.Title }}{{ else if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+    <title>{{ if eq .Kind "404" }}{{ i18n "page_not_found" }} · {{ site.Title }}{{ else if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
     <link rel="canonical" href="{{ .Permalink }}">
     {{ range .AllTranslations }}
       <link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
@@ -12,9 +12,12 @@
     {{ with resources.Get "css/main.css" | minify | fingerprint }}
       <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
     {{ end }}
+    {{ with resources.Get "js/mobile-menu.js" | minify | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
+    {{ end }}
   </head>
   <body>
-    <a class="skip-link" href="#main">{{ if eq site.Language.Lang "zh" }}跳到正文{{ else }}Skip to content{{ end }}</a>
+    <a class="skip-link" href="#main">{{ i18n "skip_to_content" }}</a>
     {{ partial "header.html" . }}
     <main id="main" class="container">
       {{ if and (not .IsHome) (ne .Kind "404") }}{{ partial "breadcrumbs.html" . }}{{ end }}

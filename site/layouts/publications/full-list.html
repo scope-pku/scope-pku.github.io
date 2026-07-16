@@ -1,12 +1,5 @@
 {{ define "main" }}
-  {{ $content := .Content }}
-  {{ if not $content }}
-    {{ range .Translations }}
-      {{ if eq .Language.Lang "en" }}
-        {{ $content = .Content }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
+  {{ $content := (resources.Get "data/full-publication-list.md").Content | markdownify }}
   <article class="publication-list-page">
     <header class="page-header">
       <h1>{{ .Title }}</h1>

@@ -5,15 +5,11 @@
       {{ with .Summary }}<p>{{ . }}</p>{{ end }}
     </header>
     {{ $isChinese := eq .Language.Lang "zh" }}
-    <nav class="teaching-year-nav" aria-label="{{ if $isChinese }}教学年份{{ else }}Teaching years{{ end }}">
-      <p>{{ if $isChinese }}查看历年教学记录{{ else }}Browse annual records{{ end }}</p>
+    <nav class="teaching-year-nav" aria-label="{{ i18n "teaching_years" }}">
+      <p>{{ i18n "browse_annual_records" }}</p>
       <div>
-        {{ with .CurrentSection.Params.yearLinks }}
-          {{ range . }}<a href="{{ .url }}"{{ with .hreflang }} hreflang="{{ . }}"{{ end }}{{ if eq .url $.RelPermalink }} aria-current="page"{{ end }}>{{ .label }}</a>{{ end }}
-        {{ else }}
-          {{ range $.CurrentSection.Pages.ByWeight }}
-            <a href="{{ .RelPermalink }}"{{ if eq . $ }} aria-current="page"{{ end }}>{{ .Title | replaceRE `Teaching in ` `` }}</a>
-          {{ end }}
+        {{ range $.CurrentSection.Pages.ByWeight }}
+          <a href="{{ .RelPermalink }}"{{ if eq . $ }} aria-current="page"{{ end }}>{{ index (findRE `[0-9]{4}` .Title) 0 }}</a>
         {{ end }}
       </div>
     </nav>
@@ -22,15 +18,15 @@
         <section class="teaching-course">
           <h2>{{ .title }}</h2>
           <dl>
-            <div><dt>{{ if $isChinese }}授课教师{{ else }}Teacher{{ end }}</dt><dd>{{ .teacher }}</dd></div>
-            {{ with .teaching_group }}<div><dt>{{ if $isChinese }}教学组{{ else }}Teaching group{{ end }}</dt><dd>{{ delimit . (cond $isChinese "、" ", ") }}</dd></div>{{ end }}
-            {{ with .venue }}<div><dt>{{ if $isChinese }}上课地点{{ else }}Venue{{ end }}</dt><dd>{{ . }}</dd></div>{{ end }}
-            {{ with .schedule }}<div><dt>{{ if $isChinese }}上课时间{{ else }}Schedule{{ end }}</dt><dd>{{ . }}</dd></div>{{ end }}
-            {{ with .target_students }}<div><dt>{{ if $isChinese }}授课对象{{ else }}Target students{{ end }}</dt><dd>{{ . }}</dd></div>{{ end }}
-            {{ with .classroom }}<div><dt>{{ if $isChinese }}教室{{ else }}Classroom{{ end }}</dt><dd>{{ . }}</dd></div>{{ end }}
-            {{ with .semester }}<div><dt>{{ if $isChinese }}学期{{ else }}Semester{{ end }}</dt><dd>{{ . }}</dd></div>{{ end }}
-            {{ with .credits }}<div><dt>{{ if $isChinese }}学分{{ else }}Credits{{ end }}</dt><dd>{{ . }}</dd></div>{{ end }}
-            {{ with .course_type }}<div><dt>{{ if $isChinese }}课程类型{{ else }}Course type{{ end }}</dt><dd>{{ . }}</dd></div>{{ end }}
+            <div><dt>{{ i18n "teacher" }}</dt><dd>{{ .teacher }}</dd></div>
+            {{ with .teaching_group }}<div><dt>{{ i18n "teaching_group" }}</dt><dd>{{ delimit . (cond $isChinese "、" ", ") }}</dd></div>{{ end }}
+            {{ with .venue }}<div><dt>{{ i18n "venue" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with .schedule }}<div><dt>{{ i18n "schedule" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with .target_students }}<div><dt>{{ i18n "target_students" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with .classroom }}<div><dt>{{ i18n "classroom" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with .semester }}<div><dt>{{ i18n "semester" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with .credits }}<div><dt>{{ i18n "credits" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with .course_type }}<div><dt>{{ i18n "course_type" }}</dt><dd>{{ . }}</dd></div>{{ end }}
           </dl>
         </section>
       {{ end }}

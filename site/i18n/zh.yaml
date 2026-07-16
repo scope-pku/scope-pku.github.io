@@ -1,0 +1,134 @@
+page_not_found:
+  other: 页面未找到
+not_found_message:
+  other: 您访问的页面不存在或已经移动。
+return_home:
+  other: 返回首页
+skip_to_content:
+  other: 跳到正文
+pku_homepage:
+  other: 北京大学主页
+pku:
+  other: 北京大学
+main_navigation:
+  other: 主导航
+language:
+  other: 语言
+switch_language:
+  other: 切换到英文
+toggle_navigation:
+  other: 切换导航
+mobile_navigation:
+  other: 移动导航
+breadcrumbs:
+  other: 面包屑导航
+home:
+  other: 首页
+footer_brand_label:
+  other: 北京大学与徐莉梅课题组
+contact_us:
+  other: 联系我们
+phone:
+  other: 电话
+email:
+  other: 邮箱
+office:
+  other: 办公室
+quick_links:
+  other: 快速链接
+home_group_alt:
+  other: 徐莉梅课题组成员在北京大学校园合影
+home_figure_alt:
+  other: 原徐莉梅课题组网站中的分子结构示意图
+research_highlights:
+  other: 研究亮点
+view_all:
+  other: 查看全部
+research_image_alt:
+  other: 论文 {{ .Title }} 的研究图片
+recent_news:
+  other: 近期新闻
+research_programme:
+  other: 研究方向
+photo_galleries:
+  other: 照片图集
+browse_galleries:
+  other: 浏览图集
+photo_count:
+  other: "{{ .Count }} 张照片"
+publication_resources:
+  other: 成果导航
+publication_index_highlights_summary:
+  other: 了解课题组的代表性研究成果及其科学背景。
+publication_index_full_publication_list_summary:
+  other: 查阅 2005 至 2026 年的完整论文列表。
+publication_index_theses_summary:
+  other: 查阅课题组指导的博士学位论文。
+teaching_years:
+  other: 教学年份
+browse_annual_records:
+  other: 查看历年教学记录
+teacher:
+  other: 授课教师
+teaching_group:
+  other: 教学组
+venue:
+  other: 上课地点
+schedule:
+  other: 上课时间
+target_students:
+  other: 授课对象
+classroom:
+  other: 教室
+semester:
+  other: 学期
+credits:
+  other: 学分
+course_type:
+  other: 课程类型
+group_leader_label:
+  other: 课题组负责人
+group_leader_title:
+  other: 课题组负责人
+contact:
+  other: 联系方式
+address:
+  other: 地址
+telephone:
+  other: 电话
+personal_page:
+  other: 个人主页
+faculty_profile:
+  other: 北京大学教师个人主页
+profiles_and_documents:
+  other: 个人主页与资料
+curriculum_vitae:
+  other: 个人简历（PDF）
+workspace:
+  other: 办公区域
+students:
+  other: 学生
+student_offices:
+  other: 学生办公室
+join_us:
+  other: 加入我们
+join_us_body:
+  other: '欢迎本科生和研究生加入我们的课题组。如有意加入，请通过邮箱 <a href="mailto:{{ .Email }}">{{ .Email }}</a> 联系我们。'
+member_count:
+  other: "{{ .Count }}名成员"
+alumni_count:
+  other: "{{ .Count }}名校友"
+portrait_alt:
+  other: "{{ .Name }}的照片"
+research_interest:
+  other: 研究方向：
+interest:
+  other: 研究方向：
+office_suffix:
+  other: （办公室）
+personal_page_chinese:
+  other: 北京大学个人主页
+detailed_cv:
+  other: 详细简历（PDF）
+phd_thesis:
+  other: 博士学位论文

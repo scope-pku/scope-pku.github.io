@@ -6,17 +6,6 @@ featureImage: "/media/teaching-thermodynamics.png"
 featureImageWidth: 1350
 featureImageHeight: 899
 featureImageAlt: "包含多个峰与能谷的三维热力学能量景观。"
-yearNavigationLabel: 教学年份
-yearNavigationIntro: 查看历年教学记录
-yearLinks:
-  - label: "2022"
-    url: /zh/teaching/2022/
-  - label: "2021"
-    url: /zh/teaching/2021/
-  - label: "2020"
-    url: /zh/teaching/2020/
-  - label: "2019"
-    url: /zh/teaching/2019/
 ---
 
 ## 热力学与统计物理

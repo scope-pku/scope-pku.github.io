@@ -6,15 +6,11 @@
       <h1>{{ .Title }}</h1>
       {{ with .Summary }}<p>{{ . }}</p>{{ end }}
     </header>
-    <nav class="photo-gallery-nav" aria-label="{{ if $isChinese }}照片图集{{ else }}Photo galleries{{ end }}">
-      <p>{{ if $isChinese }}浏览图集{{ else }}Browse galleries{{ end }}</p>
+    <nav class="photo-gallery-nav" aria-label="{{ i18n "photo_galleries" }}">
+      <p>{{ i18n "browse_galleries" }}</p>
       <div>
-        {{ with .CurrentSection.Params.galleryLinks }}
-          {{ range . }}<a href="{{ .url }}"{{ with .hreflang }} hreflang="{{ . }}"{{ end }}{{ if eq .url $.RelPermalink }} aria-current="page"{{ end }}>{{ .title }}</a>{{ end }}
-        {{ else }}
-          {{ range $.CurrentSection.Pages.ByWeight }}
-            <a href="{{ .RelPermalink }}"{{ if eq . $ }} aria-current="page"{{ end }}>{{ .Title }}</a>
-          {{ end }}
+        {{ range $.CurrentSection.Pages.ByWeight }}
+          <a href="{{ .RelPermalink }}"{{ if eq . $ }} aria-current="page"{{ end }}>{{ .Title }}</a>
         {{ end }}
       </div>
     </nav>

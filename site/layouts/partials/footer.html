@@ -1,30 +1,30 @@
 <footer class="site-footer">
   <div class="container footer-inner">
-    <section class="footer-brand" aria-label="{{ if eq site.Language.Lang "zh" }}北京大学与徐莉梅课题组{{ else }}Peking University and the Xu Research Group{{ end }}">
-      <img src="/media/pku-footer-wordmark-white.png" width="852" height="240" alt="{{ if eq site.Language.Lang "zh" }}北京大学{{ else }}Peking University{{ end }}">
+    <section class="footer-brand" aria-label="{{ i18n "footer_brand_label" }}">
+      <img src="/media/pku-footer-wordmark-white.png" width="852" height="240" alt="{{ i18n "pku" }}">
       <p class="copyright">© {{ now.Year }} <strong>{{ site.Title }}</strong></p>
     </section>
 
     <section class="footer-contact" aria-labelledby="footer-contact-heading">
-      <h2 id="footer-contact-heading">{{ if eq site.Language.Lang "zh" }}联系我们{{ else }}Contact Us{{ end }}</h2>
+      <h2 id="footer-contact-heading">{{ i18n "contact_us" }}</h2>
       <address>
         <div class="footer-contact__item">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.39 7.61 17 17 17a1 1 0 0 0 1-1v-3l-4-1-1.5 2a15 15 0 0 1-9.5-9.5L8 7 7 3Z"></path></svg>
-          <div><strong>{{ if eq site.Language.Lang "zh" }}电话{{ else }}Phone{{ end }}</strong><a href="tel:{{ hugo.Data.contact.telephone_href }}">{{ hugo.Data.contact.telephone }}</a></div>
+          <div><strong>{{ i18n "phone" }}</strong><a href="tel:{{ hugo.Data.contact.telephone_href }}">{{ hugo.Data.contact.telephone }}</a></div>
         </div>
         <div class="footer-contact__item">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="1"></rect><path d="m3 6 9 7 9-7"></path></svg>
-          <div><strong>{{ if eq site.Language.Lang "zh" }}邮箱{{ else }}Email{{ end }}</strong><a href="mailto:{{ hugo.Data.contact.email }}">{{ hugo.Data.contact.email }}</a></div>
+          <div><strong>{{ i18n "email" }}</strong><a href="mailto:{{ hugo.Data.contact.email }}">{{ hugo.Data.contact.email }}</a></div>
         </div>
         <div class="footer-contact__item">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
-          <div><strong>{{ if eq site.Language.Lang "zh" }}办公室{{ else }}Office{{ end }}</strong><span>{{ if eq site.Language.Lang "zh" }}{{ hugo.Data.contact.office_zh }}{{ else }}{{ replace hugo.Data.contact.office "Peking University" "PKU" }}{{ end }}</span></div>
+          <div><strong>{{ i18n "office" }}</strong><span>{{ if eq site.Language.Lang "zh" }}{{ hugo.Data.contact.office_zh }}{{ else }}{{ replace hugo.Data.contact.office "Peking University" "PKU" }}{{ end }}</span></div>
         </div>
       </address>
     </section>
 
     <nav class="footer-quick" aria-labelledby="footer-quick-heading">
-      <h2 id="footer-quick-heading">{{ if eq site.Language.Lang "zh" }}快速链接{{ else }}Quick Links{{ end }}</h2>
+      <h2 id="footer-quick-heading">{{ i18n "quick_links" }}</h2>
       <ul>
         {{ if eq site.Language.Lang "zh" }}
           <li><span aria-hidden="true">➤</span><a href="https://www.pku.edu.cn/">北京大学</a></li>

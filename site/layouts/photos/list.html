@@ -4,28 +4,18 @@
       <h1>{{ .Title }}</h1>
       {{ with .Summary }}<p>{{ . }}</p>{{ end }}
     </header>
-    {{ $entries := slice }}
-    {{ with .Params.galleryLinks }}
-      {{ range . }}
-        {{ $entries = $entries | append (dict "gallery" .gallery "url" .url "hreflang" .hreflang "title" .title "summary" .summary) }}
-      {{ end }}
-    {{ else }}
-      {{ range .Pages.ByWeight }}
-        {{ $entries = $entries | append (dict "gallery" .Params.gallery "url" .RelPermalink "title" .Title "summary" .Summary) }}
-      {{ end }}
-    {{ end }}
     <div class="photos-index">
-      {{ range $entries }}
-        {{ $gallery := index hugo.Data.photos .gallery }}
+      {{ range .Pages.ByWeight }}
+        {{ $gallery := index hugo.Data.photos .Params.gallery }}
         {{ $preview := index $gallery.images 0 }}
         <article class="photos-index-entry">
-          <a href="{{ .url }}"{{ with .hreflang }} hreflang="{{ . }}"{{ end }} aria-hidden="true" tabindex="-1">
+          <a href="{{ .RelPermalink }}" aria-hidden="true" tabindex="-1">
             <img src="{{ $preview.src }}" width="{{ $preview.width }}" height="{{ $preview.height }}" alt="" loading="lazy">
           </a>
           <div>
-            <p>{{ if eq $.Language.Lang "zh" }}{{ len $gallery.images }} 张照片{{ else }}{{ len $gallery.images }} {{ cond (eq (len $gallery.images) 1) "photo" "photos" }}{{ end }}</p>
-            <h2><a href="{{ .url }}"{{ with .hreflang }} hreflang="{{ . }}"{{ end }}>{{ .title }}</a></h2>
-            {{ with .summary }}<p>{{ . }}</p>{{ end }}
+            <p>{{ i18n "photo_count" (len $gallery.images) }}</p>
+            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            {{ with .Summary }}<p>{{ . }}</p>{{ end }}
           </div>
         </article>
       {{ end }}

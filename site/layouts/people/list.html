@@ -14,30 +14,32 @@
       <section class="people-section{{ if $isLeader }} people-section--leader{{ end }}{{ if $isGraduate }} people-section--graduate{{ end }}{{ if $isAlumni }} people-section--alumni{{ end }}">
         <header class="people-section-heading">
           <h2>{{ $categoryName }}</h2>
-          <p>{{ if $isZh }}{{ len .people }}名{{ if $isAlumni }}校友{{ else }}成员{{ end }}{{ else }}{{ len .people }} {{ if $isAlumni }}alumni{{ else if eq (len .people) 1 }}member{{ else }}members{{ end }}{{ end }}</p>
+          <p>{{ if $isAlumni }}{{ i18n "alumni_count" (len .people) }}{{ else }}{{ i18n "member_count" (len .people) }}{{ end }}</p>
         </header>
         <div class="people-grid">
         {{ range .people }}
           {{ $personName := .name }}
           {{ if and $isZh .name_en }}{{ $personName = .name_en }}{{ end }}
+          {{ $photoName := $personName }}
+          {{ if and $isZh .name_zh }}{{ $photoName = .name_zh }}{{ end }}
           <article class="person-card">
-            <img src="{{ .image }}" width="{{ if $isLeader }}180{{ else }}120{{ end }}" height="{{ if $isLeader }}209{{ else }}120{{ end }}" alt="{{ if $isZh }}{{ with .name_zh }}{{ . }}的照片{{ else }}{{ $personName }}的照片{{ end }}{{ else }}Portrait of {{ .name }}{{ end }}" loading="lazy">
+            <img src="{{ .image }}" width="{{ if $isLeader }}180{{ else }}120{{ end }}" height="{{ if $isLeader }}209{{ else }}120{{ end }}" alt="{{ i18n "portrait_alt" (dict "Name" $photoName) }}" loading="lazy">
             <div class="person-card__body">
               <h3>{{ if .profile }}<a href="{{ .profile | relLangURL }}">{{ $personName }}</a>{{ else }}{{ $personName }}{{ end }}</h3>
               {{ if or $isZh $isGraduate }}{{ with .name_zh }}<p class="person-card__name-zh" lang="zh">{{ . }}</p>{{ end }}{{ end }}
               {{ if $isZh }}{{ with .role_zh }}<p>{{ . }}</p>{{ end }}{{ else }}{{ with .role }}<p>{{ . }}</p>{{ end }}{{ end }}
               {{ if $isZh }}{{ range .details_zh }}<p>{{ . }}</p>{{ end }}{{ else }}{{ range .details }}<p>{{ . }}</p>{{ end }}{{ end }}
               {{ if $isZh }}
-                {{ with .research_interest_zh }}<p class="person-card__research"><strong>研究方向：</strong> {{ . }}</p>{{ end }}
+                {{ with .research_interest_zh }}<p class="person-card__research"><strong>{{ i18n "research_interest" }}</strong> {{ . }}</p>{{ end }}
               {{ else }}
-                {{ with .research_interest }}<p class="person-card__research"><strong>{{ if $isGraduate }}Interest:{{ else }}Research interest:{{ end }}</strong> {{ . }}</p>{{ end }}
+                {{ with .research_interest }}<p class="person-card__research"><strong>{{ if $isGraduate }}{{ i18n "interest" }}{{ else }}{{ i18n "research_interest" }}{{ end }}</strong> {{ . }}</p>{{ end }}
               {{ end }}
               {{ if or .email .telephone .personal_page .cv }}
                 <div class="person-card__links">
                   {{ with .email }}<a href="mailto:{{ . }}">{{ . }}</a>{{ end }}
-                  {{ with .telephone }}<a href="tel:{{ replaceRE `[^0-9+]` `` . }}">{{ . }}{{ if $isZh }}（办公室）{{ else }} (office){{ end }}</a>{{ end }}
-                  {{ with .personal_page }}<a href="{{ . }}">{{ if $isZh }}北京大学个人主页{{ else }}Personal page (Chinese){{ end }}</a>{{ end }}
-                  {{ with .cv }}<a href="{{ . }}">{{ if $isZh }}详细简历（PDF）{{ else }}Detailed CV{{ end }}</a>{{ end }}
+                  {{ with .telephone }}<a href="tel:{{ replaceRE `[^0-9+]` `` . }}">{{ . }}{{ i18n "office_suffix" }}</a>{{ end }}
+                  {{ with .personal_page }}<a href="{{ . }}">{{ i18n "personal_page_chinese" }}</a>{{ end }}
+                  {{ with .cv }}<a href="{{ . }}">{{ i18n "detailed_cv" }}</a>{{ end }}
                 </div>
               {{ end }}
             </div>
