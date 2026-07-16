@@ -36,7 +36,7 @@
     </div>
   </div>
   <details class="mobile-menu">
-    <summary class="mobile-menu-toggle">
+    <summary class="mobile-menu-toggle" role="button" aria-expanded="false" aria-controls="mobile-menu-panel">
       <svg class="mobile-menu__open-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path d="M4 7h16M4 12h16M4 17h10"></path>
       </svg>
@@ -45,7 +45,8 @@
       </svg>
       <span class="visually-hidden">{{ if eq site.Language.Lang "zh" }}切换导航{{ else }}Toggle navigation{{ end }}</span>
     </summary>
-    <nav class="mobile-menu-panel" aria-label="{{ if eq site.Language.Lang "zh" }}移动导航{{ else }}Mobile navigation{{ end }}">
+    <span class="mobile-menu-backdrop" aria-hidden="true"></span>
+    <nav id="mobile-menu-panel" class="mobile-menu-panel" aria-label="{{ if eq site.Language.Lang "zh" }}移动导航{{ else }}Mobile navigation{{ end }}">
       <div class="mobile-menu__header">
         <strong>{{ site.Title }}</strong>
       </div>
@@ -68,3 +69,31 @@
     </nav>
   </details>
 </header>
+<script>
+  (() => {
+    const menu = document.querySelector(".mobile-menu");
+    const toggle = menu?.querySelector(".mobile-menu-toggle");
+    const backdrop = menu?.querySelector(".mobile-menu-backdrop");
+    const media = window.matchMedia("(max-width: 860px)");
+    const background = () => document.querySelectorAll(".skip-link, .masthead-inner, main, .site-footer");
+    if (!menu || !toggle || !backdrop) return;
+
+    const close = () => {
+      menu.open = false;
+      toggle.focus();
+    };
+    const sync = () => {
+      if (!media.matches && menu.open) menu.open = false;
+      toggle.setAttribute("aria-expanded", String(menu.open));
+      background().forEach((element) => { element.toggleAttribute("inert", menu.open); });
+    };
+
+    menu.addEventListener("toggle", sync);
+    media.addEventListener("change", sync);
+    backdrop.addEventListener("click", close);
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menu.open) close();
+    });
+    sync();
+  })();
+</script>

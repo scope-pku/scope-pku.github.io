@@ -636,14 +636,14 @@ h1 {
   }
   .mobile-menu[open] .mobile-menu__open-icon { display: none; }
   .mobile-menu[open] .mobile-menu__close-icon { display: block; }
-  .mobile-menu[open]::before {
-    content: "";
+  .mobile-menu-backdrop {
+    display: none;
     position: fixed;
     inset: 0;
     z-index: 29;
     background: rgba(23, 32, 42, .58);
-    pointer-events: none;
   }
+  .mobile-menu[open] > .mobile-menu-backdrop { display: block; }
   .mobile-menu-panel {
     position: fixed;
     inset: 0 auto 0 0;
