@@ -12,8 +12,7 @@ galleryLinks:
     title: 会议活动
     summary: "课题组成员参加学术会议与研讨会的照片。"
   - gallery: have-fun
-    url: /photos/have-fun/
-    hreflang: en
+    url: /zh/photos/have-fun/
     title: 休闲活动
     summary: "课题组的日常活动与庆祝时刻。"
   - gallery: dine-together

@@ -59,21 +59,27 @@
         "width": 1600,
         "height": 1200,
         "alt": "Six group members posing during a National Day activity.",
-        "caption": "Group activity on the National Day of the People's Republic of China, 2022."
+        "alt_zh": "六名课题组成员在国庆活动中合影。",
+        "caption": "Group activity on the National Day of the People's Republic of China, 2022.",
+        "caption_zh": "课题组国庆活动合影，2022 年。"
       },
       {
         "src": "/media/photos-have-fun-02.jpg",
         "width": 1050,
         "height": 1400,
-        "alt": "Three group members playing a tabletop game in a classroom.",
-        "caption": "Group members playing a tabletop game."
+        "alt": "Four group members playing a tabletop game in a classroom.",
+        "alt_zh": "四名课题组成员在教室围桌进行桌游活动。",
+        "caption": "Group members playing a tabletop game.",
+        "caption_zh": "课题组成员围桌进行桌游活动。"
       },
       {
         "src": "/media/photos-have-fun-03.jpg",
         "width": 1050,
         "height": 1400,
         "alt": "Two group members playing Nintendo Switch games in the School of Physics.",
-        "caption": "New Year's Eve at the School of Physics, Peking University, December 31, 2021."
+        "alt_zh": "两名课题组成员在北京大学物理学院玩 Nintendo Switch 游戏。",
+        "caption": "New Year's Eve at the School of Physics, Peking University, December 31, 2021.",
+        "caption_zh": "北京大学物理学院跨年活动，2021 年 12 月 31 日。"
       }
     ]
   },
