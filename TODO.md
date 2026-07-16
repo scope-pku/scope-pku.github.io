@@ -209,7 +209,7 @@ only after the English design is approved.
 
 ### 8.9 Chinese release gate
 
-- [ ] 检查所有中英文路由、`translationKey`、alternate-language metadata、
+- [x] 检查所有中英文路由、`translationKey`、alternate-language metadata、
   旧地址别名、语言切换与 404 行为。
 - [ ] 检查中英文记录数量、图片资产、外部链接、邮件和电话链接一致且无遗漏。
 - [ ] 完成 1440 / 768 / 390 px 全站响应式与无障碍回归，确认无水平溢出。
