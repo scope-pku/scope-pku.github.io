@@ -301,7 +301,38 @@ class ReleaseTest(unittest.TestCase):
                 password="PASSWORD_SECRET",
                 session=session,
             )
-        self.assertEqual(str(raised.exception), "IAAA/Boda network request failed")
+        self.assertEqual(
+            str(raised.exception),
+            "IAAA login page network request failed (ConnectionError)",
+        )
+
+    @patch("boda_release._encrypt_password", return_value="encrypted-password")
+    def test_iaaa_network_errors_report_safe_login_stage(self, _):
+        session = requests.Session()
+        session.get = Mock(
+            side_effect=[
+                _response(text=_iaaa_login_page()),
+                _response(payload={"success": True, "key": "public-key"}),
+                requests.ReadTimeout("token=ONE_TIME_SECRET"),
+            ]
+        )
+        session.post = Mock(
+            return_value=_response(payload={"success": True, "token": "secret-token"})
+        )
+
+        with self.assertRaises(BodaError) as raised:
+            login_iaaa(
+                username="USER_SECRET",
+                password="PASSWORD_SECRET",
+                session=session,
+            )
+
+        message = str(raised.exception)
+        self.assertEqual(
+            message, "Boda CAS handoff network request failed (ReadTimeout)"
+        )
+        self.assertNotIn("ONE_TIME_SECRET", message)
+        self.assertNotIn("secret-token", message)
 
     def test_boda_client_requires_authenticated_session(self):
         with self.assertRaises(BodaError):

@@ -331,6 +331,7 @@ def login_iaaa(
     session = session or requests.Session()
     session.headers.update({"User-Agent": "lmxu-group-boda-release/1"})
     login_url = f"{_IAAA_BASE_URL}/iaaa/oauth.jsp"
+    network_action = "IAAA login page"
     try:
         response = session.get(
             login_url,
@@ -346,6 +347,7 @@ def login_iaaa(
         app_id, redirect_url = _parse_iaaa_login_page(response.text)
         login_page_url = response.url if isinstance(response.url, str) else login_url
 
+        network_action = "IAAA public key"
         response = session.get(
             f"{_IAAA_BASE_URL}/iaaa/getPublicKey.do",
             allow_redirects=False,
@@ -360,6 +362,7 @@ def login_iaaa(
         encrypted_password = _encrypt_password(password, key_payload["key"])
         otp_code = _totp_code(otp_secret)
 
+        network_action = "IAAA login"
         response = session.post(
             f"{_IAAA_BASE_URL}/iaaa/oauthlogin.do",
             data={
@@ -386,6 +389,7 @@ def login_iaaa(
         if result.get("success") is not True or not isinstance(token, str) or not token:
             raise BodaError(_iaaa_login_failure(result))
 
+        network_action = "Boda CAS handoff"
         response = session.get(
             redirect_url,
             params={"_rand": str(time.time_ns()), "token": token},
@@ -398,6 +402,7 @@ def login_iaaa(
         ):
             raise BodaError("Boda CAS handoff returned to an unexpected host")
 
+        network_action = "Boda authorization refresh"
         response = session.post(
             "https://boda.pku.edu.cn/system/frame/refreshsiteauth.jsp",
             headers={
@@ -410,7 +415,9 @@ def login_iaaa(
         )
         _expect_ok(response, "Boda authorization refresh")
     except requests.RequestException as exc:
-        raise BodaError("IAAA/Boda network request failed") from exc
+        raise BodaError(
+            f"{network_action} network request failed ({type(exc).__name__})"
+        ) from exc
     except (AttributeError, TypeError, ValueError) as exc:
         raise BodaError("IAAA login response is invalid") from exc
     return session
