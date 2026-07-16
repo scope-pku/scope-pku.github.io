@@ -60,17 +60,19 @@ runner was verified to time out while connecting to the Boda CAS handoff even
 though the same credentials and probe succeed locally, so remote deployment is
 intentionally performed from the local workstation.
 
-`tools/deploy_github_release.sh` provides the local handoff. It can trigger the
-manual package workflow, wait for it, download the artifact, fetch its exact Git
-commit into a temporary detached worktree, install that commit's Python client
-dependencies in a temporary virtual environment, and run plan/probe/deploy with
-the fixed `/new` prefix. The current repository worktree and branch are not
-changed. Credentials remain in the local environment or root `.env`; GitHub
-Actions repository secrets are not used for Boda authentication. The client
-continues to store and reuse its private session in the user cache. The default
-security reason is the English `Published by bodacli at <UTC ISO timestamp>.`;
-set optional `BODA_SECURITY_REASON` only when a custom audit explanation is
-needed.
+`tools/deploy_github_release.sh` provides the local handoff and has no `gh`
+dependency. Because the repository is private, it requires a local
+`GITHUB_TOKEN` or `GH_TOKEN` with Actions read/write and Contents read access.
+The script must be downloaded completely through the authenticated GitHub
+Contents API into a private temporary file and run only after curl succeeds.
+It triggers or selects a package run, downloads the exact artifact, obtains its
+Git commit through a temporary worktree or private clone, installs that
+commit's Python dependencies in a temporary virtual environment, and runs
+plan/probe/deploy with the fixed `/new` prefix. Boda credentials remain local,
+and GitHub Actions repository secrets are not used. The client continues to
+store and reuse its private session in the user cache. The default security
+reason is the English `Published by bodacli at <UTC ISO timestamp>.`; set
+optional `BODA_SECURITY_REASON` only when a custom audit explanation is needed.
 
 The Python client creates missing release directories from shallow to deep, using a fresh CSRF token for each creation. Structured upload receipts are recorded through Boda's file-security check. Existing-file overwrites may return only the exact body `ok`; these have no security fields, so the client requires public checksum verification instead. Full deploy uploads the complete release and does not remove remote files. Incremental deploy may remove only files declared by the previous state whose remote content still matches the recorded checksum; it never removes directories or unrelated files.
 

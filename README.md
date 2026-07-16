@@ -54,13 +54,20 @@ tools/bodacli plan dist/boda-site
 tools/bodacli probe
 ```
 
-For the fixed `/new` GitHub-package workflow, the local one-command handoff automatically triggers the package build, downloads it, creates an isolated matching CLI environment, runs plan/probe, and requests the deployment confirmation:
+For the private repository's fixed `/new` package workflow, export a local `GITHUB_TOKEN` with Actions read/write and Contents read permission. Download the deploy tool completely before running it; this avoids executing an empty or partial response if GitHub authentication or the network fails:
 
 ```sh
-tools/deploy_github_release.sh
+deploy_script=$(mktemp)
+chmod 600 "$deploy_script"
+trap 'rm -f "$deploy_script"' 0 HUP INT TERM
+printf 'Authorization: Bearer %s\n' "$GITHUB_TOKEN" \
+  | curl -fsSL --connect-timeout 15 --max-time 300 --header @- --header 'Accept: application/vnd.github.raw+json' \
+      --output "$deploy_script" \
+      https://api.github.com/repos/lmxu-group/website/contents/tools/deploy_github_release.sh \
+  && sh "$deploy_script"
 ```
 
-Use `--plan-only` or `--probe-only` before a write, and `--incremental` only after the remote state protocol has been established. GitHub Actions stores no Boda credentials and does not contact Boda; see [`docs/operator-guide.md`](docs/operator-guide.md) for all options and approval requirements.
+The tool uses GitHub REST directly—`gh` is not required. It triggers/downloads the package, checks out its exact CLI commit, creates a temporary virtual environment, runs plan/probe, and requests the `/new` deployment confirmation. Run `sh "$deploy_script" --plan-only` for a read-only package check. GitHub Actions stores no Boda credentials and does not contact Boda; see [`docs/operator-guide.md`](docs/operator-guide.md) for token permissions, all options, and approval requirements.
 
 `probe` is read-only. A CRUD smoke test is an explicitly destructive,
 immediate production write at `/test/A/B.txt`; run the fixed wrapper directly,

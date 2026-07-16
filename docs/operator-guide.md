@@ -158,51 +158,60 @@ GitHub Actions 只负责在 `main` 上构建并校验固定 `/new` 的 release a
 
 远端 `Boda release package` workflow 通过 `workflow_dispatch` 手动触发。它执行生产 Hugo 构建、`bodacli plan` 和 artifact 上传，artifact 名为 `boda-site-<commit>`，保留三天。它不登录 Boda，也不读取 Boda credentials。
 
-本地部署的默认单命令是：
+仓库是 private，因此下载脚本、触发 workflow 和下载 artifact 都需要本地 GitHub token。设置 `GITHUB_TOKEN`（或 `GH_TOKEN`）；fine-grained token 应仅授权 `lmxu-group/website`，权限为 **Actions: read and write**、**Contents: read**。classic PAT 只需要 `repo` scope。token 只保存在本地进程环境，不要写入命令参数、`.env`、GitHub Secrets、日志或文档。
+
+token 已导出后，先把部署脚本完整下载到权限受限的临时文件；只有 curl 成功才交给 `sh`。以下命令执行默认 full deploy，并通过 `/dev/tty` 要求输入 `DEPLOY_NONATOMIC`：
+
+```sh
+deploy_script=$(mktemp)
+chmod 600 "$deploy_script"
+trap 'rm -f "$deploy_script"' 0 HUP INT TERM
+printf 'Authorization: Bearer %s\n' "$GITHUB_TOKEN" \
+  | curl --fail --silent --show-error --location --connect-timeout 15 --max-time 300 --header @- \
+      --header 'Accept: application/vnd.github.raw+json' \
+      --output "$deploy_script" \
+      https://api.github.com/repos/lmxu-group/website/contents/tools/deploy_github_release.sh \
+  && sh "$deploy_script"
+```
+
+这种写法通过 curl 的标准输入传递 Authorization header，token 不会出现在 curl 参数列表中；下载失败或中断时不会执行不完整脚本。若使用 `GH_TOKEN`，把命令中的 `$GITHUB_TOKEN` 换成 `$GH_TOKEN`。
+
+此命令会自动：
+
+1. 使用 GitHub REST API 触发 `boda-release.yml` 的 `main` 手动构建并轮询至完成；
+2. 精确下载 `boda-site-<commit>` artifact，并核对 run、branch、event、commit 与构建 metadata；
+3. 如果当前目录是本仓库，创建临时 detached worktree；否则通过临时 `GIT_ASKPASS` 私密 clone，并 checkout artifact 的 exact commit；
+4. 创建临时 Python virtual environment，安装该 commit 的 Boda CLI dependencies；
+5. 以固定 `BODA_PATH_PREFIX=/new` 执行 plan 和本地 Boda probe；
+6. 显示 run URL、commit 和模式，要求精确确认令牌后才执行 deploy；
+7. 结束后删除 artifact、virtual environment、临时 clone/worktree 和 askpass 文件。
+
+本机只需 `curl`、`git` 和 `python3`，不需要 `gh`、Hugo、ripgrep 或预装的 Boda dependencies。Boda credentials 继续使用进程环境、当前仓库/目录的 `.env`，或由 `BODA_ENV_FILE=/absolute/path/to/.env` 指定；凭据文件必须为 `0600` 且不得提交。
+
+若已 checkout 仓库，也可直接运行同一脚本：
 
 ```sh
 ./tools/deploy_github_release.sh
 ```
 
-此命令会自动：
-
-1. 触发 `boda-release.yml` 的 `main` 手动构建并等待成功；
-2. 下载该运行生成的 release artifact；
-3. fetch artifact 对应的 Git commit，并在临时 detached worktree 中使用该 commit 自带的 `boda_release` CLI；
-4. 创建临时 Python virtual environment 并安装该版本的依赖；
-5. 以固定 `BODA_PATH_PREFIX=/new` 运行 plan 和本地 Boda probe；
-6. 显示 run URL、commit 和部署模式，要求输入精确确认令牌；
-7. 执行 full deploy，并在结束后清除临时 worktree、virtual environment 和 artifact。
-
-它不会切换或修改当前分支和工作区，也不要求本机预先安装 Hugo、ripgrep 或 Boda Python dependencies。本机必须具备 GitHub CLI `gh` 2.87 或更高版本、`git` 和 `python3`，并已执行 `gh auth login`。Boda credentials 继续放在进程环境或仓库根目录 `.env`；`.env` 必须保持 `0600` 且不得提交。旧版 `gh` 不会返回新触发运行的 ID；无法升级时，应先在网页生成封包，再使用 `--run-id RUN_ID`。
-
-默认 full deploy 要求交互输入 `DEPLOY_NONATOMIC`。常用安全模式：
+常用安全模式可把选项传给已下载的临时脚本：
 
 ```sh
-# 只触发、下载并验证 artifact，不登录 Boda
+# 只构建、下载并验证 artifact
+sh "$deploy_script" --plan-only
+
+# 本地 probe、增量同步或指定现有 run
+sh "$deploy_script" --probe-only
+sh "$deploy_script" --incremental
+sh "$deploy_script" --run-id RUN_ID
+
+# 已 checkout 仓库时也可直接运行
 ./tools/deploy_github_release.sh --plan-only
-
-# 完成 plan 和只读本地 Boda 登录探测，不上传
-./tools/deploy_github_release.sh --probe-only
-
-# 使用 state 执行增量同步；确认令牌为 DEPLOY_INCREMENTAL
-./tools/deploy_github_release.sh --incremental
 ```
 
-如果已经在 GitHub 网页的 `Actions` → `Boda release package` → `Run workflow` 手动生成封包，从运行 URL 取得最后的数字 `RUN_ID`，避免再次触发构建：
+无人值守调用可传入 `--confirm DEPLOY_NONATOMIC`，增量模式使用 `--incremental --confirm DEPLOY_INCREMENTAL`，但只能在已有外部审批和日志记录时使用。默认等待 GitHub workflow 最多 1800 秒，单个 GitHub API 请求最多 300 秒；需要调整时使用 `BODA_RELEASE_TIMEOUT_SECONDS`、`BODA_RELEASE_POLL_SECONDS` 和 `BODA_RELEASE_REQUEST_TIMEOUT_SECONDS`。
 
-```sh
-./tools/deploy_github_release.sh --run-id RUN_ID
-```
-
-无人值守调用可显式传入确认令牌，但只能在已有外部审批和日志记录时使用：
-
-```sh
-./tools/deploy_github_release.sh --confirm DEPLOY_NONATOMIC
-./tools/deploy_github_release.sh --incremental --confirm DEPLOY_INCREMENTAL
-```
-
-`--plan-only`、`--probe-only` 和 `--incremental` 互斥规则及错误参数会 fail-closed。full deploy 不删除远端多余文件；incremental 只允许删除旧 state 管理且 checksum 仍匹配的文件，但两者都会立即公开写入 `/new`，并且都不是原子操作。不要并发运行本地部署，也不要在未核对回滚材料时输入确认令牌。
+`--plan-only`、`--probe-only` 和 `--incremental` 的互斥组合及错误参数会 fail-closed。full deploy 不删除远端多余文件；incremental 只允许删除旧 state 管理且 checksum 仍匹配的文件，但两者都会立即公开写入 `/new`，并且都不是原子操作。不要并发运行本地部署，也不要在未核对回滚材料时输入确认令牌。
 
 部署实现先按“浅目录到深目录”创建缺失目录，再上传全部 release 文件；根 `index.html` 和 `index.htm` 排在最后。所有上传结束后才统一进行公开 URL SHA-256 校验。校验最多尝试 5 次，每次失败间隔 1 秒。CSS/JS 的公开内容会去除 Boda 注入的 UTF-8 BOM 后再与本地 SHA-256 比较。
 
