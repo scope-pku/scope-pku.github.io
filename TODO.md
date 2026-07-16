@@ -187,7 +187,7 @@ only after the English design is approved.
   导航，保持课程字段和页面结构一致。
 - [x] **2022 年课程** `/zh/teaching/2022/` — 对照 `/teaching/2022/`。
 - [x] **2021 年课程** `/zh/teaching/2021/` — 对照 `/teaching/2021/`。
-- [ ] **2020 年课程** `/zh/teaching/2020/` — 对照 `/teaching/2020/`。
+- [x] **2020 年课程** `/zh/teaching/2020/` — 对照 `/teaching/2020/`。
 - [ ] **2019 年课程** `/zh/teaching/2019/` — 对照 `/teaching/2019/`。
 
 ### 8.7 Photos

@@ -14,8 +14,7 @@ yearLinks:
   - label: "2021"
     url: /zh/teaching/2021/
   - label: "2020"
-    url: /teaching/2020/
-    hreflang: en
+    url: /zh/teaching/2020/
   - label: "2019"
     url: /teaching/2019/
     hreflang: en
