@@ -26,7 +26,7 @@ weight: 10
 {{< research-highlight title="Probing structural superlubricity of two-dimensional water transport with atomic resolution" image="/media/highlight-04.png" >}}
 原子尺度限域可显著增强低维水输运，但其微观起源仍有争议。本研究结合实验与模拟，揭示了石墨烯和六方氮化硼表面二维水岛的原子结构与输运行为。由于表面静电性质不同，水岛晶格与石墨烯表面不共格，而与氮化硼表面共格。这些结果为低维无摩擦水输运提供了微观解释，并表明结构超润滑对表面静电性质高度敏感，而此前的传统固体—固体摩擦研究并未涉及这种影响。
 
-[Science 384, 1254–1259 (2024)](https://www.science.org/doi/10.1126/science.ado1544) · [ICQM News](https://icqm.pku.edu.cn/sylb_en/934501.htm) · [PDF](https://xulm.pku.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1930358530&wbfileid=90FE4C5D3FA940CD725F9DC12EC835D0)
+[Science 384, 1254–1259 (2024)](https://www.science.org/doi/10.1126/science.ado1544) · [ICQM News](https://icqm.pku.edu.cn/sylb_en/50154icqm934501.htm) · [PDF](https://xulm.pku.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1930358530&wbfileid=90FE4C5D3FA940CD725F9DC12EC835D0)
 {{< /research-highlight >}}
 
 {{< research-highlight title="Imaging surface structure and premelting of ice Ih with atomic resolution" image="/media/highlight-05.png" >}}

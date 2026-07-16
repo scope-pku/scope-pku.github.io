@@ -28,7 +28,7 @@ The assembly of water molecules on foreign substrates, forming precipitation suc
 {{< research-highlight title="Probing structural superlubricity of two-dimensional water transport with atomic resolution" image="/media/highlight-04.png" >}}
 Low-dimensional water transport can be drastically enhanced under atomic-scale confinement. However, its microscopic origin is still under debate. In this work, we revealed the atomic structure and transport of two-dimensional water islands on graphene and hexagonal boron nitride surfaces by combining experiment and simulation. The lattice of the water island was incommensurate with the graphene surface but commensurate with the boron nitride surface owing to different surface electrostatics. These results provided the microscopic origin of frictionless water transport at low dimensions and highlighted the sensitivity of structural superlubricity to surface electrostatics, which is absent in previous studies of conventional solid-on-solid friction.
 
-[Science 384, 1254–1259 (2024)](https://www.science.org/doi/10.1126/science.ado1544) · [ICQM News](https://icqm.pku.edu.cn/sylb_en/934501.htm) · [PDF](https://xulm.pku.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1930358530&wbfileid=90FE4C5D3FA940CD725F9DC12EC835D0)
+[Science 384, 1254–1259 (2024)](https://www.science.org/doi/10.1126/science.ado1544) · [ICQM News](https://icqm.pku.edu.cn/sylb_en/50154icqm934501.htm) · [PDF](https://xulm.pku.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1930358530&wbfileid=90FE4C5D3FA940CD725F9DC12EC835D0)
 {{< /research-highlight >}}
 
 {{< research-highlight title="Imaging surface structure and premelting of ice Ih with atomic resolution" image="/media/highlight-05.png" >}}
