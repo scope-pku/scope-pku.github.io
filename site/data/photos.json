@@ -37,14 +37,18 @@
         "width": 1050,
         "height": 1400,
         "alt": "Xuejia Yu standing beside a research poster at the 11th Workshop on Quantum Many-Body Computation.",
-        "caption": "Xuejia Yu at the 11th Workshop on Quantum Many-Body Computation, Fuzhou, Fujian, April 2023."
+        "alt_zh": "余雪佳在 The 11th Workshop on Quantum Many-Body Computation 的研究海报旁合影。",
+        "caption": "Xuejia Yu at the 11th Workshop on Quantum Many-Body Computation, Fuzhou, Fujian, April 2023.",
+        "caption_zh": "余雪佳参加 The 11th Workshop on Quantum Many-Body Computation，福建福州，2023 年 4 月。"
       },
       {
         "src": "/media/photos-meetings-02.jpg",
         "width": 1800,
         "height": 1350,
         "alt": "Yizhi Liu presenting research at a statistical physics conference.",
-        "caption": "Yizhi Liu at the 6th Statistical Physics and Complex Systems Conference and Cross-Strait Statistical Physics Conference, Jilin, 2021."
+        "alt_zh": "刘益志在第六届全国统计物理与复杂系统学术会议暨海峡两岸统计物理会议作报告。",
+        "caption": "Yizhi Liu at the 6th Statistical Physics and Complex Systems Conference and Cross-Strait Statistical Physics Conference, Jilin, 2021.",
+        "caption_zh": "刘益志参加第六届全国统计物理与复杂系统学术会议暨海峡两岸统计物理会议，中国吉林，2021 年。"
       }
     ]
   },

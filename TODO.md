@@ -196,7 +196,7 @@ only after the English design is approved.
   图片说明，保持图片数量、顺序和自然比例。
 - [x] **课题组成员** `/zh/photos/group-members/` — 对照
   `/photos/group-members/`。
-- [ ] **会议活动** `/zh/photos/meetings/` — 对照 `/photos/meetings/`。
+- [x] **会议活动** `/zh/photos/meetings/` — 对照 `/photos/meetings/`。
 - [ ] **休闲活动** `/zh/photos/have-fun/` — 对照 `/photos/have-fun/`。
 - [ ] **聚餐** `/zh/photos/dine-together/` — 对照 `/photos/dine-together/`，
   保留旧地址别名。

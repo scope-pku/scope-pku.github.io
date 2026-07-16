@@ -8,8 +8,7 @@ galleryLinks:
     title: 课题组成员
     summary: "2021 年与 2023 年的课题组合影。"
   - gallery: meetings
-    url: /photos/meetings/
-    hreflang: en
+    url: /zh/photos/meetings/
     title: 会议活动
     summary: "课题组成员参加学术会议与研讨会的照片。"
   - gallery: have-fun
