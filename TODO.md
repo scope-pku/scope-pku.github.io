@@ -198,7 +198,7 @@ only after the English design is approved.
   `/photos/group-members/`。
 - [x] **会议活动** `/zh/photos/meetings/` — 对照 `/photos/meetings/`。
 - [x] **休闲活动** `/zh/photos/have-fun/` — 对照 `/photos/have-fun/`。
-- [ ] **聚餐** `/zh/photos/dine-together/` — 对照 `/photos/dine-together/`，
+- [x] **聚餐** `/zh/photos/dine-together/` — 对照 `/photos/dine-together/`，
   保留旧地址别名。
 - [ ] **毕业留影** `/zh/photos/graduation/` — 对照 `/photos/graduation/`。
 

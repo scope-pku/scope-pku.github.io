@@ -16,8 +16,7 @@ galleryLinks:
     title: 休闲活动
     summary: "课题组的日常活动与庆祝时刻。"
   - gallery: dine-together
-    url: /photos/dine-together/
-    hreflang: en
+    url: /zh/photos/dine-together/
     title: 聚餐
     summary: "2022 年课题组在北京大学聚餐。"
   - gallery: graduation
