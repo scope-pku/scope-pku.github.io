@@ -12,8 +12,7 @@ resources:
     url: /zh/publications/full-list/
   - title: 博士学位论文
     summary: 查阅课题组指导的博士学位论文。
-    url: /publications/theses/
-    hreflang: en
+    url: /zh/publications/theses/
 ---
 
 浏览课题组的代表性研究成果，查阅完整论文列表，或参阅博士学位论文档案。

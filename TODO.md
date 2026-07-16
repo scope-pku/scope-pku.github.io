@@ -177,7 +177,7 @@ only after the English design is approved.
 - [x] **论文列表** `/zh/publications/full-list/` — 对照
   `/publications/full-list/`，完整保留全部英文引文、作者顺序、年份分组、DOI
   与期刊信息，不翻译论文题目。
-- [ ] **学位论文** `/zh/publications/theses/` — 对照
+- [x] **学位论文** `/zh/publications/theses/` — 对照
   `/publications/theses/`，保留姓名、题目、年份、学位类别和既有中英文信息，
   不自行补译缺失内容。
 

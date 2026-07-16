@@ -1,16 +1,24 @@
 {{ define "main" }}
+  {{ $theses := .Params.theses }}
+  {{ if not $theses }}
+    {{ range .Translations }}
+      {{ if eq .Language.Lang "en" }}
+        {{ $theses = .Params.theses }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
   <article class="theses-page">
     <header class="page-header">
       <h1>{{ .Title }}</h1>
       <p>{{ .Summary }}</p>
     </header>
-    <ol class="thesis-list" reversed start="{{ len .Params.theses }}">
-      {{ range .Params.theses }}
+    <ol class="thesis-list" reversed start="{{ len $theses }}">
+      {{ range $theses }}
         <li>
           <article>
             <header>
               <h2>{{ .name }}</h2>
-              <p>PhD thesis</p>
+              <p>{{ if eq site.Language.Lang "zh" }}博士学位论文{{ else }}PhD thesis{{ end }}</p>
             </header>
             <p class="thesis-title-en">{{ .titleEn }}</p>
             <p class="thesis-title-zh" lang="zh-Hans">{{ .titleZh }}</p>
