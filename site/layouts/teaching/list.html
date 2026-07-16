@@ -12,11 +12,15 @@
       {{ end }}
       <div class="teaching-overview__content prose">{{ .Content }}</div>
     </section>
-    {{ with .Pages }}
-      <nav class="teaching-year-nav" aria-label="Teaching years">
-        <p>Browse annual records</p>
+    {{ if or .Params.yearLinks .Pages }}
+      <nav class="teaching-year-nav" aria-label="{{ .Params.yearNavigationLabel | default "Teaching years" }}">
+        <p>{{ .Params.yearNavigationIntro | default "Browse annual records" }}</p>
         <div>
-          {{ range .ByWeight }}<a href="{{ .RelPermalink }}">{{ .Title | replaceRE `Teaching in ` `` }}</a>{{ end }}
+          {{ with .Params.yearLinks }}
+            {{ range . }}<a href="{{ .url }}"{{ with .hreflang }} hreflang="{{ . }}"{{ end }}>{{ .label }}</a>{{ end }}
+          {{ else }}
+            {{ range .Pages.ByWeight }}<a href="{{ .RelPermalink }}">{{ .Title | replaceRE `Teaching in ` `` }}</a>{{ end }}
+          {{ end }}
         </div>
       </nav>
     {{ end }}

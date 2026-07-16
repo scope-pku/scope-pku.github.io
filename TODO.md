@@ -183,7 +183,7 @@ only after the English design is approved.
 
 ### 8.6 Teaching
 
-- [ ] **教学首页** `/zh/teaching/` — 对照 `/teaching/`，中文化课程说明与年份
+- [x] **教学首页** `/zh/teaching/` — 对照 `/teaching/`，中文化课程说明与年份
   导航，保持课程字段和页面结构一致。
 - [ ] **2022 年课程** `/zh/teaching/2022/` — 对照 `/teaching/2022/`。
 - [ ] **2021 年课程** `/zh/teaching/2021/` — 对照 `/teaching/2021/`。
