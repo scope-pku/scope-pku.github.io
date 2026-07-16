@@ -152,57 +152,57 @@ tools/build_boda_release.sh
 1. CLI 必须同时收到 `--apply` 和精确的 `--confirm DEPLOY_NONATOMIC`；缺一不可；
 2. 运营者必须在发布记录/审批流程中确认这是已审核的生产写入，并确认回滚材料可用。
 
-GitHub Actions 手工流程还要求 workflow 输入 `confirm` 为 `DEPLOY_NONATOMIC`，之后步骤再次以 `--apply --confirm DEPLOY_NONATOMIC` 调用 CLI；workflow 仅在 `main` 上运行，默认 `operation=plan`。当前 `.github/workflows/boda-release.yml` 将 `BODA_PATH_PREFIX` 固定为 `/new`，没有根路径输入，因此该 workflow 只能构建、探测和部署 `/new`；根路径部署必须使用本地 CLI，或先经过单独审核修改 workflow。
+GitHub Actions 只负责在 `main` 上构建并校验固定 `/new` 的 release artifact；Boda 登录和上传始终在本地执行。GitHub-hosted runner 无法连接 Boda CAS handoff，因此不得把 Boda 凭据重新放入 GitHub Secrets，也不得把远端 workflow 改回直接上传。
 
-### GitHub Actions 手动上传
+### GitHub 封包与本地一键部署
 
-远端仓库的 `Boda release` workflow 通过 `workflow_dispatch` 手动触发，只接受 `main` 分支，并固定部署到 `/new`。它不会修改站点根路径。GitHub 的 `boda-production` concurrency group 会串行执行任务，避免两个非原子部署重叠。
+远端 `Boda release package` workflow 通过 `workflow_dispatch` 手动触发。它执行生产 Hugo 构建、`bodacli plan` 和 artifact 上传，artifact 名为 `boda-site-<commit>`，保留三天。它不登录 Boda，也不读取 Boda credentials。
 
-首次使用前，在 GitHub 仓库进入 `Settings` → `Secrets and variables` → `Actions`，建立以下 repository secrets：
-
-- `BODA_IAAA_USERNAME`
-- `BODA_IAAA_PASSWORD`
-- `BODA_IAAA_OTP`（可选；IAAA 要求二次验证时必须配置）
-
-如果配置 `BODA_IAAA_OTP`，应使用可持续生成验证码的 Base32 TOTP seed 或 `otpauth://` URI。不要把只在当前 30 秒有效的六位验证码保存为 GitHub secret。Secrets 设置后只能看到名称和更新时间，不能从 GitHub 读回原值。
-
-网页操作步骤：
-
-1. 打开仓库的 `Actions` → `Boda release` → `Run workflow`。
-2. Branch 选择 `main`。
-3. 先选择 `plan` 并运行；它只构建、校验并上传 GitHub artifact，不登录 Boda。
-4. 再选择 `probe`；它只登录并检查 `/new`，不上传站点文件。
-5. 正式全量上传时选择 `deploy`，并在 `confirm` 中精确填写 `DEPLOY_NONATOMIC`。
-6. 已建立并验证远端 state 后，可选择 `incremental`，并精确填写 `DEPLOY_INCREMENTAL`。
-7. 展开 workflow 日志确认 build、plan、probe 和 deploy 均成功，再检查 `https://xulm.pku.edu.cn/new/` 及中英文详情页。
-
-也可以使用已登录的 GitHub CLI：
+本地部署的默认单命令是：
 
 ```sh
-# 只读构建与计划
-gh workflow run boda-release.yml --ref main -f operation=plan
-
-# 只读登录探测
-gh workflow run boda-release.yml --ref main -f operation=probe
-
-# 全量立即写入 /new
-gh workflow run boda-release.yml --ref main \
-  -f operation=deploy -f confirm=DEPLOY_NONATOMIC
-
-# 基于 state 的增量立即写入 /new
-gh workflow run boda-release.yml --ref main \
-  -f operation=incremental -f confirm=DEPLOY_INCREMENTAL
+./tools/deploy_github_release.sh
 ```
 
-`gh workflow run` 成功时会尽量返回新运行的 URL；URL 最后的数字就是 `RUN_ID`。使用该编号查看刚触发的运行：
+此命令会自动：
+
+1. 触发 `boda-release.yml` 的 `main` 手动构建并等待成功；
+2. 下载该运行生成的 release artifact；
+3. fetch artifact 对应的 Git commit，并在临时 detached worktree 中使用该 commit 自带的 `boda_release` CLI；
+4. 创建临时 Python virtual environment 并安装该版本的依赖；
+5. 以固定 `BODA_PATH_PREFIX=/new` 运行 plan 和本地 Boda probe；
+6. 显示 run URL、commit 和部署模式，要求输入精确确认令牌；
+7. 执行 full deploy，并在结束后清除临时 worktree、virtual environment 和 artifact。
+
+它不会切换或修改当前分支和工作区，也不要求本机预先安装 Hugo、ripgrep 或 Boda Python dependencies。本机必须具备 GitHub CLI `gh` 2.87 或更高版本、`git` 和 `python3`，并已执行 `gh auth login`。Boda credentials 继续放在进程环境或仓库根目录 `.env`；`.env` 必须保持 `0600` 且不得提交。旧版 `gh` 不会返回新触发运行的 ID；无法升级时，应先在网页生成封包，再使用 `--run-id RUN_ID`。
+
+默认 full deploy 要求交互输入 `DEPLOY_NONATOMIC`。常用安全模式：
 
 ```sh
-gh run watch RUN_ID --exit-status
+# 只触发、下载并验证 artifact，不登录 Boda
+./tools/deploy_github_release.sh --plan-only
+
+# 完成 plan 和只读本地 Boda 登录探测，不上传
+./tools/deploy_github_release.sh --probe-only
+
+# 使用 state 执行增量同步；确认令牌为 DEPLOY_INCREMENTAL
+./tools/deploy_github_release.sh --incremental
 ```
 
-如果命令没有返回 URL，请从 Actions 页面打开并核对 run name、触发者、`main` 分支和 commit 后再查看日志。不要用“最新一次运行”代替这个核对；其他运营者可能在相邻时间触发另一个任务。
+如果已经在 GitHub 网页的 `Actions` → `Boda release package` → `Run workflow` 手动生成封包，从运行 URL 取得最后的数字 `RUN_ID`，避免再次触发构建：
 
-`plan` 和 `probe` 是安全的预检查；`deploy` 与 `incremental` 会立即公开写入 Boda。不要为测试写入而触发后两者，也不要在前一次 workflow 尚未结束时从本地并发部署。
+```sh
+./tools/deploy_github_release.sh --run-id RUN_ID
+```
+
+无人值守调用可显式传入确认令牌，但只能在已有外部审批和日志记录时使用：
+
+```sh
+./tools/deploy_github_release.sh --confirm DEPLOY_NONATOMIC
+./tools/deploy_github_release.sh --incremental --confirm DEPLOY_INCREMENTAL
+```
+
+`--plan-only`、`--probe-only` 和 `--incremental` 互斥规则及错误参数会 fail-closed。full deploy 不删除远端多余文件；incremental 只允许删除旧 state 管理且 checksum 仍匹配的文件，但两者都会立即公开写入 `/new`，并且都不是原子操作。不要并发运行本地部署，也不要在未核对回滚材料时输入确认令牌。
 
 部署实现先按“浅目录到深目录”创建缺失目录，再上传全部 release 文件；根 `index.html` 和 `index.htm` 排在最后。所有上传结束后才统一进行公开 URL SHA-256 校验。校验最多尝试 5 次，每次失败间隔 1 秒。CSS/JS 的公开内容会去除 Boda 注入的 UTF-8 BOM 后再与本地 SHA-256 比较。
 
@@ -221,7 +221,7 @@ tools/build_boda_release.sh
 
 Hugo fan-out 可能让一次源代码变更生成多个输出文件，因此不能按 `git diff` 推断上传页；Git diff 只用于 commit 祖先关系验证和源变更审计。构建脚本会生成仅供本地校验、不会上传的 `BODACLI_BUILD.json`；其 commit/dirty 状态与当前工作区不一致时，部署会 fail-closed。没有 `bodacli-state.txt` 时，增量命令执行全量 bootstrap。state 使用 Boda 可公开提供的 TXT 文件承载 canonical JSON，仅含 schema、commit、dirty、path_prefix 和生成文件 SHA-256 清单，不含源码、凭据、cookie 或 session。
 
-所有部署都要求当前 Git 工作区干净，且 `BODACLI_BUILD.json` 与当前 commit/dirty 状态完全匹配；dirty artifact 会在远端写入前被拒绝。state 损坏、路径前缀不符、commit 非祖先、基线 dirty、远端内容 checksum 漂移或部署过程中 state 被其他操作更新时，也必须 fail-closed。删除仅限旧 state 管理且 checksum 仍匹配的文件；不删除目录。每个删除都必须同时通过管理端 listing 和带独立 cache-buster 的连续公开 404 校验，随后才最后写 state。Boda 不提供原子 compare-and-swap，因此手动部署不得并发；GitHub Actions 由 concurrency 串行化。增量双确认令牌是 `DEPLOY_INCREMENTAL`；普通 full deploy 仍使用 `DEPLOY_NONATOMIC`。
+所有部署都要求执行 CLI 的 Git worktree 干净，且 `BODACLI_BUILD.json` 与其 commit/dirty 状态完全匹配；一键工具通过 artifact 对应 commit 的临时 detached worktree 满足此约束，dirty artifact 会在远端写入前被拒绝。state 损坏、路径前缀不符、commit 非祖先、基线 dirty、远端内容 checksum 漂移或部署过程中 state 被其他操作更新时，也必须 fail-closed。删除仅限旧 state 管理且 checksum 仍匹配的文件；不删除目录。每个删除都必须同时通过管理端 listing 和带独立 cache-buster 的连续公开 404 校验，随后才最后写 state。Boda 不提供原子 compare-and-swap，因此本地部署不得并发；GitHub concurrency 只串行生成封包，不能锁定本地 deploy。增量双确认令牌是 `DEPLOY_INCREMENTAL`；普通 full deploy 仍使用 `DEPLOY_NONATOMIC`。
 
 ## 7. 发布后清单
 

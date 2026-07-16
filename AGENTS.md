@@ -63,6 +63,8 @@
 - `BODA_IAAA_OTP` accepts a Base32 seed, an `otpauth://` URI, or an already-generated six-digit one-time code.
 - `tools/boda_crud_test.sh` performs immediate production writes at `/test/A/B.txt`, then deletes the file and directory. It refuses to run if `A` already exists; never run it concurrently with another CRUD test or deployment.
 - New uploads may return a structured security receipt, while overwriting an existing file may return the exact plain-text body `ok`. Deployment may accept only that exact receiptless overwrite and must then verify the public checksum; structured receipts still require the Boda file-security update. The CRUD test may additionally confirm its known `B.txt` through a fresh directory listing.
+- `.github/workflows/boda-release.yml` may only build and retain the fixed `/new` release artifact. GitHub-hosted runners cannot complete the Boda CAS handoff; do not store Boda credentials in GitHub Secrets or restore remote upload steps. Use `tools/deploy_github_release.sh` locally so the artifact is deployed with the CLI from its exact Git commit.
+- GitHub concurrency serializes package creation only and is not a deployment lock. Never overlap local full or incremental deploy processes.
 
 ### Boda browser pitfalls
 

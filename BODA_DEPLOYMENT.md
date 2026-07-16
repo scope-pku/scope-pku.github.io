@@ -53,20 +53,24 @@ The verified output is written to ignored `dist/boda-site/`. It contains a
 checksum manifest and fails if development URLs, VSB references, or filenames
 rejected by Boda are found.
 
-GitHub Actions runs the same builder for manual runs on `main` and retains the release artifact for three days. The default `plan` operation is read-only; `probe` checks the configured Boda session. `deploy` performs a full immediate remote write only after the `DEPLOY_NONATOMIC` confirmation, while `incremental` performs manifest-based synchronization only after `DEPLOY_INCREMENTAL`. Both write modes are non-atomic.
-The workflow authenticates through IAAA using repository secrets
-`BODA_IAAA_USERNAME`, `BODA_IAAA_PASSWORD`, and the optional Base32 TOTP seed
-`BODA_IAAA_OTP`. The client automatically stores and reuses the session in the
-user cache: `~/Library/Caches/bodacli/session.cookies` on macOS,
-`<XDG_CACHE_HOME>/bodacli/session.cookies` when `XDG_CACHE_HOME` is set, or
-`~/.cache/bodacli/session.cookies` on other systems. `BODA_SESSION_FILE` is an
-advanced override. The client creates the cache directory and keeps the session
-file at mode `0600`; keep `.env` at mode `0600` too. Within a GitHub Actions job,
-steps may reuse the runner's cache file, but a new runner/workflow run does not
-inherit a previous run's local cache. None of these values belongs in Git.
-The default security reason is the English `Published by bodacli at <UTC ISO
-timestamp>.`; set optional `BODA_SECURITY_REASON` only when a custom audit
-explanation is needed.
+GitHub Actions runs the same builder for manual runs on `main`, verifies the
+release plan, and retains the `/new` release artifact for three days. It does
+not receive Boda credentials and does not contact or write Boda. A GitHub-hosted
+runner was verified to time out while connecting to the Boda CAS handoff even
+though the same credentials and probe succeed locally, so remote deployment is
+intentionally performed from the local workstation.
+
+`tools/deploy_github_release.sh` provides the local handoff. It can trigger the
+manual package workflow, wait for it, download the artifact, fetch its exact Git
+commit into a temporary detached worktree, install that commit's Python client
+dependencies in a temporary virtual environment, and run plan/probe/deploy with
+the fixed `/new` prefix. The current repository worktree and branch are not
+changed. Credentials remain in the local environment or root `.env`; GitHub
+Actions repository secrets are not used for Boda authentication. The client
+continues to store and reuse its private session in the user cache. The default
+security reason is the English `Published by bodacli at <UTC ISO timestamp>.`;
+set optional `BODA_SECURITY_REASON` only when a custom audit explanation is
+needed.
 
 The Python client creates missing release directories from shallow to deep, using a fresh CSRF token for each creation. Structured upload receipts are recorded through Boda's file-security check. Existing-file overwrites may return only the exact body `ok`; these have no security fields, so the client requires public checksum verification instead. Full deploy uploads the complete release and does not remove remote files. Incremental deploy may remove only files declared by the previous state whose remote content still matches the recorded checksum; it never removes directories or unrelated files.
 
@@ -82,7 +86,7 @@ tools/bodacli deploy dist/boda-site --incremental --apply --confirm DEPLOY_INCRE
 
 The `bodacli-state.txt` protocol is public canonical JSON metadata stored in a Boda-supported TXT file, not a secret. It contains only the schema version, deployed commit, dirty flag, path prefix, and the generated-file SHA-256 manifest. It contains no source, credentials, cookies, or other secrets. The builder also writes local `BODACLI_BUILD.json` provenance; it is excluded from `SHA256SUMS` and upload, and deploy rejects an artifact whose recorded commit/dirty state differs from the current worktree. Incremental deployment requires the current Git worktree to be clean. A first incremental deploy with no state performs a full bootstrap. A state that is malformed, has a different path prefix, points to a non-ancestor commit, records a dirty tree as its baseline, or detects remote content drift fails closed without uploading or deleting.
 
-Deletion is bounded: only paths declared by the old state and still matching its checksum may be deleted; directories are never deleted automatically. Each deletion must disappear from both the authenticated management listing and a cache-busted public URL before the state file is written last. The client re-reads state before writes and before publication, but Boda exposes no atomic compare-and-swap, so manual deployments must never overlap; GitHub Actions concurrency serializes workflow runs. Both full and incremental deployments are non-atomic: a failure can leave a mixed remote version and must be handled as a partial deployment.
+Deletion is bounded: only paths declared by the old state and still matching its checksum may be deleted; directories are never deleted automatically. Each deletion must disappear from both the authenticated management listing and a cache-busted public URL before the state file is written last. The client re-reads state before writes and before publication, but Boda exposes no atomic compare-and-swap, so local deployments must never overlap. The GitHub package workflow serializes package creation only; it cannot lock local deploy processes. Both full and incremental deployments are non-atomic: a failure can leave a mixed remote version and must be handled as a partial deployment.
 
 Ordinary full deploy continues to use `DEPLOY_NONATOMIC`, but all deployments require a clean worktree and matching `BODACLI_BUILD.json`; dirty artifacts are rejected before remote writes.
 

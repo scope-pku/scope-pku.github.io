@@ -1,37 +1,22 @@
-name: Boda release
-run-name: Boda ${{ inputs.operation }} to /new by @${{ github.actor }}
+name: Boda release package
+run-name: Boda package /new by @${{ github.actor }}
 
 on:
   workflow_dispatch:
-    inputs:
-      operation:
-        description: Safe operation to run
-        type: choice
-        options:
-          - plan
-          - probe
-          - deploy
-          - incremental
-        default: plan
-      confirm:
-        description: Type DEPLOY_NONATOMIC or DEPLOY_INCREMENTAL to allow production writes
-        required: false
 
 permissions:
   contents: read
 
 concurrency:
-  group: boda-production
+  group: boda-package
   cancel-in-progress: false
 
 jobs:
-  release:
+  package:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 15
     env:
-      BODA_BASE_URL: https://boda.pku.edu.cn
-      BODA_PUBLIC_URL: https://xulm.pku.edu.cn
       BODA_PATH_PREFIX: /new
     steps:
       - uses: actions/checkout@v7
@@ -45,7 +30,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install --yes ripgrep
-
       - name: Build Boda release
         run: ./tools/build_boda_release.sh
       - name: Install Boda client
@@ -59,42 +43,3 @@ jobs:
           path: dist/boda-site
           if-no-files-found: error
           retention-days: 3
-      - name: Verify required Boda credentials
-        if: inputs.operation == 'probe' || inputs.operation == 'deploy' || inputs.operation == 'incremental'
-        env:
-          BODA_IAAA_USERNAME: ${{ secrets.BODA_IAAA_USERNAME }}
-          BODA_IAAA_PASSWORD: ${{ secrets.BODA_IAAA_PASSWORD }}
-          BODA_IAAA_OTP: ${{ secrets.BODA_IAAA_OTP }}
-        run: |
-          test -n "$BODA_IAAA_USERNAME"
-          test -n "$BODA_IAAA_PASSWORD"
-
-      - name: Probe Boda session
-        if: inputs.operation == 'probe' || inputs.operation == 'deploy' || inputs.operation == 'incremental'
-        env:
-          BODA_IAAA_USERNAME: ${{ secrets.BODA_IAAA_USERNAME }}
-          BODA_IAAA_PASSWORD: ${{ secrets.BODA_IAAA_PASSWORD }}
-          BODA_IAAA_OTP: ${{ secrets.BODA_IAAA_OTP }}
-        run: ./tools/bodacli probe
-      - name: Confirm production deployment
-        if: inputs.operation == 'deploy' || inputs.operation == 'incremental'
-        env:
-          CONFIRM: ${{ inputs.confirm }}
-        run: |
-          if [ "${{ inputs.operation }}" = incremental ]; then
-            test "$CONFIRM" = DEPLOY_INCREMENTAL
-          else
-            test "$CONFIRM" = DEPLOY_NONATOMIC
-          fi
-      - name: Deploy to Boda
-        if: inputs.operation == 'deploy' || inputs.operation == 'incremental'
-        env:
-          BODA_IAAA_USERNAME: ${{ secrets.BODA_IAAA_USERNAME }}
-          BODA_IAAA_PASSWORD: ${{ secrets.BODA_IAAA_PASSWORD }}
-          BODA_IAAA_OTP: ${{ secrets.BODA_IAAA_OTP }}
-        run: |
-          if [ "${{ inputs.operation }}" = incremental ]; then
-            ./tools/bodacli deploy dist/boda-site --incremental --apply --confirm DEPLOY_INCREMENTAL
-          else
-            ./tools/bodacli deploy dist/boda-site --apply --confirm DEPLOY_NONATOMIC
-          fi

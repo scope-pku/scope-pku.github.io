@@ -11,6 +11,7 @@ release operations.
 - `tools/bodacli` — the formal Boda CLI entry point.
 - `tools/build_boda_release.sh` — builds a checked release under
   `dist/boda-site/`.
+- `tools/deploy_github_release.sh` — triggers/downloads a GitHub release package and deploys it locally with the matching CLI commit.
 - `source/xulm.pku.edu.cn/` — immutable HTML reference snapshot; do not edit it.
 - `AGENTS.md` and [`BODA_DEPLOYMENT.md`](BODA_DEPLOYMENT.md) — project rules and
   deployment/rollback details.
@@ -52,6 +53,14 @@ tools/build_boda_release.sh
 tools/bodacli plan dist/boda-site
 tools/bodacli probe
 ```
+
+For the fixed `/new` GitHub-package workflow, the local one-command handoff automatically triggers the package build, downloads it, creates an isolated matching CLI environment, runs plan/probe, and requests the deployment confirmation:
+
+```sh
+tools/deploy_github_release.sh
+```
+
+Use `--plan-only` or `--probe-only` before a write, and `--incremental` only after the remote state protocol has been established. GitHub Actions stores no Boda credentials and does not contact Boda; see [`docs/operator-guide.md`](docs/operator-guide.md) for all options and approval requirements.
 
 `probe` is read-only. A CRUD smoke test is an explicitly destructive,
 immediate production write at `/test/A/B.txt`; run the fixed wrapper directly,
