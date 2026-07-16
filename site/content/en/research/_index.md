@@ -39,8 +39,8 @@ Because matching simulated and experimental AFM images by trial and error can be
 
 1. [J. Hong, Y. Tian, T. Liang, et al. Nature (2024)](https://www.nature.com/articles/s41586-024-07427-8)
 2. [D. Wu, Z. Zhao, B. Lin, Y. Song, et al. Science 384, 1254-1259 (2024)](https://www.science.org/doi/10.1126/science.ado1544)
-3. [Y. Tian, Y. Song, Y. Xia, J. Hong, Y. Huang, et al. Nature Nanotechnology 10, 1038. (2024).](https://www.nature.com/articles/s41565-023-01550-9)
-4. [Y. Tian, B. Huang, Y. Song, et al. Nature Communications 15, 738. (2024).](https://www.nature.com/articles/s41467-024-52131-w)
+3. [Y. Tian, Y. Song, Y. Xia, J. Hong, Y. Huang, et al. Nature Nanotechnology 19, 479–484 (2024).](https://www.nature.com/articles/s41565-023-01550-9)
+4. [Y. Tian, B. Huang, Y. Song, et al. Nature Communications 15, 7834 (2024).](https://www.nature.com/articles/s41467-024-52131-w)
 5. [Y. Tian\*, J. Hong\*, D. Cao\*, S. You\*, Y. Song, et al. Science 377, 315-319 (2022).](https://www.science.org/doi/10.1126/science.abo0823)
 6. [D. Cao, Y. Song, J. Peng, et al. Front Chem. 9, 745446 (2021)](https://www.frontiersin.org/articles/10.3389/fchem.2021.745446/full)
 7. [D. Cao, Y. Song, J. Peng, et al. Front Chem. 7, 626 (2019)](https://www.frontiersin.org/articles/10.3389/fchem.2019.00626/full)

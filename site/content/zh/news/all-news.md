@@ -46,7 +46,7 @@ weight: 10
 
 - Da Wu\*, Zhengpu Zhao\*, Bo Lin\*, Yizhi Song\*, Jiajie Qi\*, Jian Jiang, Zifeng Yuan, Bowei Cheng, Mengze Zhao, Ye Tian, Zhichang Wang, Muhong Wu, Ke Bian, Kai-Hui Liu†, Limei Xu†, Xiao Cheng Zeng†, En-Ge Wang†, Ying Jiang†, "Probing structural superlubricity of two-dimensional water transport with atomic resolution". Science 384, 1254–1259 (2024).
 
-- Jiani Hong\*, Ye Tian\*†, Tiancheng Liang\*, Xinmeng Liu\*, Yizhi Song, Dong Guan, Zixiang Yan, Jiadong Guo, Binze Tang, Duanyun Cao, Jing Guo, Ji Chen, Ding Pan, Limei Xu†, En-Ge Wang†, Ying Jiang†, "Imaging surface structure and premelting of ice Ih with atomic resolution". Nature 630, 375–380. (2024)
+- Jiani Hong\*, Ye Tian\*†, Tiancheng Liang\*, Xinmeng Liu\*, Yizhi Song, Dong Guan, Zixiang Yan, Jiadong Guo, Binze Tang, Duanyun Cao, Jing Guo, Ji Chen, Ding Pan, Limei Xu†, En-Ge Wang†, Ying Jiang†, "Imaging surface structure and premelting of ice Ih with atomic resolution". Nature 630, 375–380 (2024).
 
 - Dong Guan\*, Ye Tian, Yizhi Song, Mengze Zhao, Kaihui Liu, Limei Xu, En-Ge Wang, Ying Jiang†, "The effect of surface hydrophobicity and hydrophilicity on ion–ion interactions at water–solid interfaces". Faraday Discussion 249, 38–49 (2024).
 
@@ -54,7 +54,7 @@ weight: 10
 
 - Xue-Jia Yu\*, Shao-Hang Shi, Limei Xu, and Zi-Xiang Li†, "Emergence of Competing Orders and Possible Quantum Spin Liquid in SU(N) Fermions". Phys. Rev. Lett. 132, 036704. (2024)
 
-- Ye Tian\*, Yizhi Song\*, Y. Xia\*, Jiani Hong\*, Y. Huang, Runze Ma, S. You, Dong Guan, Duanyun Cao, M. Zhao, Ji Chen, C. Song, K. Liu, Limei Xu†, Yiqin Gao†, Enge Wang†, and Ying Jiang†, "Nanoscale one-dimensional close packing of interfacial alkali ions driven by water-mediated attraction". Nature Nanotechnology 10, 1038. (2024).
+- Ye Tian\*, Yizhi Song\*, Y. Xia\*, Jiani Hong\*, Y. Huang, Runze Ma, S. You, Dong Guan, Duanyun Cao, M. Zhao, Ji Chen, C. Song, K. Liu, Limei Xu†, Yiqin Gao†, Enge Wang†, and Ying Jiang†, "Nanoscale one-dimensional close packing of interfacial alkali ions driven by water-mediated attraction". Nature Nanotechnology 19, 479–484 (2024).
 
 - Ye Tian\*†, Botao Huang\*, Yizhi Song\*, Yirui Zhang\*, Dong Guan, Jiani Hong, Duanyun Cao, Enge Wang, Limei Xu†, Yang Shao-Horn† and Ying Jiang†, "Effect of ion-specific water structures at metal surfaces on hydrogen production". Nature Communications 15, 7834. (2024)
 

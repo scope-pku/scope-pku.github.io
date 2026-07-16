@@ -50,7 +50,7 @@ aliases:
 
 {{< news-row date="2023.05" >}}Our paper "[Topology of vibrational modes predicts plastic events in glasses](https://www.nature.com/articles/s41467-023-38547-w)" was published in Nature Communications.{{< /news-row >}}
 
-{{< news-row date="2022.12" >}}Our paper "[Machine learning aided atomic structure identification of interfacial ionic hydrates from atomic force microscopy images](https://academic.oup.com/nsr/article/10/7/nwac282/6901515)" was published in *National Science Review*.{{< /news-row >}}
+{{< news-row date="2022.12" >}}Our paper "[Machine learning-aided atomic structure identification of interfacial ionic hydrates from AFM images](https://academic.oup.com/nsr/article/10/7/nwac282/6901515)" was published in *National Science Review*.{{< /news-row >}}
 
 {{< news-row date="2022.11" >}}Our paper "[Conformal Boundary Conditions of Symmetry-Enriched Quantum Critical Spin Chains](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.129.210601)" was published in Phys. Rev. Lett.{{< /news-row >}}
 
