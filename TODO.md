@@ -194,7 +194,7 @@ only after the English design is approved.
 
 - [x] **照片首页** `/zh/photos/` — 对照 `/photos/`，中文化图库标题、简介与
   图片说明，保持图片数量、顺序和自然比例。
-- [ ] **课题组成员** `/zh/photos/group-members/` — 对照
+- [x] **课题组成员** `/zh/photos/group-members/` — 对照
   `/photos/group-members/`。
 - [ ] **会议活动** `/zh/photos/meetings/` — 对照 `/photos/meetings/`。
 - [ ] **休闲活动** `/zh/photos/have-fun/` — 对照 `/photos/have-fun/`。

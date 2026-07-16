@@ -1,23 +1,34 @@
 {{ define "main" }}
+  {{ $isChinese := eq .Language.Lang "zh" }}
   {{ $gallery := index hugo.Data.photos .Params.gallery }}
   <article class="photo-gallery">
     <header class="page-header">
       <h1>{{ .Title }}</h1>
       {{ with .Summary }}<p>{{ . }}</p>{{ end }}
     </header>
-    <nav class="photo-gallery-nav" aria-label="Photo galleries">
-      <p>Browse galleries</p>
+    <nav class="photo-gallery-nav" aria-label="{{ if $isChinese }}照片图集{{ else }}Photo galleries{{ end }}">
+      <p>{{ if $isChinese }}浏览图集{{ else }}Browse galleries{{ end }}</p>
       <div>
-        {{ range .CurrentSection.Pages.ByWeight }}
-          <a href="{{ .RelPermalink }}"{{ if eq . $ }} aria-current="page"{{ end }}>{{ .Title }}</a>
+        {{ with .CurrentSection.Params.galleryLinks }}
+          {{ range . }}<a href="{{ .url }}"{{ with .hreflang }} hreflang="{{ . }}"{{ end }}{{ if eq .url $.RelPermalink }} aria-current="page"{{ end }}>{{ .title }}</a>{{ end }}
+        {{ else }}
+          {{ range $.CurrentSection.Pages.ByWeight }}
+            <a href="{{ .RelPermalink }}"{{ if eq . $ }} aria-current="page"{{ end }}>{{ .Title }}</a>
+          {{ end }}
         {{ end }}
       </div>
     </nav>
     <div class="gallery-grid">
       {{ range $index, $image := $gallery.images }}
+        {{ $imageAlt := $image.alt }}
+        {{ $imageCaption := $image.caption }}
+        {{ if $isChinese }}
+          {{ with $image.alt_zh }}{{ $imageAlt = . }}{{ end }}
+          {{ with $image.caption_zh }}{{ $imageCaption = . }}{{ end }}
+        {{ end }}
         <figure>
-          <img src="{{ $image.src }}" width="{{ $image.width }}" height="{{ $image.height }}" alt="{{ $image.alt }}"{{ if gt $index 0 }} loading="lazy"{{ end }} decoding="async">
-          {{ with $image.caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+          <img src="{{ $image.src }}" width="{{ $image.width }}" height="{{ $image.height }}" alt="{{ $imageAlt }}"{{ if gt $index 0 }} loading="lazy"{{ end }} decoding="async">
+          {{ with $imageCaption }}<figcaption>{{ . }}</figcaption>{{ end }}
         </figure>
       {{ end }}
     </div>

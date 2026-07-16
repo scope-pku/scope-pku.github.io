@@ -4,8 +4,7 @@ translationKey: photos
 summary: "收录徐莉梅课题组的成员合影、学术会议、毕业留影与日常活动照片。"
 galleryLinks:
   - gallery: group-members
-    url: /photos/group-members/
-    hreflang: en
+    url: /zh/photos/group-members/
     title: 课题组成员
     summary: "2021 年与 2023 年的课题组合影。"
   - gallery: meetings
