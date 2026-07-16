@@ -1,4 +1,5 @@
 {{ define "main" }}
+  {{ $isChinese := eq .Language.Lang "zh" }}
   {{ $contact := hugo.Data.contact }}
   <article class="contact-page">
     <header class="page-header">
@@ -7,46 +8,46 @@
 
     <div class="contact-layout">
       <section aria-labelledby="contact-leader-heading">
-        <p class="eyebrow">Group leader</p>
-        <h2 id="contact-leader-heading">Limei Xu</h2>
+        <p class="eyebrow">{{ if $isChinese }}课题组负责人{{ else }}Group leader{{ end }}</p>
+        <h2 id="contact-leader-heading">{{ if $isChinese }}徐莉梅{{ else }}Limei Xu{{ end }}</h2>
         <address>
           <dl class="profile-contact-list">
             <div>
-              <dt>Address</dt>
-              <dd>{{ $contact.address }}</dd>
+              <dt>{{ if $isChinese }}地址{{ else }}Address{{ end }}</dt>
+              <dd>{{ if $isChinese }}{{ $contact.address_zh }}{{ else }}{{ $contact.address }}{{ end }}</dd>
             </div>
             <div>
-              <dt>Office</dt>
-              <dd>{{ $contact.office }}</dd>
+              <dt>{{ if $isChinese }}办公室{{ else }}Office{{ end }}</dt>
+              <dd>{{ if $isChinese }}{{ $contact.office_zh }}{{ else }}{{ $contact.office }}{{ end }}</dd>
             </div>
             <div>
-              <dt>Telephone</dt>
+              <dt>{{ if $isChinese }}电话{{ else }}Telephone{{ end }}</dt>
               <dd><a href="tel:{{ $contact.telephone_href }}">{{ $contact.telephone }}</a></dd>
             </div>
             <div>
-              <dt>Email</dt>
+              <dt>{{ if $isChinese }}邮箱{{ else }}Email{{ end }}</dt>
               <dd><a href="mailto:{{ $contact.email }}">{{ $contact.email }}</a></dd>
             </div>
             <div>
-              <dt>Personal page</dt>
-              <dd><a href="{{ $contact.personal_page }}">Peking University faculty profile <span>(Chinese)</span></a></dd>
+              <dt>{{ if $isChinese }}个人主页{{ else }}Personal page{{ end }}</dt>
+              <dd><a href="{{ $contact.personal_page }}">{{ if $isChinese }}北京大学教师个人主页{{ else }}Peking University faculty profile <span>(Chinese)</span>{{ end }}</a></dd>
             </div>
           </dl>
         </address>
       </section>
 
       <section class="contact-students" aria-labelledby="contact-students-heading">
-        <p class="eyebrow">Workspace</p>
-        <h2 id="contact-students-heading">Students</h2>
+        <p class="eyebrow">{{ if $isChinese }}办公区域{{ else }}Workspace{{ end }}</p>
+        <h2 id="contact-students-heading">{{ if $isChinese }}学生{{ else }}Students{{ end }}</h2>
         <dl class="profile-contact-list">
           <div>
-            <dt>Student offices</dt>
-            <dd>{{ $contact.student_offices }}</dd>
+            <dt>{{ if $isChinese }}学生办公室{{ else }}Student offices{{ end }}</dt>
+            <dd>{{ if $isChinese }}{{ $contact.student_offices_zh }}{{ else }}{{ $contact.student_offices }}{{ end }}</dd>
           </div>
         </dl>
         <div class="contact-join">
-          <h2>Join Us</h2>
-          <p>Undergraduate and graduate students are welcome to join our group. Please contact us at <a href="mailto:{{ $contact.email }}">{{ $contact.email }}</a>.</p>
+          <h2>{{ if $isChinese }}加入我们{{ else }}Join Us{{ end }}</h2>
+          <p>{{ if $isChinese }}欢迎本科生和研究生加入我们的课题组。如有意加入，请通过邮箱 <a href="mailto:{{ $contact.email }}">{{ $contact.email }}</a> 联系我们。{{ else }}Undergraduate and graduate students are welcome to join our group. Please contact us at <a href="mailto:{{ $contact.email }}">{{ $contact.email }}</a>.{{ end }}</p>
         </div>
       </section>
     </div>

@@ -204,7 +204,7 @@ only after the English design is approved.
 
 ### 8.8 Contact
 
-- [ ] **联系我们** `/zh/contact/` — 对照 `/contact/`，中文化负责人、办公地点、
+- [x] **联系我们** `/zh/contact/` — 对照 `/contact/`，中文化负责人、办公地点、
   学生办公室与 Join Us 文案；电话、邮箱、地址事实和个人主页链接保持不变。
 
 ### 8.9 Chinese release gate
