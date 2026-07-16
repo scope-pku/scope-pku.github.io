@@ -192,7 +192,7 @@ only after the English design is approved.
 
 ### 8.7 Photos
 
-- [ ] **照片首页** `/zh/photos/` — 对照 `/photos/`，中文化图库标题、简介与
+- [x] **照片首页** `/zh/photos/` — 对照 `/photos/`，中文化图库标题、简介与
   图片说明，保持图片数量、顺序和自然比例。
 - [ ] **课题组成员** `/zh/photos/group-members/` — 对照
   `/photos/group-members/`。
