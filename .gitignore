@@ -4,3 +4,7 @@ __pycache__/
 site/.hugo_build.lock
 site/public/
 site/resources/_gen/
+backups/boda/
+dist/
+/boda-hugo-probe/
+/boda-hugo-project-probe/
