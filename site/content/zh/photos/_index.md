@@ -20,8 +20,7 @@ galleryLinks:
     title: 聚餐
     summary: "2022 年课题组在北京大学聚餐。"
   - gallery: graduation
-    url: /photos/graduation/
-    hreflang: en
+    url: /zh/photos/graduation/
     title: 毕业留影
     summary: "课题组成员 2023 年博士论文答辩留影。"
 ---

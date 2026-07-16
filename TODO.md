@@ -200,7 +200,7 @@ only after the English design is approved.
 - [x] **休闲活动** `/zh/photos/have-fun/` — 对照 `/photos/have-fun/`。
 - [x] **聚餐** `/zh/photos/dine-together/` — 对照 `/photos/dine-together/`，
   保留旧地址别名。
-- [ ] **毕业留影** `/zh/photos/graduation/` — 对照 `/photos/graduation/`。
+- [x] **毕业留影** `/zh/photos/graduation/` — 对照 `/photos/graduation/`。
 
 ### 8.8 Contact
 
