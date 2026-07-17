@@ -29,8 +29,8 @@ Boda's `全检通过` validation. Local copies are stored under the ignored path
 
 The directory contains the 88 MB `.vsbsitepackage`, its 272 MB `.sto` companion,
 and `SHA256SUMS`. Copy this directory to a second storage location before
-production deployment. The HTML-only snapshot in `source/xulm.pku.edu.cn/` is
-useful for comparison but is not a complete CMS rollback.
+production deployment. The optional local HTML-only snapshot in
+`source/xulm.pku.edu.cn/` is useful for comparison but is intentionally excluded from Git and is not a complete CMS rollback.
 
 These archives contain Boda-specific ZIP metadata that generic archive tools
 may warn about. Do not unpack and repack them; retain the original bytes and

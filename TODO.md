@@ -10,7 +10,7 @@ only after the English design is approved.
   corrected.
 - Mark an item complete only after its route passes the page-level definition of
   done below.
-- Preserve `source/xulm.pku.edu.cn/` as the immutable comparison source.
+- Preserve the optional, Git-ignored `source/xulm.pku.edu.cn/` as the immutable comparison source when it is available locally.
 - Do not run `tools/migrate_english.py` during optimization; refine every page
   manually against its source and rendered output.
 

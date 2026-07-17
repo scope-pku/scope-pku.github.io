@@ -12,7 +12,7 @@ release operations.
 - `tools/build_boda_release.sh` — builds a checked release under
   `dist/boda-site/`.
 - `tools/deploy_github_release.sh` — triggers/downloads a GitHub release package and deploys it locally with the matching CLI commit.
-- `source/xulm.pku.edu.cn/` — immutable HTML reference snapshot; do not edit it.
+- An optional local `source/xulm.pku.edu.cn/` may hold the immutable HTML reference snapshot. It is intentionally excluded from Git and must not be edited when present.
 - `AGENTS.md` and [`BODA_DEPLOYMENT.md`](BODA_DEPLOYMENT.md) — project rules and
   deployment/rollback details.
 

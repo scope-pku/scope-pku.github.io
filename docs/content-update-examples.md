@@ -4,7 +4,7 @@
 
 ## 共同规则
 
-1. `source/xulm.pku.edu.cn/` 只是旧站只读快照，不得编辑。
+1. 本地如有 `source/xulm.pku.edu.cn/`，它只是被 Git 忽略的旧站只读快照，不得编辑。
 2. 中文与英文必须在事实、人物、日期、链接、科学主张和限定语上等价；可以自然翻译，不要求逐句直译。
 3. 图片和 PDF 放在 `site/static/media/`，页面中使用 `/media/文件名` 引用。为通过 Boda release 构建，文件主名只使用 ASCII 英文字母、数字、`-` 和 `_`，不要使用空格或中文。
 4. 不要手工编辑 `site/public/` 或 `dist/boda-site/`；它们都是构建输出。
@@ -559,7 +559,7 @@ hugo server --source site
 - 中英文内容表达同一事实，日期和链接一致。
 - 图片 `alt` 和图注准确，不从文件名推断科学含义。
 - 最新内容处于预期顺序；论文亮点如需显示在首页，位于 `highlights.json` 前三项。
-- 没有修改 `source/`、`site/public/`、`dist/` 或 `site/data/migration-assets.json`。
+- 没有修改本地 `source/`、`site/public/`、`dist/` 或 `site/data/migration-assets.json`。
 - `git diff --check` 无空白错误。
 
 构建成功只证明 Hugo 可以生成页面；发布到 Boda 前仍须按 [`operator-guide.md`](operator-guide.md) 和 [`BODA_DEPLOYMENT.md`](../BODA_DEPLOYMENT.md) 完成发布前检查。

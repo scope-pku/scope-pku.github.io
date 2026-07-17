@@ -6,13 +6,13 @@
 
 在修改任何布局、样式、组件或公开内容前，先从仓库根目录阅读：
 
-- `AGENTS.md`：项目范围、双语内容原则、`source/xulm.pku.edu.cn/` 的只读约束、URL 和 Boda 规则。
+- `AGENTS.md`：项目范围、双语内容原则、可选本地 `source/xulm.pku.edu.cn/` 的只读约束、URL 和 Boda 规则。
 - `DESIGN.md`：视觉、排版、间距、组件、双语编辑和可访问性规范。
 - `site/README.md`：Hugo 预览、双语页面配对和历史迁移说明。
 - `BODA_DEPLOYMENT.md`：发布候选构建、验证、上传和回滚流程。
 - `docs/content-update-examples.md`：新增或修改新闻、论文亮点、研究主题、论文列表、成员、照片和教学内容时使用的可复制最小示例。
 
-`source/xulm.pku.edu.cn/` 是从旧站抓取的 HTML 快照，只能用于核对路径、事实、链接和素材；它是只读参考，不得编辑，也不能把快照中的未核实内容直接扩写到新站。
+本地如有 `source/xulm.pku.edu.cn/`，它是从旧站抓取、被 Git 忽略的 HTML 快照，只能用于核对路径、事实、链接和素材；它是只读参考，不得编辑，也不能把快照中的未核实内容直接扩写到新站。
 
 开发时保持中文和英文在事实、主张、限定语、链接、人物和日期上的等价。等价不要求逐句直译，但不得让某种语言包含另一种语言没有的未经批准的信息。
 
@@ -23,7 +23,7 @@
 ├── AGENTS.md                 # 工作规则
 ├── DESIGN.md                 # 设计与编辑规范
 ├── BODA_DEPLOYMENT.md        # Boda 发布与回滚说明
-├── source/xulm.pku.edu.cn/   # 旧站只读 HTML 快照
+├── source/xulm.pku.edu.cn/   # 可选本地旧站快照（Git 忽略）
 ├── site/
 │   ├── hugo.yaml             # Hugo、语言和菜单配置
 │   ├── content/en/           # 英文内容（默认语言，根路径）
@@ -289,7 +289,7 @@ tools/bodacli deploy dist/boda-site --apply --confirm DEPLOY_NONATOMIC
 
 - [ ] 中文和英文事实、主张、限定语、日期、链接、人物和栏目覆盖等价。
 - [ ] front matter 的 `translationKey` 成对且稳定；未完成翻译没有进入生产导航。
-- [ ] 内容只来自已批准材料；没有从 `source/xulm.pku.edu.cn/` 推断科学内容、人物或经历。
+- [ ] 内容只来自已批准材料；没有从可选本地 `source/xulm.pku.edu.cn/` 推断科学内容、人物或经历。
 - [ ] 没有运行 `tools/migrate_english.py`，也没有手改生成目录冒充源文件。
 
 ### 发布输出

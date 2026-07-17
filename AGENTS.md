@@ -3,9 +3,7 @@
 ## Scope
 
 - Rebuild the Xu Group website with Chinese and English content.
-- `source/xulm.pku.edu.cn/` is a read-only snapshot of public HTML fetched from
-  `https://xulm.pku.edu.cn/index.htm` on 2026-07-15. Preserve its paths and do
-  not edit it when building the replacement site.
+- A local `source/xulm.pku.edu.cn/` may contain the read-only public HTML snapshot fetched from `https://xulm.pku.edu.cn/index.htm` on 2026-07-15. It is intentionally excluded from Git; when present, preserve its paths and do not edit it when building the replacement site.
 - `site/` contains the Hugo replacement. Run Hugo commands from that directory.
 - `DESIGN.md` is the visual and editorial source of truth. Read it before
   changing layouts, styles, components, or public-facing copy.
