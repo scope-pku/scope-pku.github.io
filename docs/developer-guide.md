@@ -35,6 +35,9 @@
 │   ├── i18n/                  # 界面文案翻译（`en.yaml`、`zh.yaml`）
 │   ├── archetypes/            # 新内容的可选模板
 │   └── public/                # 普通 Hugo 构建输出，不是源文件
+├── tests/                     # pytest 维护的 Python CLI 与部署工具测试
+├── requirements-dev.txt       # Python 测试依赖
+├── pytest.ini                 # pytest 测试发现配置
 ├── tools/build_boda_release.sh # 生产 Boda 构建入口
 ├── tools/bodacli              # Boda CLI 正式入口
 └── dist/boda-site/            # Boda 发布候选输出（构建时生成）
@@ -245,6 +248,10 @@ tools/build_boda_release.sh
 
 # 只读规划和会话探测（发布前）
 python3 -m pip install -r boda_release/requirements.txt
+
+# Python CLI 测试（测试文件统一位于 tests/）
+python3 -m pip install -r requirements-dev.txt
+python3 -m pytest tests
 tools/bodacli plan dist/boda-site
 tools/bodacli probe
 ```

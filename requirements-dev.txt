@@ -1,0 +1,2 @@
+-r boda_release/requirements.txt
+pytest>=8,<10

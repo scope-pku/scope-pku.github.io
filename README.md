@@ -8,6 +8,8 @@ release operations.
 - `site/` — Hugo site source, bilingual content, layouts, assets, and generated
   `public/` output.
 - `boda_release/` — the Python Boda client and its dependency list.
+- `tests/` — pytest-maintained Python tests for the Boda CLI and deployment tooling.
+- `requirements-dev.txt` and `pytest.ini` — Python test dependencies and pytest discovery configuration.
 - `tools/bodacli` — the formal Boda CLI entry point.
 - `tools/build_boda_release.sh` — builds a checked release under
   `dist/boda-site/`.
@@ -40,6 +42,13 @@ Install the Python dependencies from the repository root:
 
 ```sh
 python3 -m pip install -r boda_release/requirements.txt
+```
+
+For Python development and CLI tests, install the separate development dependencies and run pytest from the repository root:
+
+```sh
+python3 -m pip install -r requirements-dev.txt
+python3 -m pytest tests
 ```
 
 The CLI reads `BODA_IAAA_USERNAME`, `BODA_IAAA_PASSWORD`, and optional

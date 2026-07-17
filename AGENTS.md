@@ -18,8 +18,8 @@
 - Keep patches small and verify changed pages locally before handoff.
 - `tools/migrate_english.py` is retained only as a record of the initial bulk
   bootstrap. Do not run it during page-by-page optimization. Compare each page
-  with the immutable source and edit its content, semantics, captions, and
-  layout deliberately by hand.
+  with the optional local immutable snapshot when available, and edit each page's content, semantics, captions, and layout deliberately by hand.
+- Python tests live only under `tests/` and are maintained with `pytest`; run `python3 -m pytest tests` from the repository root. Verify the Hugo website with Hugo builds, browser checks, link checks, and other web-appropriate tools rather than forcing page validation into pytest.
 
 ## Boda CMS deployment
 
