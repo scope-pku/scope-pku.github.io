@@ -30,7 +30,7 @@ Keep Chinese and English pages equivalent in meaning. See
 
 ## GitHub Pages
 
-Pushes to `main` that change `site/` or `.github/workflows/pages.yml` deploy the Hugo site to <https://scope-pku.github.io/> through `.github/workflows/pages.yml`. The repository's Pages source is configured as **GitHub Actions**; the workflow obtains the public base URL from `actions/configure-pages`, builds `site/`, and deploys the generated artifact without committing `site/public/`.
+Every push to `main` deploys the Hugo site to <https://scope-pku.github.io/> through `.github/workflows/pages.yml`; manual runs remain available through `workflow_dispatch`. The repository's Pages source is configured as **GitHub Actions**; the workflow obtains the public base URL from `actions/configure-pages`, builds `site/`, and deploys the generated artifact without committing `site/public/`.
 
 The Pages source must be enabled once in **Settings → Pages → Build and deployment → GitHub Actions**, or through the GitHub CLI/API before the first workflow run. It is already enabled for `scope-pku/scope-pku.github.io`.
 
