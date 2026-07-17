@@ -11,7 +11,7 @@ done
 
 token=${GITHUB_TOKEN:-${GH_TOKEN:-}}
 [ -n "$token" ] || { echo "GITHUB_TOKEN or GH_TOKEN is required" >&2; exit 1; }
-api=https://api.github.com/repos/lmxu-group/website
+api=https://api.github.com/repos/scope-pku/scope-pku.github.io
 run_id=
 mode=full
 plan_only=false
@@ -193,9 +193,9 @@ repo_root=$(git -C "$PWD" rev-parse --show-toplevel 2>/dev/null || true)
 if [ -n "$repo_root" ]; then
   origin=$(git -C "$repo_root" remote get-url origin 2>/dev/null || true)
   case "$origin" in
-    https://github.com/lmxu-group/website.git|https://github.com/lmxu-group/website|git@github.com:lmxu-group/website.git|ssh://git@github.com/lmxu-group/website.git)
+    https://github.com/scope-pku/scope-pku.github.io.git|https://github.com/scope-pku/scope-pku.github.io|git@github.com:scope-pku/scope-pku.github.io.git|ssh://git@github.com/scope-pku/scope-pku.github.io.git)
       repo=$repo_root
-      git_authenticated -C "$repo" fetch --no-tags https://github.com/lmxu-group/website.git "$head_sha"
+      git_authenticated -C "$repo" fetch --no-tags https://github.com/scope-pku/scope-pku.github.io.git "$head_sha"
       token=
       unset GITHUB_TOKEN GH_TOKEN
       git_materialize -C "$repo" worktree add --detach "$worktree" "$head_sha";;
@@ -203,7 +203,7 @@ if [ -n "$repo_root" ]; then
 fi
 if [ -z "$repo" ]; then
   clone_dir=$worktree
-  git_authenticated -c core.hooksPath=/dev/null clone --filter=blob:none --no-checkout https://github.com/lmxu-group/website.git "$clone_dir"
+  git_authenticated -c core.hooksPath=/dev/null clone --filter=blob:none --no-checkout https://github.com/scope-pku/scope-pku.github.io.git "$clone_dir"
   token=
   unset GITHUB_TOKEN GH_TOKEN
   git_materialize -C "$clone_dir" sparse-checkout set boda_release

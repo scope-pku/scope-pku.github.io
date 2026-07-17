@@ -158,7 +158,7 @@ GitHub Actions 只负责在 `main` 上构建并校验固定 `/new` 的 release a
 
 远端 `Boda release package` workflow 通过 `workflow_dispatch` 手动触发。它执行生产 Hugo 构建、`bodacli plan` 和 artifact 上传，artifact 名为 `boda-site-<commit>`，保留三天。它不登录 Boda，也不读取 Boda credentials。
 
-仓库是 private，因此下载脚本、触发 workflow 和下载 artifact 都需要本地 GitHub token。设置 `GITHUB_TOKEN`（或 `GH_TOKEN`）；fine-grained token 应仅授权 `lmxu-group/website`，权限为 **Actions: read and write**、**Contents: read**。classic PAT 只需要 `repo` scope。token 只保存在本地进程环境，不要写入命令参数、`.env`、GitHub Secrets、日志或文档。
+仓库是 public，但触发 workflow 和下载 artifact 仍需要本地 GitHub token。设置 `GITHUB_TOKEN`（或 `GH_TOKEN`）；fine-grained token 应仅授权 `scope-pku/scope-pku.github.io`，权限为 **Actions: read and write**、**Contents: read**。classic PAT 只需要 `repo` scope。token 只保存在本地进程环境，不要写入命令参数、`.env`、GitHub Secrets、日志或文档。
 
 token 已导出后，先把部署脚本完整下载到权限受限的临时文件；只有 curl 成功才交给 `sh`。以下命令执行默认 full deploy，并通过 `/dev/tty` 要求输入 `DEPLOY_NONATOMIC`：
 
@@ -170,7 +170,7 @@ printf 'Authorization: Bearer %s\n' "$GITHUB_TOKEN" \
   | curl --fail --silent --show-error --location --connect-timeout 15 --max-time 300 --header @- \
       --header 'Accept: application/vnd.github.raw+json' \
       --output "$deploy_script" \
-      https://api.github.com/repos/lmxu-group/website/contents/tools/deploy_github_release.sh \
+      https://api.github.com/repos/scope-pku/scope-pku.github.io/contents/tools/deploy_github_release.sh \
   && sh "$deploy_script"
 ```
 

@@ -64,9 +64,9 @@ for arg in "$@"; do
 done
 printf 'curl:%s:%s:max=%s\n' "$method" "$url" "$max_time" >> "$CALL_LOG"
 case "$url" in
-  */dispatches) printf '{"workflow_run_id":42,"html_url":"https://github.com/lmxu-group/website/actions/runs/42"}' ;;
+  */dispatches) printf '{"workflow_run_id":42,"html_url":"https://github.com/scope-pku/scope-pku.github.io/actions/runs/42"}' ;;
   */actions/runs/42/artifacts*) printf '{"artifacts":[{"name":"boda-site-%s","expired":false,"archive_download_url":"https://api.github.com/archive/42"}]}' "$HEAD_SHA" ;;
-  */actions/runs/42) printf '{"path":".github/workflows/boda-release.yml","event":"workflow_dispatch","head_branch":"main","head_sha":"%s","html_url":"https://github.com/lmxu-group/website/actions/runs/42","status":"%s","conclusion":"%s"}' "$HEAD_SHA" "${RUN_STATUS:-completed}" "${RUN_CONCLUSION:-success}" ;;
+  */actions/runs/42) printf '{"path":".github/workflows/boda-release.yml","event":"workflow_dispatch","head_branch":"main","head_sha":"%s","html_url":"https://github.com/scope-pku/scope-pku.github.io/actions/runs/42","status":"%s","conclusion":"%s"}' "$HEAD_SHA" "${RUN_STATUS:-completed}" "${RUN_CONCLUSION:-success}" ;;
   */archive/42) cp "$RELEASE_ZIP" "$out" ;;
   *) echo "unexpected curl URL" >&2; exit 1 ;;
 esac
@@ -80,7 +80,7 @@ while [ "$1" = -c ]; do shift 2; done
 if [ "$1" = -C ]; then shift 2; fi
 case "$1" in
   rev-parse) printf '%s\n' "$FAKE_REPO" ;;
-  remote) printf '%s\n' "${FAKE_ORIGIN:-https://github.com/lmxu-group/website.git}" ;;
+  remote) printf '%s\n' "${FAKE_ORIGIN:-https://github.com/scope-pku/scope-pku.github.io.git}" ;;
   fetch) : ;;
   worktree) mkdir -p "$4" ;;
   clone) mkdir -p "$5" ;;
@@ -168,11 +168,11 @@ case "$url" in */actions/runs/42) printf '{"path":".github/workflows/wrong.yml",
             "--run-id",
             "42",
             "--plan-only",
-            FAKE_ORIGIN="git@github.com:lmxu-group/website.git",
+            FAKE_ORIGIN="git@github.com:scope-pku/scope-pku.github.io.git",
         )
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn(
-            "fetch --no-tags https://github.com/lmxu-group/website.git",
+            "fetch --no-tags https://github.com/scope-pku/scope-pku.github.io.git",
             self.log.read_text(),
         )
 

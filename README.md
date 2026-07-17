@@ -54,7 +54,7 @@ tools/bodacli plan dist/boda-site
 tools/bodacli probe
 ```
 
-For the private repository's fixed `/new` package workflow, export a local `GITHUB_TOKEN` with Actions read/write and Contents read permission. Download the deploy tool completely before running it; this avoids executing an empty or partial response if GitHub authentication or the network fails:
+For the public repository's fixed `/new` package workflow, export a local `GITHUB_TOKEN` with Actions read/write and Contents read permission. Download the deploy tool completely before running it; this avoids executing an empty or partial response if GitHub authentication or the network fails:
 
 ```sh
 deploy_script=$(mktemp)
@@ -63,7 +63,7 @@ trap 'rm -f "$deploy_script"' 0 HUP INT TERM
 printf 'Authorization: Bearer %s\n' "$GITHUB_TOKEN" \
   | curl -fsSL --connect-timeout 15 --max-time 300 --header @- --header 'Accept: application/vnd.github.raw+json' \
       --output "$deploy_script" \
-      https://api.github.com/repos/lmxu-group/website/contents/tools/deploy_github_release.sh \
+      https://api.github.com/repos/scope-pku/scope-pku.github.io/contents/tools/deploy_github_release.sh \
   && sh "$deploy_script"
 ```
 
