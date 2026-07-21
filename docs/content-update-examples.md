@@ -16,6 +16,7 @@
 
 | 要更新的内容 | 主要源文件 | 还需同步 |
 | --- | --- | --- |
+| 首页轮播 | `site/data/home.json` 的 `hero_slides` | `site/static/media/` 中的图片文件 |
 | 新闻 | `site/data/recent_news.json` | `site/content/en/news/_index.md`、`site/content/zh/news/_index.md` |
 | 论文亮点 | `site/data/highlights.json` | 中英文 `publications/highlights.md`、亮点图片；PDF 仅在提供下载时需要 |
 | 研究主题 | 中英文 `research/_index.md` | 研究图片 |
@@ -48,7 +49,46 @@
 
 ---
 
-## 示例一：新增一条新闻
+## 示例一：维护首页轮播
+
+首页轮播图片由 `site/data/home.json` 的 `hero_slides` 数组维护。数组顺序就是轮播顺序；每张图片都应提供真实像素尺寸、中英文替代文本和独立裁切焦点：
+
+```json
+{
+  "image": "/media/photos-group-members-03.png",
+  "width": 1800,
+  "height": 1124,
+  "position_x": 50,
+  "position_y": 25,
+  "alt": "SCOPE Group members together",
+  "alt_zh": "SCOPE 研究组成员合影"
+}
+```
+
+轮播容器固定使用 **3:1** 宽高比，定义在 `site/assets/css/main.css` 的
+`.home-carousel__viewport`。图片通过 `object-fit: cover` 填满容器，因此超出 3:1
+画面的部分会被裁掉，而不会压缩变形。
+
+`position_x` 和 `position_y` 对应 CSS `object-position` 的水平、垂直百分比，用于决定
+裁切后保留的视觉中心：
+
+- `position_x: 50`、`position_y: 50`：图片正中央。
+- 减小 `position_y`：焦点向上移动，例如 `25` 表示偏上。
+- 增大 `position_y`：焦点向下移动。
+- 减小 `position_x`：焦点向左移动；增大则向右移动。
+- 未填写任一坐标时，该坐标默认使用 `50`。
+
+修改图片时不要用显示比例代替真实尺寸；`width` 和 `height` 必须填写源图片的像素尺寸。
+同时提供准确的 `alt` 和 `alt_zh`，两者描述同一画面内容。修改后至少在英文 `/` 和中文
+`/zh/` 的桌面、移动宽度下检查人物或主体没有被 3:1 裁切截断。
+
+轮播默认每 6 秒自动切换。点击底部圆点、左右各 15% 的切换区域，或使用键盘方向键后，
+当前页面会停止自动轮播。该交互由 `site/assets/js/home-carousel.js` 实现；只更新图片和焦点时
+不要修改脚本。
+
+---
+
+## 示例二：新增一条新闻
 
 一条需要同时出现在首页和新闻页的新闻，要修改三个文件。以下示例使用 `2026.07`，实际更新时替换日期、文字和链接。
 
@@ -104,7 +144,7 @@
 
 ---
 
-## 示例二：新增一个论文亮点
+## 示例三：新增一个论文亮点
 
 论文亮点页的正文、首页摘要和图片尺寸来自不同文件。最小完整更新需要：
 
@@ -182,7 +222,7 @@ REPLACE_WITH_APPROVED_ENGLISH_DESCRIPTION.
 
 ---
 
-## 示例三：新增一个研究主题
+## 示例四：新增一个研究主题
 
 研究主题只在中英文研究页维护，不需要新增 JSON。准备一张已核准图片，例如：
 
@@ -226,7 +266,7 @@ image2="/media/research-new-topic-detail.jpg" width2="1600" height2="1000" alt2=
 
 ---
 
-## 示例四：新增一条论文列表记录
+## 示例五：新增一条论文列表记录
 
 完整论文列表的唯一正文来源是：
 
@@ -255,7 +295,7 @@ site/assets/data/full-publication-list.md
 
 ---
 
-## 示例五：新增一位课题组成员
+## 示例六：新增一位课题组成员
 
 成员目录的唯一数据来源是：
 
@@ -316,7 +356,7 @@ site/static/media/people-REPLACE.jpg
 
 ---
 
-## 示例六：新增或修改照片
+## 示例七：新增或修改照片
 
 照片文件放在 `site/static/media/`，相册数据集中维护在：
 
@@ -410,7 +450,7 @@ gallery: field-trips
 
 ---
 
-## 示例七：新增或修改教学内容
+## 示例八：新增或修改教学内容
 
 教学内容由中英文 Markdown 成对维护，不使用独立 data 文件。
 

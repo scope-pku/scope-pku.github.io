@@ -177,6 +177,23 @@ languages:
 
 新增栏目若只是 Markdown 和子页列表，不要复制专用模板；省略 `layout` 使用默认 list/single。若确需新布局，先确认数据契约，再在 `site/layouts/` 中实现，并保持 `baseof.html` 的页面外壳、canonical、hreflang、fingerprinted 资源和可访问性结构。
 
+#### 首页轮播组件
+
+首页轮播由四部分组成：
+
+- `site/data/home.json` 的 `hero_slides` 保存图片顺序、真实尺寸、中英文 alt 和裁切焦点。
+- `site/layouts/_default/home.html` 将数据渲染为轮播语义结构，并把每张图的
+  `position_x`、`position_y` 输出为 CSS `object-position`。
+- `site/assets/css/main.css` 将 `.home-carousel__viewport` 固定为 **3:1**，图片使用
+  `object-fit: cover`，左右各 15% 为切换区域。
+- `site/assets/js/home-carousel.js` 负责每 6 秒自动切换、圆点进度、左右切换和键盘操作；
+  任一手动切换发生后，本次页面访问不再恢复自动轮播。
+
+`position_x` 与 `position_y` 使用 0 至 100 的百分比坐标，默认均为 `50`。`50/50`
+表示图片中心；较小的 `position_y` 会把裁切焦点上移，例如 `50/25` 表示水平居中、
+垂直偏上。焦点设置属于每张图片的数据，不要为单张图片增加 CSS selector。具体 JSON
+示例和维护检查见 [`content-update-examples.md`](content-update-examples.md#示例一维护首页轮播)。
+
 ### 5. 添加子页面
 
 普通子页面放在同一栏目目录中，并在两种语言创建对应文件：
