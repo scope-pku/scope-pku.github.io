@@ -1,121 +1,166 @@
-# Xu Group Web
+# SCOPE Group Web
 
-Hugo source for the Xu Group website, with a small Boda V12 client for static
-release operations.
+**简体中文** | [English](README_en.md)
 
-## Repository layout
+北京大学 SCOPE 研究组的双语 Hugo 网站。生产站点默认通过 GitHub Pages 自动部署，
+同时保留一个用于备用静态托管和应急发布的 Boda V12 Python 客户端。
 
-- `site/` — Hugo site source, bilingual content, layouts, assets, and generated
-  `public/` output.
-- `boda_release/` — the Python Boda client and its dependency list.
-- `tests/` — pytest-maintained Python tests for the Boda CLI and deployment tooling.
-- `requirements-dev.txt` and `pytest.ini` — Python test dependencies and pytest discovery configuration.
-- `tools/bodacli` — the formal Boda CLI entry point.
-- `tools/build_boda_release.sh` — builds a checked release under
-  `dist/boda-site/`.
-- `tools/deploy_github_release.sh` — triggers/downloads a GitHub release package and deploys it locally with the matching CLI commit.
-- An optional local `source/xulm.pku.edu.cn/` may hold the immutable HTML reference snapshot. It is intentionally excluded from Git and must not be edited when present.
-- `AGENTS.md` and [`BODA_DEPLOYMENT.md`](BODA_DEPLOYMENT.md) — project rules and
-  deployment/rollback details.
+## 项目特点
 
-## Hugo preview and build
+- 双语 Hugo 站点：英文位于 `/`，中文位于 `/zh/`。
+- 提供研究、成果、成员、新闻、照片、教学和联系方式等学术内容页面。
+- 通过共享内容和数据约定，保持中英文页面信息等价。
+- 使用 `uv` 和 `uv.lock` 管理可复现的 Python 工具环境。
+- 默认生产发布使用 GitHub Pages；Boda 作为备用和应急发布入口保留。
 
-Install Hugo, then run from `site/`:
+## 快速开始
+
+### 环境要求
+
+请先安装：
+
+- [Hugo Extended](https://gohugo.io/installation/)
+- 如需使用 Boda CLI 或运行 Python 测试，请安装
+  [uv](https://docs.astral.sh/uv/getting-started/installation/)
+
+在 macOS 上可以直接运行：
 
 ```sh
-hugo server   # local preview
-hugo          # production build into site/public/
+brew install hugo
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-Keep Chinese and English pages equivalent in meaning. See
-[`site/README.md`](site/README.md) for content conventions.
-
-## GitHub Pages
-
-Every push to `main` deploys the Hugo site to <https://scope-pku.github.io/> through `.github/workflows/pages.yml`; manual runs remain available through `workflow_dispatch`. The repository's Pages source is configured as **GitHub Actions**; the workflow obtains the public base URL from `actions/configure-pages`, builds `site/`, and deploys the generated artifact without committing `site/public/`.
-
-The Pages source must be enabled once in **Settings → Pages → Build and deployment → GitHub Actions**, or through the GitHub CLI/API before the first workflow run. It is already enabled for `scope-pku/scope-pku.github.io`.
-
-## Boda CLI
-
-Install the Python dependencies from the repository root:
+确认工具已经安装：
 
 ```sh
-python3 -m pip install -r boda_release/requirements.txt
+hugo version
+uv --version
 ```
 
-For Python development and CLI tests, install the separate development dependencies and run pytest from the repository root:
+推荐使用 Hugo Extended，因为网站通过 Hugo Pipes 处理 CSS 和 JavaScript
+资源。Python 包要求 Python 3.13 或更高版本；需要时 uv 可以自动安装和管理
+对应的 Python 版本。
+
+### 本地预览
+
+在仓库根目录运行：
 
 ```sh
-python3 -m pip install -r requirements-dev.txt
-python3 -m pytest tests
+hugo server --source site
 ```
 
-The CLI reads `BODA_IAAA_USERNAME`, `BODA_IAAA_PASSWORD`, and optional
-`BODA_IAAA_OTP` from the environment or root `.env`; never commit those
-credentials. Sessions are automatically stored and reused in the user cache:
-`~/Library/Caches/bodacli/session.cookies` on macOS, `<XDG_CACHE_HOME>/bodacli/session.cookies`
-when `XDG_CACHE_HOME` is set, or `~/.cache/bodacli/session.cookies` on other
-systems. `BODA_SESSION_FILE` is an advanced override. The client creates the
-cache directory and keeps the session file at mode `0600`; keep `.env` at mode
-`0600` too. `BODA_IAAA_OTP` may be a Base32 seed, an `otpauth://` URI, or a
-current six-digit code.
+打开 Hugo 输出的本地地址，通常为 <http://localhost:1313/>。英文站点位于
+`/`，中文站点位于 `/zh/`。源文件发生变化后，Hugo 会重新构建并刷新浏览器。
 
-Build and inspect a release:
+如需同时预览草稿和未来日期的页面：
 
 ```sh
+hugo server --source site --buildDrafts --buildFuture
+```
+
+使用 `Ctrl-C` 停止服务器。
+
+### 生产构建
+
+在仓库根目录生成生产版本：
+
+```sh
+hugo --source site --minify
+```
+
+静态输出位于 `site/public/`。不要部署 `hugo server` 生成的开发输出；GitHub Pages
+会在推送到 `main` 后自动完成生产构建和部署。仅在备用或应急场景下，才使用下文所述
+的 Boda 发布构建工具。
+
+## 常用命令
+
+```sh
+# 预览 Hugo 网站。
+hugo server --source site
+
+# 生成压缩后的生产版本。
+hugo --source site --minify
+
+# 安装 Boda CLI 的锁定运行依赖。
+uv sync --locked --no-dev
+
+# 安装锁定的开发依赖并运行全部 Python 测试。
+uv sync --locked --dev
+uv run pytest tests
+
+# （备用/应急）构建并检查 Boda 发布产物。
 tools/build_boda_release.sh
 tools/bodacli plan dist/boda-site
 tools/bodacli probe
 ```
 
-For the public repository's fixed `/new` package workflow, export a local `GITHUB_TOKEN` with Actions read/write and Contents read permission. Download the deploy tool completely before running it; this avoids executing an empty or partial response if GitHub authentication or the network fails:
+只有连接 Boda 的操作才需要认证信息。不得提交用户名、密码、OTP 种子、会话
+Cookie 或未完成的私有材料。上传内容可能立即公开；执行任何写操作前必须阅读
+运营者指南。
 
-```sh
-deploy_script=$(mktemp)
-chmod 600 "$deploy_script"
-trap 'rm -f "$deploy_script"' 0 HUP INT TERM
-printf 'Authorization: Bearer %s\n' "$GITHUB_TOKEN" \
-  | curl -fsSL --connect-timeout 15 --max-time 300 --header @- --header 'Accept: application/vnd.github.raw+json' \
-      --output "$deploy_script" \
-      https://api.github.com/repos/scope-pku/scope-pku.github.io/contents/tools/deploy_github_release.sh \
-  && sh "$deploy_script"
+## 项目结构
+
+```text
+.
+├── site/                    # Hugo 源码及生成的 public/ 输出
+│   ├── content/en/          # 英文内容，对应 /
+│   ├── content/zh/          # 中文内容，对应 /zh/
+│   ├── layouts/             # Hugo 模板和短代码
+│   ├── assets/              # Hugo Pipes 源资源
+│   ├── static/              # 原样复制到公开站点的文件
+│   ├── data/                # 成员、照片和联系方式等共享数据
+│   ├── i18n/                # 界面翻译
+│   └── hugo.yaml            # Hugo 和语言配置
+├── bodacli/                 # Boda V12 Python 客户端
+├── tools/                   # 发布工具和 CLI 入口
+├── tests/                   # Python CLI 与部署测试
+├── docs/                    # 开发、运营和内容维护文档
+├── pyproject.toml           # Python 项目与依赖组配置
+└── uv.lock                  # 锁定的 Python 依赖解析结果
 ```
 
-The tool uses GitHub REST directly—`gh` is not required. It triggers/downloads the package, checks out its exact CLI commit, creates a temporary virtual environment, runs plan/probe, and requests the `/new` deployment confirmation. Run `sh "$deploy_script" --plan-only` for a read-only package check. GitHub Actions stores no Boda credentials and does not contact Boda; see [`docs/operator-guide.md`](docs/operator-guide.md) for token permissions, all options, and approval requirements.
+可选目录 `source/xulm.pku.edu.cn/` 是旧公开站点的本地不可变快照。该目录只供
+核对，不能修改，并且不会进入 Git。
 
-`probe` is read-only. A CRUD smoke test is an explicitly destructive,
-immediate production write at `/test/A/B.txt`; run the fixed wrapper directly,
-never concurrently:
+## 贡献与内容开发
 
-Deploy only an approved release, with the explicit confirmation:
+提交 Issue 或 Pull Request 前，请先阅读 [`CONTRIBUTING.md`](CONTRIBUTING.md)，其中包含提交条件、Issue checklist、PR checklist 以及验证要求。
 
-```sh
-tools/bodacli deploy dist/boda-site --apply --confirm DEPLOY_NONATOMIC
-```
+修改公开内容、模板、样式或组件前，请先阅读：
 
-For a complete local Hugo build followed by manifest-based synchronization, use incremental deploy:
+- [`AGENTS.md`](AGENTS.md)：仓库规则和部署边界。
+- [`CONTRIBUTING.md`](CONTRIBUTING.md)：Issue、PR、验证和协作流程。
+- [`DESIGN.md`](DESIGN.md)：视觉、编辑、双语和无障碍要求。
+- [`docs/developer-guide.md`](docs/developer-guide.md)：Hugo 数据模型、模板、
+  构建检查和验证流程。
+- [`docs/content-update-examples.md`](docs/content-update-examples.md)：常见内容
+  修改的可复制示例。
 
-```sh
-tools/bodacli deploy dist/boda-site --incremental --apply --confirm DEPLOY_INCREMENTAL
-```
+双语页面应在 `site/content/en/` 和 `site/content/zh/` 中使用相同的相对路径
+和 `translationKey`。两种语言中的事实、主张、限定语、链接、人物和日期必须
+等价，但不要求逐句直译。
 
-All deployment modes require the current Git worktree to be clean. Incremental mode compares the SHA-256 manifest of the complete `dist/boda-site/` output. The builder writes local `BODACLI_BUILD.json` provenance; it is not uploaded, and deploy refuses an artifact whose recorded commit/dirty state differs from the current worktree. Hugo fan-out means one source change can affect many generated files; `git diff` is only for commit ancestry and source-change audit, never a direct source-to-output upload map. With no `bodacli-state.txt`, incremental deploy performs a full bootstrap. The public state file contains canonical JSON metadata only: schema, commit, dirty flag, path prefix, and generated-file SHA-256 entries—never source or credentials. Invalid, mismatched, dirty-baseline, non-ancestor, or remotely drifted state fails closed. It deletes only old-state files whose recorded checksum still matches, never directories, verifies public deletion with cache-busting requests, and writes state last. Both full and incremental deploys are non-atomic; ordinary full deploy continues to use `DEPLOY_NONATOMIC`.
+## 文档索引
 
-The client uses the English default security reason `Published by bodacli at
-<UTC ISO timestamp>.`; set optional `BODA_SECURITY_REASON` only when a custom
-audit explanation is needed.
+- [`site/README.md`](site/README.md)：Hugo 内容和预览的简要说明。
+- [`docs/developer-guide.md`](docs/developer-guide.md)：开发流程、架构和验证方法。
+- [`docs/content-update-examples.md`](docs/content-update-examples.md)：各类页面的
+  内容维护示例。
+- [`docs/operator-guide.md`](docs/operator-guide.md)：GitHub Pages 生产发布说明，以及
+  Boda 备用入口的操作、认证、探测、部署和回滚。
+- [`BODA_DEPLOYMENT.md`](BODA_DEPLOYMENT.md)：部署安全规则和发布协议。
 
-Set `BODA_PATH_PREFIX` (and, when needed, `BODA_BASE_URL` or `BODA_PUBLIC_URL`)
-to target a configured path. Uploads become public immediately; an unlinked
-path is not access control. Do not upload secrets or unfinished private
-material. New uploads with structured receipts record the Boda file-security
-review. Existing-file overwrites may instead return the exact body `ok`; the
-client accepts only that receiptless response and verifies the public checksum.
-The CRUD test may additionally confirm its known `B.txt` by directory listing.
+## GitHub Pages
 
-## Documentation
+推送到 `main` 后，GitHub Actions 会将 Hugo 网站部署到
+<https://scope-pku.github.io/>。工作流会构建 `site/` 并部署生成的产物，
+不需要提交 `site/public/`。CI 细节请查看仓库设置和工作流文件。
 
-- [`docs/README.md`](docs/README.md) — documentation index and reading paths.
-- [`docs/developer-guide.md`](docs/developer-guide.md) — developer guide.
-- [`docs/operator-guide.md`](docs/operator-guide.md) — operator guide.
+## 部署边界
+
+正常生产发布通过 GitHub Actions 完成：合并或推送到 `main` 后，`.github/workflows/pages.yml`
+会构建并部署 GitHub Pages。不要手工上传 `site/public/`，也不要为普通 PR 执行生产部署。
+
+Boda 是备用和应急入口，不是默认发布路径。Boda 部署属于生产写操作，即使目标目录没有
+公开链接，或名称中包含“测试”“探测”等字样，也不能视为安全沙箱。需要使用 Boda 时，
+先阅读运营文档，构建产物并运行只读的 `plan` 和 `probe`，取得明确授权后再进行部署。

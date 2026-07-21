@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: PKU Laboratory Notebook
-description: An editorial bilingual design system for the Xu Research Group at Peking University.
+description: An editorial bilingual design system for the SCOPE Group at Peking University.
 colors:
   primary: "#8C0000"
   on-primary: "#FFFFFF"
@@ -125,7 +125,7 @@ components:
     height: 1px
 ---
 
-# Xu Research Group Design System
+# SCOPE Group Design System
 
 ## Overview
 

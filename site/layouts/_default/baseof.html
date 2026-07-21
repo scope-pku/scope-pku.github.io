@@ -18,6 +18,11 @@
     {{ with resources.Get "js/mobile-menu.js" | minify | fingerprint }}
       <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
     {{ end }}
+    {{ if .IsHome }}
+      {{ with resources.Get "js/home-carousel.js" | minify | fingerprint }}
+        <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
+      {{ end }}
+    {{ end }}
   </head>
   <body>
     <a class="skip-link" href="#main">{{ i18n "skip_to_content" }}</a>

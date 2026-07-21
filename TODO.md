@@ -1,4 +1,4 @@
-# Xu Group Website Page-by-Page Optimization
+# SCOPE Group Website Page-by-Page Optimization
 
 This checklist tracks the English redesign first. Shared templates must remain
 compatible with the existing Chinese placeholders; Chinese content parity begins

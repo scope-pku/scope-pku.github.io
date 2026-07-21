@@ -1,7 +1,22 @@
 {{ define "main" }}
   <article class="home">
     <header class="home-hero">
-      <img class="home-group-photo" src="{{ hugo.Data.home.hero }}" width="{{ hugo.Data.home.hero_width }}" height="{{ hugo.Data.home.hero_height }}" alt="{{ i18n "home_group_alt" }}" fetchpriority="high">
+      <div class="home-carousel" data-carousel aria-roledescription="carousel" aria-label="{{ i18n "home_carousel_label" }}">
+        <div class="home-carousel__viewport">
+          <div class="home-carousel__track">
+            {{ range $index, $slide := hugo.Data.home.hero_slides }}
+              {{ $alt := $slide.alt }}
+              {{ if and (eq site.Language.Lang "zh") $slide.alt_zh }}{{ $alt = $slide.alt_zh }}{{ end }}
+              <div class="home-carousel__slide{{ if eq $index 0 }} is-active{{ end }}" data-carousel-slide role="group" aria-roledescription="slide" aria-label="{{ add $index 1 }} / {{ len hugo.Data.home.hero_slides }}" aria-hidden="{{ if eq $index 0 }}false{{ else }}true{{ end }}">
+                <img class="home-group-photo" src="{{ $slide.image }}" width="{{ $slide.width }}" height="{{ $slide.height }}" style="object-position: {{ default 50 $slide.position_x }}% {{ default 50 $slide.position_y }}%" alt="{{ $alt }}"{{ if eq $index 0 }} fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
+              </div>
+            {{ end }}
+          </div>
+        </div>
+        <button class="home-carousel__hit-area home-carousel__hit-area--previous" type="button" data-carousel-prev aria-label="{{ i18n "home_carousel_previous" }}"></button>
+        <button class="home-carousel__hit-area home-carousel__hit-area--next" type="button" data-carousel-next aria-label="{{ i18n "home_carousel_next" }}"></button>
+        <div class="home-carousel__dots" data-carousel-dots data-show-label="{{ i18n "home_carousel_show" (dict "Number" "%d") }}"></div>
+      </div>
       <div class="home-intro">
         <div class="home-copy">
           <p class="eyebrow">{{ site.Params.affiliation }}</p>

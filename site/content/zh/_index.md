@@ -1,9 +1,9 @@
 ---
-title: 徐莉梅课题组
+title: SCOPE 研究组
 translationKey: home
 ---
 
-本课题组主要开展软凝聚态物理与计算物理研究，关注纳米尺度下物质的行为，并运用先进的计算工具与方法探索相关物理问题。
+SCOPE 是 **Simulation of Condensed-Matter Order and Phase Evolution** 的缩写。本研究组主要开展软凝聚态物理与计算物理研究，关注纳米尺度下物质的行为，并运用先进的计算工具与方法探索相关物理问题。
 
 ## 研究方向
 

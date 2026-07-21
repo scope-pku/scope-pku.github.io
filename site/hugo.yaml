@@ -12,10 +12,10 @@ languages:
     locale: zh-CN
     label: 中文
     contentDir: content/zh
-    title: 徐莉梅课题组
+    title: SCOPE 研究组
     weight: 1
     params:
-      description: 北京大学徐莉梅课题组网站
+      description: 北京大学 SCOPE 研究组网站
       affiliation: 北京大学物理学院
     menus:
       main:
@@ -47,10 +47,10 @@ languages:
     locale: en
     label: English
     contentDir: content/en
-    title: Xu Research Group
+    title: SCOPE Group
     weight: 2
     params:
-      description: Website of the Xu Research Group at Peking University
+      description: Website of the SCOPE Group at Peking University
       affiliation: School of Physics, Peking University
     menus:
       main:

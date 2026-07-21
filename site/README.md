@@ -1,4 +1,4 @@
-# Xu Group Hugo site
+# SCOPE Group Hugo site
 
 ## Preview
 

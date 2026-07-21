@@ -1,7 +1,24 @@
 {
-  "hero": "/media/home-group-photo.jpg",
-  "hero_width": 1800,
-  "hero_height": 351,
+  "hero_slides": [
+    {
+      "image": "/media/home-group-photo.jpg",
+      "width": 1800,
+      "height": 351,
+      "position_x": 50,
+      "position_y": 50,
+      "alt": "SCOPE Group members on the Peking University campus",
+      "alt_zh": "SCOPE 研究组成员在北京大学校园合影"
+    },
+    {
+      "image": "/media/photos-group-members-03.png",
+      "width": 1800,
+      "height": 1124,
+      "position_x": 50,
+      "position_y": 25,
+      "alt": "SCOPE Group members together",
+      "alt_zh": "SCOPE 研究组成员合影"
+    }
+  ],
   "pku_logo": "/media/pku-wordmark.png",
   "pku_logo_width": 233,
   "pku_logo_height": 66,

@@ -1,7 +1,7 @@
 ---
 title: "研究亮点"
 translationKey: highlights
-summary: "徐莉梅课题组的代表性研究成果。"
+summary: "SCOPE 研究组的代表性研究成果。"
 layout: highlights
 weight: 10
 ---

@@ -25,7 +25,7 @@ breadcrumbs:
 home:
   other: Home
 footer_brand_label:
-  other: Peking University and the Xu Research Group
+  other: Peking University and the SCOPE Group
 contact_us:
   other: Contact Us
 phone:
@@ -37,9 +37,21 @@ office:
 quick_links:
   other: Quick Links
 home_group_alt:
-  other: Xu Research Group members on the Peking University campus
+  other: SCOPE Group members on the Peking University campus
+home_carousel_label:
+  other: Featured group photos
+home_carousel_previous:
+  other: Show previous photo
+home_carousel_next:
+  other: Show next photo
+home_carousel_pause:
+  other: Pause automatic photo rotation
+home_carousel_play:
+  other: Resume automatic photo rotation
+home_carousel_show:
+  other: Show photo {{ .Number }}
 home_figure_alt:
-  other: Molecular structure illustration from the original Xu Research Group website
+  other: Molecular structure illustration from the original SCOPE Group website
 research_highlights:
   other: Research highlights
 view_all:
@@ -60,7 +72,7 @@ photo_count:
 publication_resources:
   other: Publication resources
 publication_index_highlights_summary:
-  other: Selected research highlights from the Xu Research Group.
+  other: Selected research highlights from the SCOPE Group.
 publication_index_full_publication_list_summary:
   other: Complete publication list from 2005 to 2026.
 publication_index_theses_summary:

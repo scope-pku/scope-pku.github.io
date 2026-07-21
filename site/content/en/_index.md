@@ -1,8 +1,8 @@
 ---
-title: "Xu Research Group"
+title: "SCOPE Group"
 translationKey: home
 ---
-We are a computational research group in soft condensed matter physics and computational physics. Our group focuses on investigating the behavior of matter at the nanoscale, utilizing state-of-the-art computational tools and techniques.
+SCOPE stands for **Simulation of Condensed-Matter Order and Phase Evolution**. We are a computational research group in soft condensed matter physics and computational physics. Our group focuses on investigating the behavior of matter at the nanoscale, utilizing state-of-the-art computational tools and techniques.
 
 ## Research interests
 

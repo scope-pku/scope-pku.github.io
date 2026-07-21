@@ -1,7 +1,7 @@
 ---
 title: "Research Highlights"
 translationKey: highlights
-summary: "Selected research highlights from the Xu Research Group."
+summary: "Selected research highlights from the SCOPE Group."
 layout: highlights
 weight: 10
 ---

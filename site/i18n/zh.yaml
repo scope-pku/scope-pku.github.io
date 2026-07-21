@@ -25,7 +25,7 @@ breadcrumbs:
 home:
   other: 首页
 footer_brand_label:
-  other: 北京大学与徐莉梅课题组
+  other: 北京大学与 SCOPE 研究组
 contact_us:
   other: 联系我们
 phone:
@@ -37,9 +37,21 @@ office:
 quick_links:
   other: 快速链接
 home_group_alt:
-  other: 徐莉梅课题组成员在北京大学校园合影
+  other: SCOPE 研究组成员在北京大学校园合影
+home_carousel_label:
+  other: 研究组精选照片
+home_carousel_previous:
+  other: 显示上一张照片
+home_carousel_next:
+  other: 显示下一张照片
+home_carousel_pause:
+  other: 暂停自动切换照片
+home_carousel_play:
+  other: 继续自动切换照片
+home_carousel_show:
+  other: 显示第 {{ .Number }} 张照片
 home_figure_alt:
-  other: 原徐莉梅课题组网站中的分子结构示意图
+  other: 原 SCOPE 研究组网站中的分子结构示意图
 research_highlights:
   other: 研究亮点
 view_all:
