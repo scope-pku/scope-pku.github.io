@@ -11,11 +11,14 @@ icon-512.png, icon-192-maskable.png, icon-512-maskable.png, apple-touch-icon.png
 Maskable icons get a full-bleed tile-coloured background with the mark inset to
 the 80% safe zone, so Android's circle/squircle masks never clip the artwork.
 
-The source is expected to be a rounded tile on a plain white background. The
-white is removed by flood-filling from the border so interior white artwork (for
-example the dashed line in the mark) survives, and the 1-3px ring around the
-removed area is un-blended against the tile colour so the rounded corners keep
-their anti-aliasing instead of a white halo.
+The source may be either a tile on a plain white background or an already
+transparent mark; both are detected automatically. White is removed by
+flood-filling from the border, so interior white artwork (for example the dashed
+line in the mark) survives, and the 1-3px ring around the removed area is
+un-blended against the tile colour so rounded corners keep their anti-aliasing
+instead of a white halo. Either way the artwork is then cropped to its visible
+bounds and re-centred on a square canvas, so an off-centre export still produces
+a centred icon set.
 """
 
 from collections import Counter, deque
@@ -94,7 +97,28 @@ def cut_background(src: Path) -> Image.Image:
     return Image.fromarray(np.dstack([colour, alpha]).astype(np.uint8), "RGBA")
 
 
+MARK_MARGIN = 0.06
 MASKABLE_SAFE_ZONE = 0.78
+
+
+def normalise(mark: Image.Image, margin: float = MARK_MARGIN) -> Image.Image:
+    """Crop to the visible artwork and centre it on a transparent square canvas."""
+    bounds = mark.getchannel("A").getbbox()
+    if bounds is None:
+        raise SystemExit("source has no visible pixels")
+    mark = mark.crop(bounds)
+    side = round(max(mark.size) * (1 + 2 * margin))
+    canvas = Image.new("RGBA", (side, side), (0, 0, 0, 0))
+    canvas.paste(mark, ((side - mark.width) // 2, (side - mark.height) // 2), mark)
+    return canvas
+
+
+def load_source(src: Path, margin: float = MARK_MARGIN) -> Image.Image:
+    probe = Image.open(src).convert("RGBA")
+    w, h = probe.size
+    corners = [probe.getpixel(p)[3] for p in ((0, 0), (w - 1, 0), (0, h - 1), (w - 1, h - 1))]
+    mark = probe if min(corners) == 0 else cut_background(src)
+    return normalise(mark, margin)
 
 
 def build_maskable(icon: Image.Image, size: int) -> Image.Image:
@@ -135,12 +159,15 @@ def main() -> None:
     if len(sys.argv) != 2:
         raise SystemExit(__doc__)
     source = Path(sys.argv[1]).expanduser()
-    icon = cut_background(source)
+    icon = load_source(source)
     OUT.mkdir(parents=True, exist_ok=True)
 
-    icon.resize((32, 32), Image.LANCZOS).save(OUT / "favicon-32.png")
-    sixteen = icon.resize((16, 16), Image.LANCZOS)
-    forty_eight = icon.resize((48, 48), Image.LANCZOS)
+    # Small sizes get less breathing room: a glyph-only mark with the same
+    # margin as the 512px icon reads as a smudge in a browser tab.
+    small_icon = load_source(source, margin=0.01)
+    small_icon.resize((32, 32), Image.LANCZOS).save(OUT / "favicon-32.png")
+    sixteen = small_icon.resize((16, 16), Image.LANCZOS)
+    forty_eight = small_icon.resize((48, 48), Image.LANCZOS)
     thirty_two = Image.open(OUT / "favicon-32.png")
     thirty_two.save(OUT / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)], append_images=[sixteen, forty_eight])
     icon.resize((192, 192), Image.LANCZOS).save(OUT / "icon-192.png")
