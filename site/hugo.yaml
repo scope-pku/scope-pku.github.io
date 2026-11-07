@@ -2,6 +2,7 @@ baseURL: https://xulm.pku.edu.cn/
 defaultContentLanguage: en
 defaultContentLanguageInSubdir: false
 disableAliases: true
+enableRobotsTXT: true
 disableKinds:
   - RSS
   - taxonomy

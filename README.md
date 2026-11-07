@@ -156,6 +156,26 @@ Cookie 或未完成的私有材料。上传内容可能立即公开；执行任�
 <https://scope-pku.github.io/>。工作流会构建 `site/` 并部署生成的产物，
 不需要提交 `site/public/`。CI 细节请查看仓库设置和工作流文件。
 
+## lmxu.cc（tencent-kr 静态托管）
+
+<https://lmxu.cc/> 由 tencent-kr 上的 nginx 直接托管静态产物，前面是 Cloudflare
+橙云（SSL 模式 Full (strict)）。它不经过 GitHub Actions，也不会改变 GitHub Pages
+链路；两者部署的是同一份源码。
+
+```sh
+./tools/deploy_lmxu.sh            # 构建 + rsync 到 /var/www/scope-web + 冒烟检查
+BASEURL=https://lmxu.cc/ ./tools/deploy_lmxu.sh   # 显式指定 canonical 域名
+```
+
+- 域名通过 `--baseURL` 覆盖，`site/hugo.yaml` 的 `baseURL` 保持上游默认值。
+- 源站 vhost 是 tencent-kr 的 `/etc/nginx/conf.d/13-lmxu.cc.conf`，文档根目录
+  `/var/www/scope-web`，CSS/JS 缓存 1 年、媒体 30 天、HTML 不缓存。
+- 证书是 Let's Encrypt，通过 certbot 的 cloudflare DNS-01 插件签发
+  （凭证 `/etc/letsencrypt/cf-lmxu.ini`，仅交换机内，不进 Git），
+  deploy hook 会把证书复制到 `/etc/nginx/tls/lmxu.cc.{pem,key}` 并 reload nginx。
+- 该域名的 apex 记录是 A 记录指向 tencent-kr；此前指向 Cloudflare Tunnel
+  `LMXU-Connector` 的 CNAME 已移除，若要回滚就把 A 记录换回那条 CNAME。
+
 ## 部署边界
 
 正常生产发布通过 GitHub Actions 完成：合并或推送到 `main` 后，`.github/workflows/pages.yml`
