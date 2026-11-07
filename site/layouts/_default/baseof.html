@@ -9,6 +9,34 @@
     <meta name="description" content="{{ $description }}">
     <title>{{ if eq .Kind "404" }}{{ i18n "page_not_found" }} · {{ site.Title }}{{ else if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
     <link rel="canonical" href="{{ .Permalink }}">
+    <meta name="theme-color" content="#fdf3e9">
+    <link rel="icon" href="{{ "favicon.ico" | absURL }}" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32.png" | absURL }}">
+    <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | absURL }}">
+    <link rel="manifest" href="{{ "site.webmanifest" | absURL }}">
+    {{ $ogImage := "og-image.png" | absURL }}
+    {{ $ogTitle := site.Title }}
+    {{ if not .IsHome }}{{ $ogTitle = printf "%s · %s" (cond (eq .Kind "404") (i18n "page_not_found") .Title) site.Title }}{{ end }}
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site.Title }}">
+    <meta property="og:title" content="{{ $ogTitle }}">
+    <meta property="og:description" content="{{ $description }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:image" content="{{ $ogImage }}">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{{ site.Title }}">
+    {{ $ogLocale := cond (eq site.Language.Locale "en") "en_US" (replace site.Language.Locale "-" "_") }}
+    <meta property="og:locale" content="{{ $ogLocale }}">
+    {{ range .AllTranslations }}
+      {{ $altLocale := cond (eq .Language.Locale "en") "en_US" (replace .Language.Locale "-" "_") }}
+      <meta property="og:locale:alternate" content="{{ $altLocale }}">
+    {{ end }}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $ogTitle }}">
+    <meta name="twitter:description" content="{{ $description }}">
+    <meta name="twitter:image" content="{{ $ogImage }}">
     {{ range .AllTranslations }}
       <link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
     {{ end }}
