@@ -5,8 +5,11 @@ Usage:
     uv run --with pillow --with numpy tools/make_icons.py ~/path/to/icon.png
 
 Writes into site/static/: favicon.ico (16/32/48), favicon-32.png, icon-192.png,
-icon-512.png, apple-touch-icon.png (opaque, iOS ignores transparency) and
-og-image.png (1200x630 share card).
+icon-512.png, icon-192-maskable.png, icon-512-maskable.png, apple-touch-icon.png
+(opaque, iOS ignores transparency) and og-image.png (1200x630 share card).
+
+Maskable icons get a full-bleed tile-coloured background with the mark inset to
+the 80% safe zone, so Android's circle/squircle masks never clip the artwork.
 
 The source is expected to be a rounded tile on a plain white background. The
 white is removed by flood-filling from the border so interior white artwork (for
@@ -91,6 +94,18 @@ def cut_background(src: Path) -> Image.Image:
     return Image.fromarray(np.dstack([colour, alpha]).astype(np.uint8), "RGBA")
 
 
+MASKABLE_SAFE_ZONE = 0.78
+
+
+def build_maskable(icon: Image.Image, size: int) -> Image.Image:
+    card = Image.new("RGB", (size, size), CREAM)
+    inner = round(size * MASKABLE_SAFE_ZONE)
+    offset = (size - inner) // 2
+    mark = icon.resize((inner, inner), Image.LANCZOS)
+    card.paste(mark, (offset, offset), mark)
+    return card
+
+
 def build_share_card(icon: Image.Image) -> Image.Image:
     card = Image.new("RGB", (1200, 630), CREAM)
     draw = ImageDraw.Draw(card)
@@ -130,6 +145,8 @@ def main() -> None:
     thirty_two.save(OUT / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)], append_images=[sixteen, forty_eight])
     icon.resize((192, 192), Image.LANCZOS).save(OUT / "icon-192.png")
     icon.resize((512, 512), Image.LANCZOS).save(OUT / "icon-512.png")
+    build_maskable(icon, 192).save(OUT / "icon-192-maskable.png")
+    build_maskable(icon, 512).save(OUT / "icon-512-maskable.png")
 
     touch = Image.new("RGB", (180, 180), CREAM)
     scaled = icon.resize((180, 180), Image.LANCZOS)
