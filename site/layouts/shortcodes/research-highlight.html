@@ -1,7 +1,13 @@
 {{ $record := index (where hugo.Data.highlights "image" (.Get "image")) 0 }}
 <article class="research-highlight">
   <figure>
-    <img src="{{ .Get "image" }}" width="{{ $record.width }}" height="{{ $record.height }}" alt="{{ .Get "title" }}" loading="lazy" decoding="async">
+    {{ partial "responsive-image.html" (dict
+      "path" (.Get "image")
+      "alt" (.Get "title")
+      "width" $record.width
+      "height" $record.height
+      "sizes" "(min-width: 1000px) 320px, 100vw"
+      "widths" (slice 320 640 960)) }}
   </figure>
   <div>
     <h2>{{ .Get "title" }}</h2>

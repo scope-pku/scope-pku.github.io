@@ -23,7 +23,11 @@
           {{ $photoName := $personName }}
           {{ if and $isZh .name_zh }}{{ $photoName = .name_zh }}{{ end }}
           <article class="person-card">
-            <img src="{{ .image }}" width="{{ if $isLeader }}180{{ else }}120{{ end }}" height="{{ if $isLeader }}209{{ else }}120{{ end }}" alt="{{ i18n "portrait_alt" (dict "Name" $photoName) }}" loading="lazy">
+            {{ partial "responsive-image.html" (dict
+              "path" .image
+              "alt" (i18n "portrait_alt" (dict "Name" $photoName))
+              "sizes" (cond $isLeader "180px" "120px")
+              "widths" (slice 120 240 360)) }}
             <div class="person-card__body">
               <h3>{{ if .profile }}<a href="{{ .profile | relLangURL }}">{{ $personName }}</a>{{ else }}{{ $personName }}{{ end }}</h3>
               {{ if or $isZh $isGraduate }}{{ with .name_zh }}<p class="person-card__name-zh" lang="zh">{{ . }}</p>{{ end }}{{ end }}

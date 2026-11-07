@@ -10,7 +10,13 @@
         {{ $preview := index $gallery.images 0 }}
         <article class="photos-index-entry">
           <a href="{{ .RelPermalink }}" aria-hidden="true" tabindex="-1">
-            <img src="{{ $preview.src }}" width="{{ $preview.width }}" height="{{ $preview.height }}" alt="" loading="lazy">
+            {{ partial "responsive-image.html" (dict
+              "path" $preview.src
+              "alt" ""
+              "width" $preview.width
+              "height" $preview.height
+              "sizes" "(min-width: 1000px) 25vw, 45vw"
+              "widths" (slice 320 640)) }}
           </a>
           <div>
             <p>{{ i18n "photo_count" (len $gallery.images) }}</p>

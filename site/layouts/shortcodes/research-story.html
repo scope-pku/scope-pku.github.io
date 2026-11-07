@@ -5,12 +5,24 @@
   </div>
   <div class="research-story__media">
     <figure>
-      <img src="{{ .Get "image" }}" width="{{ .Get "width" }}" height="{{ .Get "height" }}" alt="{{ .Get "alt" }}" loading="lazy">
+      {{ partial "responsive-image.html" (dict
+        "path" (.Get "image")
+        "alt" (.Get "alt")
+        "width" (.Get "width")
+        "height" (.Get "height")
+        "sizes" "(min-width: 1000px) 520px, 100vw"
+        "widths" (slice 520 1040)) }}
       {{ with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
     </figure>
     {{ with .Get "image2" }}
       <figure>
-        <img src="{{ . }}" width="{{ $.Get "width2" }}" height="{{ $.Get "height2" }}" alt="{{ $.Get "alt2" }}" loading="lazy">
+        {{ partial "responsive-image.html" (dict
+          "path" .
+          "alt" ($.Get "alt2")
+          "width" ($.Get "width2")
+          "height" ($.Get "height2")
+          "sizes" "(min-width: 1000px) 520px, 100vw"
+          "widths" (slice 520 1040)) }}
         {{ with $.Get "caption2" }}<figcaption>{{ . }}</figcaption>{{ end }}
       </figure>
     {{ end }}

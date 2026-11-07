@@ -7,7 +7,13 @@
     <section class="teaching-overview">
       {{ with .Params.featureImage }}
         <figure>
-          <img src="{{ . }}" width="{{ $.Params.featureImageWidth }}" height="{{ $.Params.featureImageHeight }}" alt="{{ $.Params.featureImageAlt }}">
+          {{ partial "responsive-image.html" (dict
+            "path" .
+            "alt" $.Params.featureImageAlt
+            "width" $.Params.featureImageWidth
+            "height" $.Params.featureImageHeight
+            "sizes" "(min-width: 1000px) 520px, 100vw"
+            "widths" (slice 520 1040)) }}
         </figure>
       {{ end }}
       <div class="teaching-overview__content prose">{{ .Content }}</div>

@@ -282,31 +282,45 @@ a:focus-visible {
   bottom: 1rem;
   z-index: 3;
   display: flex;
-  gap: .65rem;
+  gap: 0;
   transform: translateX(-50%);
 }
 
+/* 44px tap target (WCAG 2.5.8 / Lighthouse target-size); the visible dot is
+   drawn by ::before so the control can stay visually small. */
 .home-carousel__dot {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.home-carousel__dot::before {
+  content: "";
+  display: block;
   width: .75rem;
   height: .75rem;
-  padding: 0;
   border: 1px solid rgba(255, 255, 255, .9);
   border-radius: 50%;
   background: rgba(255, 255, 255, .58);
   box-shadow: 0 1px 4px rgba(0, 0, 0, .45);
-  cursor: pointer;
 }
 
-.home-carousel__dot:hover {
+.home-carousel__dot:hover::before {
   background: rgba(255, 255, 255, .9);
 }
 
 .home-carousel__dot:focus-visible {
   outline: 3px solid white;
-  outline-offset: 3px;
+  outline-offset: -4px;
+  border-radius: 50%;
 }
 
-.home-carousel__dot.is-active {
+.home-carousel__dot.is-active::before {
   border-color: white;
   background: var(--accent);
 }

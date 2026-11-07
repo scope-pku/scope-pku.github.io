@@ -23,7 +23,14 @@
           {{ with $image.caption_zh }}{{ $imageCaption = . }}{{ end }}
         {{ end }}
         <figure>
-          <img src="{{ $image.src }}" width="{{ $image.width }}" height="{{ $image.height }}" alt="{{ $imageAlt }}"{{ if gt $index 0 }} loading="lazy"{{ end }} decoding="async">
+          {{ partial "responsive-image.html" (dict
+            "path" $image.src
+            "alt" $imageAlt
+            "width" $image.width
+            "height" $image.height
+            "sizes" "(min-width: 1200px) 1100px, 100vw"
+            "widths" (slice 640 1200)
+            "loading" (cond (gt $index 0) "lazy" "eager")) }}
           {{ with $imageCaption }}<figcaption>{{ . }}</figcaption>{{ end }}
         </figure>
       {{ end }}

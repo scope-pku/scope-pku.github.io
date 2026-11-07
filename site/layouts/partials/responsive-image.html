@@ -1,0 +1,31 @@
+{{- /* Renders an <img> as WebP with a width-based srcset when the source lives under
+site/assets/. Falls back to a plain static <img> when it does not, so images can be
+migrated to the pipeline one at a time without breaking URLs.
+
+Params: path (required, site-absolute like "/media/x.png"), alt, class, width, height,
+sizes, widths (slice of pixel widths), loading, fetchpriority, style. */ -}}
+{{- $path := .path -}}
+{{- $alt := .alt | default "" -}}
+{{- $class := .class | default "" -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- $priority := .fetchpriority | default "" -}}
+{{- $sizes := .sizes | default "100vw" -}}
+{{- $style := .style | default "" -}}
+{{- $width := .width -}}
+{{- $height := .height -}}
+{{- $widths := .widths | default (slice 480 768 1200) -}}
+{{- with resources.Get (strings.TrimPrefix "/" $path) -}}
+  {{- $res := . -}}
+  {{- $set := slice -}}
+  {{- range $widths -}}
+    {{- if lt . $res.Width -}}
+      {{- $r := $res.Resize (printf "%dx webp q80" .) -}}
+      {{- $set = $set | append (printf "%s %dw" $r.RelPermalink $r.Width) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $full := $res.Resize (printf "%dx webp q80" $res.Width) -}}
+  {{- $set = $set | append (printf "%s %dw" $full.RelPermalink $full.Width) -}}
+  <img class="{{ $class }}" src="{{ $full.RelPermalink }}" srcset="{{ delimit $set ", " }}" sizes="{{ $sizes }}" width="{{ $width | default $res.Width }}" height="{{ $height | default $res.Height }}" alt="{{ $alt }}"{{ with $style }} style="{{ . | safeCSS }}"{{ end }} loading="{{ $loading }}" decoding="async"{{ with $priority }} fetchpriority="{{ . }}"{{ end }}>
+{{- else -}}
+  <img class="{{ $class }}" src="{{ $path }}" width="{{ $width }}" height="{{ $height }}" alt="{{ $alt }}"{{ with $style }} style="{{ . | safeCSS }}"{{ end }} loading="{{ $loading }}" decoding="async"{{ with $priority }} fetchpriority="{{ . }}"{{ end }}>
+{{- end -}}

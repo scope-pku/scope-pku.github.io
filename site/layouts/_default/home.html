@@ -8,7 +8,17 @@
               {{ $alt := $slide.alt }}
               {{ if and (eq site.Language.Lang "zh") $slide.alt_zh }}{{ $alt = $slide.alt_zh }}{{ end }}
               <div class="home-carousel__slide{{ if eq $index 0 }} is-active{{ end }}" data-carousel-slide role="group" aria-roledescription="slide" aria-label="{{ add $index 1 }} / {{ len hugo.Data.home.hero_slides }}" aria-hidden="{{ if eq $index 0 }}false{{ else }}true{{ end }}">
-                <img class="home-group-photo" src="{{ $slide.image }}" width="{{ $slide.width }}" height="{{ $slide.height }}" style="object-position: {{ default 50 $slide.position_x }}% {{ default 50 $slide.position_y }}%" alt="{{ $alt }}"{{ if eq $index 0 }} fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
+                {{ partial "responsive-image.html" (dict
+                  "path" $slide.image
+                  "alt" $alt
+                  "class" "home-group-photo"
+                  "width" $slide.width
+                  "height" $slide.height
+                  "sizes" "100vw"
+                  "widths" (slice 768 1200 1800)
+                  "style" (printf "object-position: %v%% %v%%" (default 50 $slide.position_x) (default 50 $slide.position_y))
+                  "loading" (cond (eq $index 0) "eager" "lazy")
+                  "fetchpriority" (cond (eq $index 0) "high" "")) }}
               </div>
             {{ end }}
           </div>
@@ -23,7 +33,14 @@
           <h1>{{ .Title }}</h1>
           <div class="prose">{{ .Content }}</div>
         </div>
-        <img class="home-water-figure" src="{{ hugo.Data.home.water_figure }}" width="{{ hugo.Data.home.water_figure_width }}" height="{{ hugo.Data.home.water_figure_height }}" alt="{{ i18n "home_figure_alt" }}">
+        {{ partial "responsive-image.html" (dict
+          "path" hugo.Data.home.water_figure
+          "alt" (i18n "home_figure_alt")
+          "class" "home-water-figure"
+          "width" hugo.Data.home.water_figure_width
+          "height" hugo.Data.home.water_figure_height
+          "sizes" "180px"
+          "widths" (slice 360 540 715)) }}
       </div>
     </header>
     <section class="home-section">
@@ -36,7 +53,13 @@
           {{ $summary := .summary }}
           {{ if and (eq site.Language.Lang "zh") .summary_zh }}{{ $summary = .summary_zh }}{{ end }}
           <article class="highlight-row">
-            <img src="{{ .image }}" width="{{ .width }}" height="{{ .height }}" alt="{{ i18n "research_image_alt" (dict "Title" .title) }}" loading="lazy">
+            {{ partial "responsive-image.html" (dict
+              "path" .image
+              "alt" (i18n "research_image_alt" (dict "Title" .title))
+              "width" .width
+              "height" .height
+              "sizes" "(min-width: 1000px) 240px, 100vw"
+              "widths" (slice 240 480 960)) }}
             <div>
               <h3>{{ if .url }}<a href="{{ .url }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
               <p>{{ $summary }}</p>

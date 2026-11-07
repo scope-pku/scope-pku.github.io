@@ -5,7 +5,12 @@
   {{ $isZh := eq site.Language.Lang "zh" }}
   <article class="profile-page">
     <header class="profile-hero">
-      <img src="{{ $leader.image }}" alt="{{ i18n "portrait_alt" (dict "Name" .Title) }}" width="180" height="209">
+      {{ partial "responsive-image.html" (dict
+        "path" $leader.image
+        "alt" (i18n "portrait_alt" (dict "Name" .Title))
+        "sizes" "180px"
+        "widths" (slice 180 360 540)
+        "loading" "eager") }}
       <div>
         <p class="eyebrow">{{ i18n "group_leader_title" }}</p>
         <h1>{{ .Title }}</h1>
